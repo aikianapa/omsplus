@@ -1,11 +1,11 @@
 //region Плавный скролл
 
-$(function () {
-	
-	geopos();
-	
-    $("[data-wb-ajax='/ajax/mail/']").on("click", function () {
-        $(this).on("wb_mail_done", function (ev, el, ajax, data) {
+$(function() {
+
+    geopos();
+
+    $("[data-wb-ajax='/ajax/mail/']").on("click", function() {
+        $(this).on("wb_mail_done", function(ev, el, ajax, data) {
             data = $.parseJSON(data);
             var type = "success";
             if (data.error && $(el).parents("form").find(".form-fail").length) {
@@ -25,7 +25,7 @@ $(function () {
     });
 
 
-    $(document).on("wb_ajax_done", function (ev, el, ajax, data) {
+    $(document).on("wb_ajax_done", function(ev, el, ajax, data) {
         if (ajax == "/orders/create/_new/") {
             $(".steps").addClass("steps--4");
         }
@@ -35,18 +35,18 @@ $(function () {
         $("#modal-welcome").modal("show");
     }
 
-	$("*:contains('+7 (')").each(function(){
-		if ($(this).find("*:contains('+7 (')").length) return;
-		let tel = $(this).text();
-		tel = tel.replace(/\D+/g,"");
-		$(this).attr('href','tel:+'+tel);
-		$(this).addClass('js-phone_link');
-	});
-	
+    $("*:contains('+7 (')").each(function() {
+        if ($(this).find("*:contains('+7 (')").length) return;
+        let tel = $(this).text();
+        tel = tel.replace(/\D+/g, "");
+        $(this).attr('href', 'tel:+' + tel);
+        $(this).addClass('js-phone_link');
+    });
+
 
 
     $(document).unbind("wb_required_false");
-    $(document).bind("wb_required_false", function (event, that) {
+    $(document).bind("wb_required_false", function(event, that) {
 
         var label = $(that).wbGetInputLabel();
         var delay = 2000;
@@ -56,18 +56,18 @@ $(function () {
         }
         $(that).after('<div class="input-error"><span>' + text + '</span></div>');
         console.log("Trigger: require_false");
-        setTimeout(function () {
+        setTimeout(function() {
             $(that).next(".input-error").remove();
         }, delay);
     });
 
 
-    $(document).on("comments_after_formsave", function (ev, el, ajax, data) {
+    $(document).on("comments_after_formsave", function(ev, el, ajax, data) {
         $("#review-form .form-body").addClass("d-none");
         $("#review-form .form-success").removeClass("d-none");
     });
 
-    $("#modal-order-reg select[name=service]").on("change", function () {
+    $("#modal-order-reg select[name=service]").on("change", function() {
         var price = $(this).find("option:selected").attr("data-price");
         if (price == undefined) {
             price = "";
@@ -77,7 +77,7 @@ $(function () {
         $("#modal-order-reg .data-price").html(price);
     });
 
-    $("#customCheck2").on("change", function () {
+    $("#customCheck2").on("change", function() {
         if ($(this).prop("checked")) {
             $(this).parents("form").find(".button").removeAttr("disabled");
         } else {
@@ -85,7 +85,7 @@ $(function () {
         }
     });
 
-    $(".history-page .sort__dropdown .dropdown-menu .dropdown-item").on("click", function () {
+    $(".history-page .sort__dropdown .dropdown-menu .dropdown-item").on("click", function() {
         var href = explode("/", document.location.pathname);
         var month, year;
         if (href[2] !== undefined) year = href[2];
@@ -110,15 +110,15 @@ $(function () {
     });
 
 
-    $("[data-module=pdfdoc]").on("click", function () {
+    $("[data-module=pdfdoc]").on("click", function() {
         if ($(this).parents(".lk__downloads").hasClass("on")) {
             var data1 = $("#userProfileForm1").serializeArray();
             var data2 = $("#userProfileForm2").serializeArray();
             var data = {};
-            $.each(data1, function (i, item) {
+            $.each(data1, function(i, item) {
                 data[item.name] = item.value;
             });
-            $.each(data2, function (i, item) {
+            $.each(data2, function(i, item) {
                 data[item.name] = item.value;
             });
         } else if ($(this).parents(".history__list").length) {
@@ -145,7 +145,7 @@ $(function () {
         $(".collapse-menu__nav").find("a[href='" + pathname + "']").parent("li").addClass("collapse-menu__item--active");
     }
 
-    $(".menu-left__link").click(function () {
+    $(".menu-left__link").click(function() {
         var _href = $(this).attr("href");
         $("html, body").animate({
             scrollTop: $(_href).offset().top + "px"
@@ -258,14 +258,14 @@ $(".partnerSlider").slick({
 
 //endregion
 
-$(function () {
+$(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
 //region Меню
-$(document).on('click', '.call-back', function () {
+$(document).on('click', '.call-back', function() {
     if ($('body').hasClass('modal-open')) {
-        $(document).one('hidden.bs.modal', '#modal-menu', function () {
+        $(document).one('hidden.bs.modal', '#modal-menu', function() {
             $('#modal-call-back').modal('show');
         });
         $('#modal-menu').modal('hide');
@@ -273,9 +273,9 @@ $(document).on('click', '.call-back', function () {
         $('#modal-call-back').modal('show');
     }
 });
-$(document).on('click', '.link-lk', function () {
+$(document).on('click', '.link-lk', function() {
     if ($('body').hasClass('modal-open')) {
-        $(document).one('hidden.bs.modal', '#modal-menu', function () {
+        $(document).one('hidden.bs.modal', '#modal-menu', function() {
             $('#modal-login').modal('show');
         });
         $('#modal-menu').modal('hide');
@@ -287,7 +287,7 @@ $(document).on('click', '.link-lk', function () {
 
 $('.star-only').raty({
     readOnly: true,
-    score: function () {
+    score: function() {
         return $(this).attr('data-rating');
     }
 });
@@ -314,7 +314,7 @@ if ($('#nav-scroll').length) {
 
 
 //region Фиксированное меню при прокрутке
-$(window).on("scroll", function () {
+$(window).on("scroll", function() {
     // Если высота больше 200px
     // Добавляем классу header класс fixed
     if ($(window).scrollTop() > 0) {
@@ -325,18 +325,18 @@ $(window).on("scroll", function () {
     }
 });
 
-$('#modal-menu').on('show.bs.modal', function (e) {
+$('#modal-menu').on('show.bs.modal', function(e) {
     $('.modal-menu').removeClass('modal-menu--trans');
 });
 
 //endregion
 
 //region наверх
-$(document).ready(function () {
+$(document).ready(function() {
     /**
      * При прокрутке страницы, показываем или срываем кнопку
      */
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         // Если отступ сверху больше 50px то показываем кнопку "Наверх"
         var heightBody = $("body").height() - $(window).height() - 50;
         if ($(this).scrollTop() > 100 && $(this).scrollTop() < heightBody) {
@@ -348,7 +348,7 @@ $(document).ready(function () {
 
 
     /** При нажатии на кнопку мы перемещаемся к началу страницы */
-    $('#button-up').click(function () {
+    $('#button-up').click(function() {
         $('body,html').animate({
             scrollTop: 0
         }, 500);
@@ -368,11 +368,11 @@ $(window).on('load', () => {
 });
 
 //region Выбор города на странице Clinics
-$(document).on('click', '.participant__sort .dropdown-item', function () {
+$(document).on('click', '.participant__sort .dropdown-item', function() {
     $(this).closest('.participant__sort').find('.dropdown-custom__link').text($(this).text());
 
     if ($("#clinicsListview").length) {
-        $.get("/clinics/listview/" + $(this).attr("data-region"), function (data) {
+        $.get("/clinics/listview/" + $(this).attr("data-region"), function(data) {
             $("#clinicsListview").replaceWith(data);
             wb_delegates();
         });
@@ -380,7 +380,7 @@ $(document).on('click', '.participant__sort .dropdown-item', function () {
     }
 
 });
-$(document).on('changed.bs.select', '#service', function (e, clickedIndex, newValue, oldValue) {
+$(document).on('changed.bs.select', '#service', function(e, clickedIndex, newValue, oldValue) {
     //console.log(this.value);
     //console.log(clickedIndex);
     //console.log(this.value, clickedIndex, newValue, oldValue);
@@ -404,9 +404,9 @@ $(document).on('changed.bs.select', '#service', function (e, clickedIndex, newVa
 
 // счетчик
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.select-counter__count').prop('readonly', true);
-    $(document).on('click', '.select-counter__plus', function (e) {
+    $(document).on('click', '.select-counter__plus', function(e) {
         var selectCount = $(this).closest('.select-counter').find('.select-counter__count');
         selectCount.val(parseInt(selectCount.val()) + 1);
         if (selectCount.val() == 100) {
@@ -415,11 +415,11 @@ $(document).ready(function () {
         e.preventDefault;
         return false;
     });
-    $(document).on('click', '.select-counter', function (e) {
+    $(document).on('click', '.select-counter', function(e) {
         e.preventDefault;
         return false;
     });
-    $(document).on('click', '.select-counter__minus', function (e) {
+    $(document).on('click', '.select-counter__minus', function(e) {
         var selectCount = $(this).closest('.select-counter').find('.select-counter__count');
         selectCount.val(parseInt(selectCount.val()) - 1);
         if (selectCount.val() == 0) {
@@ -448,10 +448,10 @@ $(document).ready(function () {
             }
         });
     */
-    
+
     var regionText = $("#popup-select-region .region-list__item--active .region-list__text").text();
     $(".region-selection .region-js").text(regionText);
-    
+
 });
 //endregion
 
@@ -474,22 +474,22 @@ function openPopupRegion(popupSelector) {
     });
 }
 
-$(document).on('click', '#region-open', function () {
+$(document).on('click', '#region-open', function() {
     openPopupRegion($('#popup-confirm-region'));
     $('.modal-menu').modal('hide');
 });
 
-$(document).on('click', '#selectRegion', function () {
+$(document).on('click', '#selectRegion', function() {
     closePopupRegion();
     openPopupRegion($('#popup-select-region'));
     $('.region-search__input').focus();
 });
 
-$(document).on('click', '#confirmRegion, .popup-custom__close', function () {
+$(document).on('click', '#confirmRegion, .popup-custom__close', function() {
     closePopupRegion();
 });
 
-$(document).click(function (event) {
+$(document).click(function(event) {
     //console.log($(event.target));
     //console.log(getScrollbarWidth());
     //console.log($(event.target).closest(".popup-custom").length);
@@ -500,6 +500,32 @@ $(document).click(function (event) {
     event.stopPropagation();
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    new Swiper(".home-page-block-6-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: !0,
+        loopFillGroupWithBlank: !0,
+        navigation: { nextEl: ".home-page-block-6-swiper-button-next", prevEl: ".home-page-block-6-swiper-button-prev" },
+        breakpoints: {
+            576: { slidesPerView: 2, spaceBetween: 30 },
+            960: { slidesPerView: 3, spaceBetween: 30 },
+            1360: { slidesPerView: 4, spaceBetween: 30 }
+        }
+    }), new Swiper(".home-page-block-9-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: !0,
+        loopFillGroupWithBlank: !0,
+        navigation: { nextEl: ".home-page-block-9-swiper-button-next", prevEl: ".home-page-block-9-swiper-button-prev" },
+        breakpoints: {
+            576: { slidesPerView: 2, spaceBetween: 30 },
+            960: { slidesPerView: 3, spaceBetween: 30 },
+            1360: { slidesPerView: 4, spaceBetween: 30 }
+        }
+    })
+});
 
 
 function getScrollbarWidth() {
@@ -525,13 +551,13 @@ function getScrollbarWidth() {
 
 }
 
-$(document).on('click', '.region-list__item', function () {
+$(document).on('click', '.region-list__item', function() {
     var regionText = $(this).find('.region-list__text').text();
     var regionText = $(this).find('.region-list__text').text();
     $('.region-list__item--active').removeClass('region-list__item--active');
     $(this).addClass('region-list__item--active');
     $('.region-js').text(regionText);
-	setCookie("area", $(this).attr("data-area"));
+    setCookie("area", $(this).attr("data-area"));
     closePopupRegion();
     document.location.href = document.location.href;
 });
@@ -539,11 +565,11 @@ $(document).on('click', '.region-list__item', function () {
 
 //region фильтрация списка городов по вводу в инпуте
 
-jQuery.expr[':'].Contains = function (a, i, m) {
+jQuery.expr[':'].Contains = function(a, i, m) {
     return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
 };
 
-$(document).on('change', '.region-search__input', function () {
+$(document).on('change', '.region-search__input', function() {
     var filter = $(this).val();
     console.log(filter);
     if (filter) {
@@ -571,7 +597,7 @@ $(document).on('change', '.region-search__input', function () {
     return false;
 });
 
-$(document).on('keyup', '.region-search__input', function (event) {
+$(document).on('keyup', '.region-search__input', function(event) {
     $(this).change();
     if (event.keyCode == 13) {
         event.preventDefault();
@@ -579,56 +605,58 @@ $(document).on('keyup', '.region-search__input', function (event) {
     }
 });
 
-$(document).on('submit', '.region-search__form', function (event) {
+$(document).on('submit', '.region-search__form', function(event) {
     console.log('submittt');
     event.preventDefault();
 });
 
-$(document).on('click', '#show-all-region', function () {
+$(document).on('click', '#show-all-region', function() {
     $('.region-search__input').val('').change().focus();
 });
 //endregion
-function setCookie(name,value,days) {
+function setCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
+
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
 }
-function eraseCookie(name) {   
-    document.cookie = name+'=; Max-Age=-99999999;';  
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
 }
 
 function geopos() {
-	return; // не работает по https без подписки
-	if (getCookie("area") > "") return;
-	$.get("/ajax/geourl",function(data){
-			data = $.parseJSON(data);
-			$.get(data.link,function(data){
-				data = $.parseJSON(data);
-				if (data.geoplugin_regionCode !== undefined) {
-					let area = data.geoplugin_regionCode;
-					let region = $(".region-list__wrap [data-area='"+area+"'] .region-list__text");
-					if (region.length) {
-						setCookie("area", area);
-						$(".region-list__wrap [data-area]").removeClass("region-list__item--active");
-						$(region).parent("li").addClass("region-list__item--active");
-						$(".region-js").text($(region).text());
-						$("#region-open").trigger("click");
-					}
-				}
-			});
-	});
+    return; // не работает по https без подписки
+    if (getCookie("area") > "") return;
+    $.get("/ajax/geourl", function(data) {
+        data = $.parseJSON(data);
+        $.get(data.link, function(data) {
+            data = $.parseJSON(data);
+            if (data.geoplugin_regionCode !== undefined) {
+                let area = data.geoplugin_regionCode;
+                let region = $(".region-list__wrap [data-area='" + area + "'] .region-list__text");
+                if (region.length) {
+                    setCookie("area", area);
+                    $(".region-list__wrap [data-area]").removeClass("region-list__item--active");
+                    $(region).parent("li").addClass("region-list__item--active");
+                    $(".region-js").text($(region).text());
+                    $("#region-open").trigger("click");
+                }
+            }
+        });
+    });
 }

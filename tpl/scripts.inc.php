@@ -17,3 +17,4 @@
 <script src="src/js/scripts.js"></script>
 <script data-wb-src="engine" data-wb-append="body"></script>
 <script data-wb-src="plugins" data-wb-append="body"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

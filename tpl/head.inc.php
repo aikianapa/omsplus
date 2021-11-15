@@ -5,6 +5,7 @@
     <base href="/tpl/">
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="build/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="build/libs/bootstrap-select/bootstrap-select.min.css">
     <link rel="stylesheet" href="build/libs/slick/slick.css">
