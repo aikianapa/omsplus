@@ -1,0 +1,131 @@
+.steps {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  @media (max-width: 767px) {
+    margin-bottom: 60px;
+  }
+}
+
+.steps__item {
+  text-align: center;
+  position: static;
+}
+
+.steps__count {
+  display: inline-block;
+  color: #292b47;
+}
+
+.steps__text {
+  display: none;
+  color: #6f727b;
+  line-height: 1;
+  margin-top: 5px;
+  @media (max-width: 767px) {
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+  }
+
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 1390px) {
+    display: inline-block;
+  }
+
+}
+
+.steps__line {
+  height: 8px;
+  background: #D4D8E8;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 8px;
+  &:before {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background: $color-red;
+    position: absolute;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+  }
+}
+
+.steps--1 {
+  .steps__line {
+    &:before {
+      width: 25%;
+    }
+  .steps__line.step2 {
+    &:before {
+      width: 50%;
+    }
+  }
+  @media (max-width: 767px) {
+    .steps__item:nth-child(1) {
+      .steps__text {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+
+.steps--2 {
+  .steps__line {
+    &:before {
+      width: 50%;
+    }
+  }
+  @media (max-width: 767px) {
+    .steps__item:nth-child(2) {
+      .steps__text {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.steps--3 {
+  .steps__line {
+    &:before {
+      width: 75%;
+    }
+  }
+  @media (max-width: 767px) {
+    .steps__item:nth-child(3) {
+      .steps__text {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.steps--4 {
+  .steps__line {
+    &:before {
+      width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .steps__item:nth-child(4) {
+      .steps__text {
+        display: inline-block;
+      }
+    }
+  }
+}

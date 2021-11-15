@@ -1,0 +1,64 @@
+.lk-buttons {
+  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    text-align: right;
+    margin-bottom: 0;
+    position: relative;
+    top: -3px;
+  }
+}
+
+.lk-buttons__item {
+
+  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    //margin-bottom: 0;
+  }
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  position: relative;
+  padding-left: 47px;
+  font-weight: 300;
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  white-space: nowrap;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #D4D8E8;
+    background-image: url("../../img/lk/cancel.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+  }
+  &:hover:before {
+    background-color: currentColor;
+  }
+}
+
+.btn-save {
+  &:before {
+    background-color: #4FB988;
+    background-image: url("../../img/lk/save.svg");
+  }
+}
+
+.btn-cancel {
+  &:before {
+    background-color: #D4D8E8;
+    background-image: url("../../img/lk/cancel.svg");
+  }
+}

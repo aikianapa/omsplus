@@ -1,0 +1,122 @@
+.home-stock {
+  padding: 50px 0 60px;
+  background: white;
+}
+
+.home-stock__stock {
+  color: white;
+  font-size: 20px;
+  width: 120px;
+  height: 50px;
+  padding-top: 13px;
+  padding-left: 27px;
+  line-height: 20px;
+  background: url('../../img/svg/stock.svg') no-repeat left top;
+
+}
+
+.home-stock__title {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 35px;
+  margin-top: 20px;
+  @media (min-width: 375px) {}
+  @media (min-width: 768px) {}
+  @media (min-width: 992px) {
+    font-size: 32px;
+  }
+}
+
+.home-stock__link {
+  margin-top: 40px;
+  display: inline-block;
+  padding-right: 40px;
+  background: url("../../img/svg/arrow-left.svg") right no-repeat;
+}
+
+.home-stock__oms-wrap {
+  display: inline-block;
+  padding-right: 70px;
+  @media (max-width: 767px) {
+    margin-top: 50px;
+  }
+  @media (max-width: 374px) {
+    padding-right: 30px;
+  }
+}
+
+.home-stock__oms {
+  text-align: left;
+  width: 370px;
+  height: 350px;
+  background: url("../../img/svg/stock-bg.svg") center no-repeat;
+  background-size: contain;
+  color: white;
+  position: relative;
+  padding-top: 115px;
+  padding-left: 65px;
+  margin: 0 auto;
+  @media (max-width: 991px) {
+    width: 260px;
+    height: 250px;
+    padding-top: 80px;
+    padding-left: 45px;
+    .home-stock__rating {
+      padding-left: 8px;
+    }
+    .rating-block__count {
+      font-size: 12px;
+      top: 1px;
+    }
+    .rating-star img {
+      width: 15px;
+      margin-right: 7px;
+    }
+    .home-stock__oms-text {
+      font-size: 25px;
+    }
+    .home-stock__percent {
+      width: 96px;
+      height: 96px;
+      margin-top: -45px;
+      right: -55px;
+      font-size: 22px;
+    }
+  }
+  @media (max-width: 374px) {
+    padding-left: 38px;
+    .home-stock__percent {
+      right: -40px;
+    }
+  }
+}
+
+.home-stock__rating {
+  padding-left: 15px;
+}
+
+.home-stock__oms-text {
+  font-size: 37px;
+  font-weight: bold;
+  font-family: Montserrat;
+  margin-top: 10px;
+}
+
+.home-stock__percent {
+  width: 140px;
+  height: 140px;
+  background: $color-red;
+  border: 10px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  margin-top: -70px;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Montserrat;
+}

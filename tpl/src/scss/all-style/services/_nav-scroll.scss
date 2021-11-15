@@ -1,0 +1,16 @@
+.nav-scroll {
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
+  position: relative;
+  margin-bottom: 20px;
+  .nav-tabs {
+    position: absolute;
+    white-space: nowrap;
+    display: block !important;
+    .nav-item {
+      display: inline-block;
+      white-space: nowrap !important;
+    }
+  }
+}

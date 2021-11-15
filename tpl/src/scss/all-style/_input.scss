@@ -1,0 +1,92 @@
+.input3 {
+  height: 45px;
+  border-radius: 5px;
+  line-height: 45px;
+  padding: 0 20px;
+  border: 1px solid white;
+  display: block;
+  width: 100%;
+  outline: none;
+}
+
+.input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.input__field {
+  width: 100%;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid white;
+  height: 45px;
+  padding: 0 20px;
+  color: white;
+
+  position: relative;
+  -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+textarea.input__field {
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.input__field:focus {
+  outline: none;
+}
+
+.input__label {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  padding: 0 8px;
+  display: inline-block;
+  color: white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: $color-red;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.input__label-content {
+  display: block;
+  width: 100%;
+}
+
+.graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+}
+
+.icon {
+  color: #ddd;
+  font-size: 150%;
+}
+
+/* Individual styles */
+
+.input__label-content--haruki {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__field:focus + .input__label,
+.input--filled .input__label {
+  top: -10px;
+  font-size: 12px;
+}
+
+

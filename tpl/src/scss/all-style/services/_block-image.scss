@@ -1,0 +1,34 @@
+.block-image {
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.block-image__left {
+  padding-right: 50px;
+}
+
+.block-image__right {
+
+}
+
+.block-image__img {
+  width: 290px;
+  height: 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 0 auto 20px;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+  @media (min-width: 1390px) {
+    width: 350px;
+    height: 300px;
+  }
+
+}
+
+.block-image__title {
+  margin-bottom: 30px;
+}

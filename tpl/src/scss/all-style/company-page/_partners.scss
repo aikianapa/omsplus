@@ -1,0 +1,36 @@
+.partners {
+  padding: 80px 0 60px;
+}
+
+.partners__title {
+  margin-bottom: 30px;
+}
+
+.partnerSlider.slider-custom {
+  width: 100%;
+  .slick-list {
+    margin: 0 40px;
+    padding: 20px 0;
+    height: auto !important;
+  }
+  .slick-prev, .slick-next {
+    margin: 0;
+    top: 50%;
+    margin-top: -24px;
+    z-index: 1;
+  }
+  .slick-prev {
+    left: -8px;
+  }
+  .slick-next {
+    left: auto;
+    right: -8px;
+  }
+}
+
+.partnerSlider__item {
+  height: 60px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}

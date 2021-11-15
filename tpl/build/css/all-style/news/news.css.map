@@ -1,0 +1,1 @@
+{"version":3,"file":"news.css","sources":["all-style/news/news.scss"],"sourcesContent":[".news {\r\n\r\n}\r\n\r\n.news__title {\r\n  margin-bottom: 45px;\r\n}"],"names":[],"mappings":"AAIA,AAAA,YAAY,CAAC;EACX,aAAa,EAAE,IAAI,GACpB"}

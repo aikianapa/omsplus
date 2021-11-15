@@ -1,0 +1,127 @@
+.collapse-menu {
+  position: absolute;
+  width: 100%;
+  background: white;
+  z-index: 2;
+  display: none;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.header--menu-open {
+  z-index: 2;
+  position: relative;
+  .collapse-menu {
+    display: block;
+  }
+}
+
+.body-open-menu {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+}
+
+.collapse-menu__nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+  display: block;
+  width: 100%;
+}
+
+
+.collapse-menu__item {
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.collapse-menu__item--active .collapse-menu__link{
+  position: relative;
+  padding-left: 15px;
+  &:before {
+    content: '';
+    width: 10px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url("/build/img/svg/menu-active.svg") no-repeat;
+  }
+}
+
+.collapse-menu__link {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  color: #292B47;
+}
+
+.collapse-menu__hr {
+  border-color: #DEDEDE;
+  border-width: 1.5px;
+  margin: 0;
+}
+
+.collapse-menu__contacts {
+  text-align: center;
+  padding: 55px 0 40px;
+  a {
+    font-weight: 300;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  svg {
+    fill: currentColor;
+    margin-right: 5px;
+  }
+  @media (max-width: 374px) {
+    a {
+      display: block;
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.collapse-menu__container {
+  position: relative;
+  padding-bottom: 40px;
+  display: flex;
+  @media (min-width: 768px) {
+    min-height: 650px;
+  }
+
+}
+.collapse-menu__bg {
+  width: 1507px;
+  height: 634px;
+  background-image: url("/build/img/svg/menu-bg.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+  position: absolute;
+  bottom: 16px;
+  left: 293px;
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}

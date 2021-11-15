@@ -1,0 +1,29 @@
+.call-back {
+  cursor: pointer;
+}
+.call-back__text {
+  font-weight: 300;
+  display: inline-block;
+  margin-right: 10px;
+  @media (max-width: 575px) {
+    display: none;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.call-back__link {
+  font-weight: 300;
+  color: $color-red;
+  text-decoration: none !important;
+  img {
+    margin-right: 10px;
+    position: relative;
+    top: -2px;
+  }
+  &:active {
+    span {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}

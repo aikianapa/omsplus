@@ -1,0 +1,50 @@
+.review-form {
+}
+
+.review-form__btn-wrap {
+  position: relative;
+  margin-bottom: 40px;
+  @media (min-width: 375px) {}
+  @media (min-width: 768px) {}
+  @media (min-width: 992px) {}
+  @media (min-width: 1390px) {
+    margin-bottom: 0;
+    .button {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+.review-form__title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #a9a9a9;
+  margin-bottom: 20px;
+}
+
+.review-form__collapse {
+}
+
+.review-form__form {
+  border-bottom: 1px solid #D4D8E8;
+  padding-bottom: 40px;
+  margin-bottom: 45px;
+}
+
+.review-form__rating {
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+
+}
+
+.review-form__rating-title {
+  position: relative;
+  display: inline-block;
+  top: 7px;
+  left: 15px;
+  font-weight: 300;
+  color: #6F727B;
+}

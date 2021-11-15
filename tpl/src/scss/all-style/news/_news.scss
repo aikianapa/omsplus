@@ -1,0 +1,52 @@
+.news {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.news__title {
+  margin-bottom: 45px;
+}
+
+.news__sort {
+  margin-bottom: 40px;
+}
+
+.date {
+  font-weight: 300;
+  color: #a9a9a9;
+  padding-left: 30px;
+  position: relative;
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: block;
+    left: 0;
+    top: 1px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url("../../img/news/date.svg");
+  }
+}
+
+.more {
+  text-align: center;
+}
+.more__link {
+  color: #3a7cc8;
+  font-weight: 300;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    bottom: 0;
+    border: 6px solid transparent; /* Прозрачные границы */
+    border-top: 6px solid currentColor; /* Добавляем треугольник */
+  }
+}

@@ -1,0 +1,32 @@
+.rating-block {
+  position: relative;
+  padding-left: 65px;
+}
+
+.rating-block__img {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #D4D8E8;
+}
+
+.rating-block__stars {
+
+}
+
+.rating-block__count {
+  color: #D4D8E8;
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+
+.rating-block__text {
+  color: #D4D8E8;
+  font-weight: 300;
+  margin-top: 3px;
+}
+

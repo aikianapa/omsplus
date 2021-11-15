@@ -1,0 +1,7 @@
+<svg id="Google_Play_Dark" data-name="Google Play Dark" xmlns="http://www.w3.org/2000/svg" width="166.406" height="50" viewBox="0 0 166.406 50">
+  <rect id="button" width="166.406" height="50" rx="10" fill="none"/>
+  <text id="Download_on" data-name="Download on" transform="translate(53.85 16.25)" fill="#fff" font-size="11" font-family="Roboto-Regular, Roboto" letter-spacing="0.08em"><tspan x="0" y="0">Download on</tspan></text>
+  <text id="play" transform="translate(117.188 38.875)" fill="#fff" font-size="18" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">play</tspan></text>
+  <path id="logo" d="M1.331,31.25h0A2.363,2.363,0,0,1,0,29.112V2.141A2.365,2.365,0,0,1,1.337,0l15.6,15.622L1.332,31.249Zm3.5-.813h0l13.45-13.468,3.6,3.61L4.835,30.436ZM23.594,19.593h0l-3.965-3.971,3.963-3.968,3.6,2.081a2.382,2.382,0,0,1,.026,3.762l-3.623,2.1Zm-5.31-5.317h0L4.84.814l17.047,9.854-3.6,3.606Z" transform="translate(12.5 9.375)" fill="#fff"/>
+  <text id="Google" transform="translate(53.906 38.875)" fill="#fff" font-size="18" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">Google</tspan></text>
+</svg>

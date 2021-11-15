@@ -1,0 +1,94 @@
+.button {
+  border: 1px solid currentColor;
+  border-radius: 23px;
+  height: 45px;
+  text-align: center;
+  outline: none !important;
+  display: inline-block;
+  align-items: center;
+  line-height: 44px;
+  padding: 0 23px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none !important;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+  svg {
+    fill: currentColor;
+    margin-right: 5px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.button--outline {
+  color: $color-red;
+  background: white;
+  border: 1px solid $color-red;
+  &:hover {
+    background: $color-red;
+    color: white;
+  }
+}
+
+.button--red {
+  color: white !important;
+  background: $color-red;
+  font-weight: 300;
+  border: 1px solid $color-red;
+  &:hover {
+    border: 1px solid #F24C45;
+    background: #F24C45;
+  }
+}
+
+.button--red-outline {
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  font-weight: 300;
+  &:hover {
+    border: 1px solid white;
+    color: white;
+    background: #F24C45;
+  }
+}
+
+.button--white {
+  color: $color-red;
+  font-weight: 300;
+  background: white;
+  border: 1px solid white;
+  &:hover {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+  }
+}
+
+.button-radius {
+  border-radius: 5px;
+}
+
+.button--190 {
+  min-width: 190px;
+}
+
+@media (max-width: 374px) {
+  .button--order  {
+    line-height: 16px;
+    padding: 0 35px;
+    padding-top: 6px;
+  }
+}
+
+.button-mobile-block {
+  @media (max-width: 767px) {
+    display: block;
+    width: 100%;
+  }
+  
+}

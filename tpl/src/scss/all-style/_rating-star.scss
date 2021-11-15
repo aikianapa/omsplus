@@ -1,0 +1,10 @@
+.rating-star {
+  font-size: 0;
+  width: auto !important;
+  display: inline-block;
+  img {
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
+}

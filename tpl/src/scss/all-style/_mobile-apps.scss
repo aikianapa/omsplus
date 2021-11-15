@@ -1,0 +1,38 @@
+.mobile-apps {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+  }
+  @media (min-width: 992px) {
+    justify-content: center;
+  }
+}
+
+.mobile-apps__link {
+  display: inline-block;
+  width: 137px;
+  overflow: hidden;
+  &:not(:last-child) {
+    margin-right: 30px;
+    @media (min-width: 768px) {
+      margin-right: 40px;
+    }
+  }
+  svg {
+    fill: #ffffff;
+    position: relative;
+    left: -12px;
+  }
+  &:hover {
+    svg {
+      fill: $color-link-hover;
+    }
+  }
+}
+
+.mobile-apps {
+
+}

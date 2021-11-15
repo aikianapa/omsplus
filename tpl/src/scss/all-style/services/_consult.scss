@@ -1,0 +1,58 @@
+.consult {
+  background: $color-red;
+  padding: 40px 0;
+  color: white;
+  margin-top: 40px;
+  @media (min-width: 992px) {
+    padding: 25px 0;
+  }
+
+}
+
+.consult__quest {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: auto;
+    right: 30px;
+    top: -19px;
+    width: 54px;
+    height: 87px;
+    background-image: url("../../img/services/quest.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @media (min-width: 992px) {
+    max-width: 180px;
+    padding-right: 20px;
+    border-right: 2px solid white;
+    &:before {
+      left: 66px;
+      top: -19px;
+    }
+  }
+
+}
+
+.consult__quote {
+  font-weight: 300;
+  margin: 30px 0 20px;
+  @media (min-width: 992px) {
+    padding: 15px;
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &:before, &:after {
+    font-weight: 300;
+  }
+  &:before {
+    top: 7px;
+  }
+}

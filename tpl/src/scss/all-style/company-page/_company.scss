@@ -1,0 +1,41 @@
+.company {
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.company__title {
+  margin-bottom: 30px;
+}
+
+.company__content {
+  font-size: 16px;
+  font-weight: 300;
+  color: #6F727B;
+  p {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.company__bg {
+  background-image: url("../../img/company/city.svg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 100%;
+  margin: 0 auto 30px;
+  width: 290px;
+  height: 220px;
+  @media (min-width: 768px) {
+    width: 450px;
+    height: 330px;
+  }
+  @media (min-width: 1390px) {
+    width: 450px;
+    height: 330px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: -60px;
+  }
+}

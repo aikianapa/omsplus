@@ -1,0 +1,92 @@
+.history-page {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.history-page__title {
+  margin-bottom: 50px;
+}
+
+.history--page {
+  margin-bottom: 45px;
+  .history__item {
+    margin-bottom: 30px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 82px;
+      width: 82px;
+      right: 0;
+      top: 0;
+      background-image: url("../../img/lk/history-1.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      @media (max-width: 767px) {
+        height: 60px;
+        width: 60px;
+        top: -5px;
+      }
+    }
+  }
+  .history__date {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #6f727b;
+  }
+  .history__time {
+    margin-bottom: 18px;
+    position: relative;
+    padding-left: 25px;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      background-image: url("../../img/lk/time.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  .history__count {
+    margin-bottom: 20px;
+    &:before {
+      display: none;
+    }
+    .fw500 {
+      font-size: 20px;
+    }
+  }
+
+
+  .history__item--hospitalization {
+    &:before {
+      background-image: url("../../img/lk/history-2.svg");
+    }
+  }
+
+  .history__item--escort {
+    &:before {
+      background-image: url("../../img/lk/history-4.svg");
+    }
+  }
+
+  .history__item--control {
+    &:before {
+      background-image: url("../../img/lk/history-1.svg");
+    }
+  }
+
+  .history__item--adjustment {
+    &:before {
+      background-image: url("../../img/lk/history-3.svg");
+    }
+  }
+
+}
+

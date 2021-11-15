@@ -1,0 +1,44 @@
+.link-white {
+  color: white;
+  text-decoration: none !important;
+  cursor: pointer;
+  &:hover {
+    color: $color-link-hover;
+  }
+  &:active {
+    color: white;
+    border-bottom: 1px solid currentColor;
+  }
+
+}
+
+.link-red {
+  color: $color-red;
+  text-decoration: none !important;
+  cursor: pointer;
+  &:hover {
+    color: #6F727B;
+  }
+  &:active {
+    color: $color-red;
+    border-bottom: 1px solid currentColor;
+  }
+
+}
+
+.link-default {
+  color: #6F727B;
+  text-decoration: none !important;
+  cursor: pointer;
+  span  {
+    border-bottom: 1px solid transparent;
+  }
+  &:hover {
+    color: $color-red;
+  }
+  &:active {
+    span  {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}

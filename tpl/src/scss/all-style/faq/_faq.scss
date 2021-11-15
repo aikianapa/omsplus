@@ -1,0 +1,75 @@
+.faq {
+  margin-top: 50px;
+}
+
+.faq__title {
+  margin-bottom: 40px;
+}
+
+.faq__bg {
+  width: 220px;
+  height: 220px;
+  background-image: url("../../img/questions/plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: 25px;
+  margin-left: auto;
+}
+
+.faq__accordion {
+  margin-bottom: 60px;
+  .card {
+    border: none;
+  }
+  .btn-link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #292B47;
+    position: relative;
+    padding: 0;
+    padding-left: 40px;
+    text-decoration: none !important;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.2;
+    &:hover {
+      color: $color-red;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 25px;
+      height: 25px;
+      background-image: url("../../img/questions/close.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -ms-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all .2s linear;
+    }
+    &.collapsed:before {
+      -moz-transform: rotate(45deg); /* Для Firefox */
+      -ms-transform: rotate(45deg); /* Для IE */
+      -webkit-transform: rotate(45deg); /* Для Safari, Chrome, iOS */
+      -o-transform: rotate(45deg); /* Для Opera */
+      transform: rotate(45deg);
+    }
+  }
+  .card-header {
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+  }
+  .card-body {
+    padding: 0 40px 20px;
+    color: #6f727b;
+    font-weight: 300;
+  }
+}

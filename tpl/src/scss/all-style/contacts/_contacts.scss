@@ -1,0 +1,119 @@
+.contacts {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.contacts__title {
+  margin-bottom: 40px;
+}
+
+.contacts__subtitle {
+  font-weight: 500;
+  color: #6f727b;
+  margin-bottom: 20px;
+}
+
+.contacts__links {
+  margin-bottom: 25px;
+  @media (min-width: 1390px) {
+    margin-bottom: 60px;
+  }
+}
+
+.contacts__link {
+  margin-bottom: 10px;
+  font-weight: 300;
+  color: #6F727B;
+  position: relative;
+  padding-left: 30px;
+  display: inline-block;
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+  &:before {
+    content: '';
+    opacity: 0.7;
+    width: 16px;
+    height: 16px;
+    display: block;
+    left: 0;
+    top: 1px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+  }
+}
+
+.contacts__link--phone {
+  &:before {
+    top: 3px;
+    background-image: url("../../img/contacts/call.svg");
+  }
+}
+
+.contacts__link--mail {
+  &:before {
+    top: 3px;
+    background-image: url("../../img/contacts/email.svg");
+  }
+}
+
+.contacts__left {
+  @media (min-width: 992px) {
+    padding-top: 20px;
+  }
+
+  @media (min-width: 1390px) {
+    padding-top: 50px;
+  }
+}
+
+.contacts__bg {
+  display: none;
+  width: 100%;
+  height: 410px;
+  background-image: url("../../img/contacts/bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 50px;
+  @media (min-width: 992px) {
+    display: block;
+    width: 400px;
+    min-height: 300px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  @media (min-width: 1390px) {
+    width: 550px;
+    height: 410px;
+    background-position: top center;
+  }
+
+  &:before {
+    content: '';
+    width: 45px;
+    height: 45px;
+    display: block;
+    background-image: url("../../img/contacts/plus.svg");
+    right: 15px;
+    bottom: 0;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+  }
+}

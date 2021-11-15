@@ -1,0 +1,9 @@
+.title-30 {
+  font-size: 24px;
+  line-height: 35px;
+  font-family: Montserrat;
+  font-weight: 600;
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,42 @@
+.service-sidebar {
+  border: 1px solid #d4d8e8;
+  border-radius: 2px;
+  padding: 30px;
+  position: sticky;
+  top: 20px;
+  margin-bottom: 50px;
+  @media (min-width: 992px) {
+    padding: 15px;
+    margin-bottom: 0;
+  }
+  @media (min-width: 1390px) {
+    padding: 30px;
+  }
+
+}
+
+.service-sidebar__link {
+  display: block;
+  font-weight: 300;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  @media (min-width: 375px) {
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 992px) {
+    font-size: 14px;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width: 1390px) {
+    font-size: 16px;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+}
