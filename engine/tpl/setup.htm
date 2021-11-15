@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="/engine/tpl/">
+    <title>WebBasic CMS Installation</title>
+    <!-- vendor css -->
+    <link href="./lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="./lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="./lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="./lib/highlightjs/github.css" rel="stylesheet">
+    <link href="./lib/jquery.steps/jquery.steps.css" rel="stylesheet">
+    <!-- Katniss CSS -->
+    <link rel="stylesheet" href="./css/katniss.min.css">
+    <link href="./lib/SpinKit/spinkit.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+
+<body>
+    <div class="kt-loading">
+        <div class="sk-cube-grid">
+                        <div class="sk-cube sk-cube1"></div>
+                        <div class="sk-cube sk-cube2"></div>
+                        <div class="sk-cube sk-cube3"></div>
+                        <div class="sk-cube sk-cube4"></div>
+                        <div class="sk-cube sk-cube5"></div>
+                        <div class="sk-cube sk-cube6"></div>
+                        <div class="sk-cube sk-cube7"></div>
+                        <div class="sk-cube sk-cube8"></div>
+                        <div class="sk-cube sk-cube9"></div>
+        </div>
+    </div>
+    <div class="kt-pagebody">
+        <div class="row" id="setup">
+            <div class="col-12 col-lg-10 ml-lg-auto mr-lg-auto col-xl-8" data-wb-where='"{{_SESS[lang]}}"!=""' data-wb-hide="wb">
+                <div class="card col-12 pd-20 pd-sm-40" data-wb-role="include" src="form" data-wb-name="admin_setup">
+                </div>
+            </div>
+                <div class="col-12 col-lg-10 ml-lg-auto mr-lg-auto col-xl-8" data-wb-where='"{{_SESS[lang]}}"=""' data-wb-hide="wb">
+                <div class="card rounded-0">
+                        <div class="card-header card-header-default">
+                          <b>Choose language</b>
+                        </div><!-- card-header -->
+                        <div class="card-body bg-gray-200">
+                        <div class="row">
+                                <div class="col-12 pt-4 pb-4 text-center wblogo">
+					<h1 class="text-center">
+						<i>
+						&nbsp;<nobr><span class="text-primary">Basic Web CMS</span></nobr>
+						<br>
+						<nobr><span class="text-danger">WebBasic CMS&nbsp;</span></nobr>
+						</i>
+					</h1>
+                                <!--img src="/engine/tpl/img/logo/logo.svg" style="height:2.9rem"-->
+                                </div>
+                                <div data-wb-role="foreach" data-wb-call="wbListLocales" data-wb-hide="*">
+                                        <div class="col-6 text-center">
+                                                <a href="/engine/?lang={{id}}">
+                                                        <img src="{{_flag}}" class="img-fluid">
+                                                </a>
+                                                <br>
+                                                <a href="/engine/?lang={{id}}" class="btn btn-primary mt-3">
+                                                        {{_locale}}
+                                                </a>
+                                        </div>
+                                </div>
+                        </div>
+                        </div><!-- card-body -->
+                </div>
+                </div>
+
+            <!-- card -->
+        </div>
+        <div class="row" id="error">
+                <div class="col-12 col-lg-10 ml-lg-auto mr-lg-auto col-xl-8">
+                <div class="card rounded-0">
+                        <div class="card-header card-header-default">
+                          Installation error
+                        </div><!-- card-header -->
+                        <div class="card-body bg-gray-200">
+                        <div class="row">
+                                <div class="col-12 pt-3 pb-5 text-center">
+                                <img src="/engine/tpl/img/logo/logo.svg" style="height:2.9rem">
+                                </div>
+                                <div class="col-12 text-center">{{_LANG[setup_error]}}</div>
+                        </div>
+                        </div><!-- card-body -->
+                </div>
+                </div>
+        </div>
+
+    </div>
+    <!-- kt-pagebody -->
+    <script data-wb-src="jquery"></script>
+    <script data-wb-src="bootstrap4js"></script>
+    <script src="./lib/popper.js/popper.js"></script>
+    <script src="./lib/jquery.steps/jquery.steps.js"></script>
+    <script src="./js/katniss.js"></script>
+    <script data-wb-src="engine"></script>
+    <script data-wb-src="plugins"></script>
+    <script>
+        $(document).ready(function () {
+            $(".kt-loading").css("opacity","0").css("z-index","-1");
+            var template = $(".wizard-tpl").html();
+            $('#wizard').steps({
+                headerTag: 'h3'
+                , bodyTag: 'section'
+                , autoFocus: true
+                , labels: {
+                          next: $("meta[name=btn_next]").attr("value")
+                        , previous: $("meta[name=btn_prev]").attr("value")
+                        , finish: $("meta[name=btn_install]").attr("value")
+                }
+                , titleTemplate: template
+                , onStepChanging: function (event, currentIndex, newIndex) {
+                    return wb_check_required("#setup  section:visible");
+                }
+                , onFinishing: function (event, currentIndex) {
+                    $("form#setup").submit();
+                }
+            });
+        });
+    </script>
+
+</body>
+<script type="text/locale">
+[eng]
+setup_error	= "Web Basic has already been installed.<br>if you need to reinstall the system, delete all files and folders in the working directory except <b>/engine</b > and try again."
+[rus]
+setup_error	= "Установка WebBasic уже была выполнена ранее.<br>Если вам необходимо переустановить систему, удалите все файлы и папки в рабочей директории, кроме <b>/engine</b> и попробуйте снова."
+</script>
+</html>

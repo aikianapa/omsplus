@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="/engine/tpl/">
+    <span role="tree" data-wb-item="_config" data-wb-branch="config" data-wb-children="0" data-wb-hide="*">
+        <meta role="variable" var="title" value="{{name}}" data-wb-hide="*">
+    </span>
+    <title>{{_LANG[cpanel]}}</title>
+    <!-- vendor css -->
+
+        <link data-wb-role="include" src="shortcode" data-wb-name="fonts->font-awesome">
+        <link data-wb-role="include" src="shortcode" data-wb-name="fonts->open-sans">
+        <link data-wb-role="include" src="shortcode" data-wb-name="fonts->ionicons">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <link href="./lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="./lib/rickshaw/rickshaw.min.css" rel="stylesheet">
+    <link href="./lib/SpinKit/spinkit.css" rel="stylesheet">
+    <!-- Katniss CSS -->
+    <link rel="stylesheet" href="./css/katniss.css">
+    <link rel="stylesheet" href="./css/custom.css">
+
+    <meta http-equiv="refresh" content="0; url=/login/" data-wb-disallow="admin,moder" />
+
+<body data-wb-allow="admin,moder" class="cursor-wait" data-wb-alive="true">
+    <div class="kt-loading">
+        <div class="sk-cube-grid">
+                        <div class="sk-cube sk-cube1"></div>
+                        <div class="sk-cube sk-cube2"></div>
+                        <div class="sk-cube sk-cube3"></div>
+                        <div class="sk-cube sk-cube4"></div>
+                        <div class="sk-cube sk-cube5"></div>
+                        <div class="sk-cube sk-cube6"></div>
+                        <div class="sk-cube sk-cube7"></div>
+                        <div class="sk-cube sk-cube8"></div>
+                        <div class="sk-cube sk-cube9"></div>
+        </div>
+    </div>
+
+    <!-- ##### SIDEBAR LOGO ##### -->
+    <div class="kt-sideleft-header">
+        <div class="kt-logo"><a href="/admin" class="wblogo">
+		<i>Web</i>Basic
+        </a></div>
+        <div id="ktDate" class="kt-date-today"></div>
+    </div>
+    <!-- kt-sideleft-header -->
+    <!-- ##### SIDEBAR MENU ##### -->
+    <div class="kt-sideleft" data-wb-role="formdata" data-wb-form="users" data-wb-form="users" data-wb-item="{{_SESS[user_role]}}" data-wb-hide="wb">
+        <label class="kt-sidebar-label">{{_LANG[navigation]}}</label>
+        <li class="nav-item" data-wb-prepend=".nav.kt-sideleft-menu">
+            <a href="/admin" class="nav-link active"> <i class="fa fa-home"></i> <span>{{_LANG[dashboard]}}</span> </a>
+        </li>
+
+        <ul class="nav kt-sideleft-menu" data-wb-role="tree" data-wb-call="wbGetUserUi" data-wb-branch="side_menu" data-wb-parent="false" data-wb-limit="1" data-wb-hide="wb">
+            <li class="nav-item" data-wb-role="where" data-wb-where='children>"" AND "{{data[visible]}}" = "on"' data-wb-hide="wb">
+                <meta data-wb-role="variable" var="name1" data-wb-if='"{{data[lang][{{_SESS[lang]}}][name]}}" > ""' value="{{data[lang][{{_SESS[lang]}}][name]}}" else="{{name}}">
+                <a href class="nav-link with-sub"> <i class="{{data[icon]}}"></i> <span>{{_VAR[name1]}}</span> </a>
+                <ul class="nav-sub" data-wb-role="foreach" data-wb-from="children" data-wb-where='id>""' data-wb-tpl="false" data-wb-hide="wb">
+                        <meta data-wb-role="variable" var="name2" data-wb-if='"{{data[lang][{{_SESS[lang]}}][name]}}" > ""' value="{{data[lang][{{_SESS[lang]}}][name]}}" else="{{name}}" data-wb-hide="false">
+                        <li class="nav-item" data-wb-where='"{{data[visible]}}" = "on"' data-wb-hide='where hide'>
+                                <a href data-wb-ajax="{{data[ajax]}}"data-wb-html=".content-box" class="nav-link">{{_VAR[name2]}}</a>
+                        </li>
+                </ul>
+            </li>
+
+            <li class="nav-item" data-wb-role="where" data-wb-where='children="" AND "{{data[visible]}}" = "on"' data-wb-hide="wb">
+                <meta data-wb-role="variable" var="name3" data-wb-if='"{{data[lang][{{_SESS[lang]}}][name]}}" > ""' value="{{data[lang][{{_SESS[lang]}}][name]}}" else="{{name}}">
+                <a href data-wb-ajax="{{data[ajax]}}" data-wb-html=".content-box" class="nav-link"> <i class="{{data[icon]}}"></i> <span>{{_VAR[name3]}}</span> </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- kt-sideleft -->
+    <!-- ##### HEAD PANEL ##### -->
+    <div class="kt-headpanel">
+        <div class="kt-headpanel-left"> <a id="naviconMenu" href="" class="kt-navicon d-none d-lg-flex"><i class="icon ion-navicon-round"></i></a> <a id="naviconMenuMobile" href="" class="kt-navicon d-lg-none"><i class="icon ion-navicon-round"></i></a> </div>
+        <!-- kt-headpanel-left -->
+        <div class="kt-headpanel-right">
+            <div data-wb-allow="admin">
+                <a href="" tabindex class="nav-link pd-x-7 pos-relative" data-wb-ajax="/form/edit/admin/settings" data-wb-html=".content-box"> <i class="icon ion-ios-gear tx-24"></i> </a>
+            </div>
+            <div class="dropdown dropdown-profile">
+                <a href="" class="nav-link nav-link-profile" data-toggle="dropdown"> <img alt="" src="{{_SESS[user_avatar]}}" role="thumbnail" data-wb-from="avatar" size="100px;100px;src" class="wd-32 rounded-circle"> <span class="logged-name"><span class="hidden-xs-down">{{_SESS[user][name]}}</span> <i class="fa fa-angle-down mg-l-3"></i></span>
+                </a>
+                <div class="dropdown-menu wd-200">
+                    <ul class="list-unstyled user-profile-nav">
+                        <!--li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
+              <li><a href=""><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
+              <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
+              <li><a href=""><i class="icon ion-ios-star-outline"></i> Favorites</a></li>
+              <li><a href=""><i class="icon ion-ios-folder-outline"></i> Collections</a></li-->
+                        <li><a href data-wb-ajax="/form/profile/admin" data-wb-html=".content-box"><i class="icon fa fa-user"></i> {{_LANG[profile]}}</a></li>
+                        <li data-wb-where='"{{_SESS.user.isgroup}}"="on"'><a href data-wb-ajax="/form/group/users/" data-wb-html=".content-box"><i class="icon fa fa-users"></i> {{_LANG[group]}}</a></li>
+                        <li><a href="/logout"><i class="icon ion-power"></i> {{_LANG[exit]}}</a></li>
+                    </ul>
+                </div>
+                <!-- dropdown-menu -->
+            </div>
+            <!-- dropdown -->
+        </div>
+        <!-- kt-headpanel-right -->
+    </div>
+    <!-- kt-headpanel -->
+    <div class="kt-breadcrumb">
+        <nav class="breadcrumb"> <a class="breadcrumb-item" href="/admin">{{_SESS[user][nickname]}}</a>
+            <!--span class="breadcrumb-item active">Dashboard</span-->
+        </nav>
+    </div>
+    <!-- kt-breadcrumb -->
+    <!-- ##### MAIN PANEL ##### -->
+    <div class="kt-mainpanel">
+        <div class="kt-pagetitle">
+            <h5>{{_LANG[dashboard]}}</h5> </div>
+        <!-- kt-pagetitle -->
+        <div data-wb-role="include" src="module" data-wb-name="chat" data-wb-hide="*"></div>
+        <div class="kt-pagebody content-box">
+            <div class="row row-sm" id="adminDashboard">
+                <div data-wb-role="include" src="template" data-wb-name="dashboard.php" data-wb-hide="*"></div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- kt-pagebody -->
+        <div class="kt-footer"> &nbsp; </div>
+        <!-- kt-footer -->
+    </div>
+    <!-- kt-mainpanel -->
+    <div class="ajax-target"></div>
+    <script data-wb-src="jquery"></script>
+    <script src="./lib/popper.js/popper.js"></script>
+    <script src="./lib/bootstrap/bootstrap.js"></script>
+    <script src="./lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="./lib/moment/moment.js"></script>
+    <script src="./js/katniss.js"></script>
+    <script src="./js/ResizeSensor.js"></script>
+    <script data-wb-src="datepicker"></script>
+    <script data-wb-src="ckeditor"></script>
+    <script data-wb-src="source"></script>
+    <script data-wb-src="uploader"></script>
+    <script data-wb-src="plugins"></script>
+    <script data-wb-src="engine"></script>
+</body>
+
+</html>
+<script type="text/locale">
+[eng]
+        exit            = "Exit"
+        profile         = "Profile"
+        navigation      = "Navigation"
+        dashboard       = "Dashboard"
+        cpanel          = "Control Panel"
+        group			= "Group"
+[rus]
+        exit            = "Выйти"
+        profile         = "Профиль"
+        navigation      = "Навигация"
+        dashboard       = "Инструменты"
+        cpanel          = "Панель управления"
+        group			= "Группа"
+</script>
