@@ -430,10 +430,6 @@ input:-webkit-autofill {
 
 /*region headeerFixed*/
 
-.modal-menu-wrap {
-    z-index: 1001;
-}
-
 .modal-open .modal-menu-wrap {
     z-index: auto;
 }
@@ -1039,13 +1035,11 @@ body {
     background-position: center;
     display: flex;
     flex-direction: column;
-    margin-top: 86px;
 }
 
 @media (min-width: 768px) {
     .home-page-block-1 {
         min-height: calc(100vh - 108px);
-        margin-top: 108px;
     }
 }
 .home-page-block-1 .container {

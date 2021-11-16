@@ -1,4 +1,16 @@
 @charset "UTF-8";
+
+.modal-menu-wrap {
+    z-index: 1001;
+    height: 86px;
+}
+
+@media (min-width: 768px) {
+    .modal-menu-wrap {
+        height: 108px;
+    }
+}
+
 .header {
     height: 86px;
     display: flex;
