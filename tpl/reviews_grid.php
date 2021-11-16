@@ -25,7 +25,7 @@
         </div>
         <div class="review-form">
             <div class="review-form__btn-wrap">
-                <button class="button button--red" type="button" data-toggle="collapse" data-target="#review-form"
+                <button class="button button--red" id="reviewBtn" type="button" data-toggle="collapse" data-target="#review-form"
                         aria-expanded="false" aria-controls="review-form">
                     Оставить отзыв
                 </button>

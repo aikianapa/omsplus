@@ -298,8 +298,8 @@
 
         <div class="container">
             <div class="d-flex align-items-center mt-4">
-                <button class="home-page-button">Оставить отзыв</button>
-                <a href="#" class="home-page-link">Все отзывы (8)</a>
+                <a href="/reviews#reviewBtn" class="home-page-button">Оставить отзыв</a>
+                <a href="/reviews" class="home-page-link">Все отзывы (8)</a>
             </div>
         </div>
     </div>

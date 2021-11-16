@@ -67,7 +67,7 @@
     <div class="container d-flex align-items-center justify-content-between">
       <div>© 2021, Медицинский поверенный</div>
       <a href="#" class="d-flex">
-        <img src="/tpl/build/img/svg/idees_logo_protected_white.svg" alt="">
+        <a href="https://idees.ru" target="_blank"><img src="/tpl/build/img/svg/idees_logo_protected_white.svg" alt=""></a>
       </a>
     </div>
   </div>

@@ -13,12 +13,12 @@
                             <div class="col col-md-auto ml-auto mr-auto text-center position-static">
                                 <div class="region-selection">
                                     <div id="region-open" class="region-selection__btn">
-                                        <div class="region-selection__text region-js">Новосибирская область</div>
+                                        <div class="region-selection__text region-js">Москва</div>
                                     </div>
                                     <div id="popup-confirm-region" class="popup-custom popup-region">
                                         <div class="popup-region__title">
                                             Ваш регион:
-                                            <span class="region-js">Новосибирская область</span>?
+                                            <span class="region-js">Москва</span>?
                                         </div>
                                         <hr>
                                         <div class="row gutters-xs-10">
