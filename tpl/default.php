@@ -100,10 +100,7 @@
                                 {{data.text}}
                             </div>
 
-                            <button class="home-page-block-4-button">
-                                {{data.prop.tips__btn.name}}
-                            </button>
-                            <a href="{{data.prop.tips__btn.value}}" data-wb-where='"{{data.prop.tips__btn.value}}" > ""' data-wb-hide="wb" class="tips__btn button button--outline">
+                            <a class="home-page-block-4-button" href="{{data.prop.tips__btn.value}}" data-wb-where='"{{data.prop.tips__btn.value}}" > ""' data-wb-hide="wb" >
                                 {{data.prop.tips__btn.name}}
                             </a>
                         </div>
@@ -189,7 +186,7 @@
             <div class="row" data-wb-role="foreach" data-wb-form="clinics" data-wb-hide="wb">
                 <div class="col-12 col-md-4 home-page-block-7-item" data-wb-where='"{{active}}"="on" AND "{{tohome}}"="on"' data-wb-hide="wb">
                     <div class="d-flex align-items-start">
-                        <img class="home-page-block-7-item-img" src="./assets/Rectangle%2092.svg" alt="">
+                        <img class="home-page-block-7-item-img" src="/assets/chevron.f519b821.svg" alt="">
                         <div class="home-page-block-7-item-description">
                             <a href="{{link}}" class="link-default" target="_blank">{{name}}</a>
                         </div>
