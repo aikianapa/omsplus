@@ -40,7 +40,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 3;
 }
 
 .header__menu-open {
@@ -958,10 +957,15 @@ textarea.input__field {
     background: white;
     z-index: 2;
     display: none;
-    padding-top: 72px;
+    margin-top: 86px;
     overflow: hidden;
 }
 
+@media (min-width: 768px) {
+    .collapse-menu {
+        margin-top: 108px;
+    }
+}
 .header--menu-open {
     z-index: 2;
     position: relative;

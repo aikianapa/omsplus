@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="text-right lk-wrap">
+        <div class="lk-wrap">
           <span class="link-lk" data-toggle="modal" data-target="#modal-login">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                   <path id="ic_person_24px"
