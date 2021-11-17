@@ -450,10 +450,7 @@ input:-webkit-autofill {
 
 .region-selection {
     text-align: center;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+    margin-left: 56px;
 }
 
 .region-selection__btn {
@@ -867,7 +864,7 @@ input:-webkit-autofill {
 
 @media (min-width: 768px) {
     .header__menu-open {
-        margin-left: 40px;
+        margin-left: 56px;
     }
 }
 

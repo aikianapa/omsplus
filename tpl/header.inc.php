@@ -2,11 +2,11 @@
   <div class="modal modal-menu" id="modal-menu" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="header header--main">
       <div class="container">
-        <a href="/" class="header__logo">
-          <img src="/tpl/build/img/svg/logo-footer.svg" alt="">
-        </a>
-        <div class="m-auto text-center position-static">
-          <div class="region-selection">
+        <div class="d-flex align-items-center">
+          <a href="/" class="header__logo">
+            <img src="/tpl/build/img/svg/logo-footer.svg" alt="">
+          </a>
+          <div class="position-static region-selection">
             <div id="region-open" class="region-selection__btn">
               <svg class="d-md-none" xmlns="http://www.w3.org/2000/svg" width="12.24"
                    height="14" viewBox="0 0 12.24 14">
@@ -73,26 +73,30 @@
             </div>
           </div>
         </div>
-        <div class="lk-wrap">
-          <span class="link-lk" data-toggle="modal" data-target="#modal-login">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                  <path id="ic_person_24px"
-                        d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
-                        transform="translate(-4 -4)"></path>
-              </svg>
-              <span>Личный кабинет</span>
-          </span>
-          <span class="header__menu-open" data-toggle="modal" data-target="#modal-menu">
+        <div class="d-flex align-items-center">
+          <div class="header__phone d-none d-lg-block">
+            <a href="tel:+7 (499) 348-86-29">+7 (499) 348-86-29</a>
+          </div>
+
+          <div class="link-lk" data-toggle="modal" data-target="#modal-login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path id="ic_person_24px"
+                    d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
+                    transform="translate(-4 -4)"></path>
+            </svg>
+            <span>Личный кабинет</span>
+          </div>
+          <div class="header__menu-open" data-toggle="modal" data-target="#modal-menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="25.001" height="10"
                  viewBox="0 0 25.001 10">
               <g id="Group_3250" data-name="Group 3250" transform="translate(-1281.999 -42)">
-                  <rect id="Rectangle_67" data-name="Rectangle 67" width="25.001" height="2"
-                        rx="1" transform="translate(1281.999 42)"></rect>
-                  <rect id="Rectangle_69" data-name="Rectangle 69" width="25.001" height="2"
-                        rx="1" transform="translate(1281.999 50)"></rect>
+                <rect id="Rectangle_67" data-name="Rectangle 67" width="25.001" height="2"
+                      rx="1" transform="translate(1281.999 42)"></rect>
+                <rect id="Rectangle_69" data-name="Rectangle 69" width="25.001" height="2"
+                      rx="1" transform="translate(1281.999 50)"></rect>
               </g>
             </svg>
-          </span>
+          </div>
         </div>
       </div>
       <div class="collapse-menu" id="collapseMenu">

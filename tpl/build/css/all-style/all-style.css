@@ -35,6 +35,16 @@
     }
 }
 
+.header__phone a {
+    font-weight: 600;
+    font-size: 14px;
+    color: #4A4A4A;
+}
+
+.header__phone a:hover {
+    color: #4A4A4A;
+}
+
 .header .container {
     flex: 1;
     display: flex;
@@ -161,8 +171,9 @@ body {
 
 .link-lk {
     position: relative;
-    padding-right: 16px;
+    padding-right: 20px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .link-lk svg {
@@ -185,7 +196,7 @@ body {
     border-color: currentColor;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .link-lk span {
         display: inline-block;
     }
@@ -193,11 +204,10 @@ body {
     .link-lk:after {
         content: '';
         position: absolute;
-        right: 0;
         display: block;
         width: 8px;
         height: 8px;
-        right: 0;
+        right: 6px;
         top: 5px;
         border-left: 2px solid currentColor;
         border-bottom: 2px solid currentColor;
@@ -3347,6 +3357,10 @@ input:checked + .switch__slider:before {
         z-index: 1;
         box-shadow: 0 3px 18px rgba(0, 0, 0, 0.16);
         border-radius: 5px;
+    }
+
+    .link-lk {
+        margin-left: 56px;
     }
 }
 
