@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-header" id="heading-faq-{{_idx}}">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-faq-{{_idx}}" aria-expanded="true" aria-controls="collapse-faq-{{_idx}}">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-faq-{{_idx}}" aria-expanded="true" aria-controls="collapse-faq-{{_idx}}">
                                     {{name}}
                                 </button>
                             </h5>

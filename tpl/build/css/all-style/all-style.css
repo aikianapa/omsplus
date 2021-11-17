@@ -1177,7 +1177,7 @@ textarea.input__field {
 
 @media (min-width: 576px) {
     .modal-dialog {
-        max-width: 440px;
+        max-width: 480px;
     }
 }
 
