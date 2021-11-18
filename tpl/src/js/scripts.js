@@ -524,7 +524,18 @@ document.addEventListener("DOMContentLoaded", function() {
             960: { slidesPerView: 3, spaceBetween: 30 },
             1360: { slidesPerView: 4, spaceBetween: 30 }
         }
-    })
+    });
+
+    const infoBlock = document.querySelector('.home-page-block-1-info');
+
+    if (!localStorage.getItem('cookie')) {
+        infoBlock.classList.remove('d-none');
+    }
+
+    window.hideCookieBlock = () => {
+        localStorage.setItem('cookie', '-');
+        infoBlock.classList.add('d-none');
+    }
 });
 
 

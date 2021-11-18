@@ -39,10 +39,10 @@
                 </div>
             </div>
 
-            <div class="home-page-block-1-info">
+            <div class="home-page-block-1-info d-none">
                 Мы используем cookies. Оставаясь на сайте, вы соглашаетесь с политикой конфиденциальности.
 
-                <button class="home-page-block-1-info-button">
+                <button class="home-page-block-1-info-button" onclick="hideCookieBlock()">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.49998 9.49999L4.99999 5M4.99999 5L0.499994 0.500006M4.99999 5L9.49998 0.500006M4.99999 5L0.499994 9.49999" stroke="currentColor"
                             stroke-linecap="round" />
