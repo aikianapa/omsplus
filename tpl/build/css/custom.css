@@ -1379,8 +1379,16 @@ body {
     }
 }
 
-.home-page-block-8-item-img {
+.home-page-block-8-item {
+    display: block;
     margin-top: 32px;
+}
+
+.home-page-block-8-item:hover {
+    text-decoration: none;
+}
+
+.home-page-block-8-item-img {
     display: block;
     max-width: 100%
 }

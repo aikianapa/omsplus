@@ -90,8 +90,8 @@
     <div class="home-page-block-4">
         <div class="container">
             <div class="row" data-wb-role="tree" data-wb-from="content" data-wb-branch="tips" data-wb-parent="false" data-wb-hide="wb">
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="d-flex flex-column flex-md-row">
+                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                    <div class="d-flex flex-column flex-lg-row">
                         <div class="flex-fill">
                             <div class="home-page-title">
                                 {{data.prop.tips__title.value}}
@@ -104,7 +104,7 @@
                                 {{data.prop.tips__btn.name}}
                             </a>
                         </div>
-                        <img class="mt-3 mt-md-0 img-fluid w-50" src="/uploads/pages/{{_item}}/{{data.image[0][img]}}" alt="">
+                        <img class="mt-3 mt-lg-0 img-fluid w-50" src="/uploads/pages/{{_item}}/{{data.image[0][img]}}" alt="">
                     </div>
                 </div>
             </div>
@@ -213,8 +213,10 @@
                 </a>
             </div>
 
-            <div class="home-page-block-8-item" data-wb-role="foreach" data-wb-tpl="false" data-wb-table="news" data-wb-where='active="on" AND home="on"'
-                data-wb-sort="date:d" data-wb-limit="1">
+            <a class="home-page-block-8-item" data-wb-role="foreach" data-wb-tpl="false" data-wb-table="news" data-wb-where='active="on" AND home="on"'
+                data-wb-sort="date:d" data-wb-limit="1"
+                 href="/news/{{id}}/"
+            >
 
                 <img class="home-page-block-8-item-img img-fluid d-none d-md-block" data-wb-role="thumbnail" data-wb-size="1400;295;src"
                     src="0" alt="">
@@ -226,16 +228,16 @@
                     </div>
 
                     <div class="home-page-block-8-item-content-date">
-                        <a class="float-right home-page-link" href="/news/{{id}}/">подробнее</a>
+                        <span class="float-right home-page-link">подробнее</span>
                         <span class="d-none d-md-inline">Опубликовано: </span>{{date("M d. Y",strtotime({{date}}))}}
                     </div>
                 </div>
-            </div>
+            </a>
 
             <div class="row" data-wb-role="foreach" data-wb-tpl="false" data-wb-table="news" data-wb-where='active="on" AND home="on"'
                 data-wb-sort="date:d" data-wb-limit="3">
                 <div class="col-12 col-md-6" data-wb-where='"{{_idx}}"!=="0"'>
-                    <div class="home-page-block-8-item">
+                    <a class="home-page-block-8-item" href="/news/{{id}}/">
                         <img class="home-page-block-8-item-img img-fluid" data-wb-role="thumbnail" data-wb-size="650;295;src" src="0" alt="">
 
                         <div class="home-page-block-8-item-content">
@@ -244,11 +246,11 @@
                             </div>
 
                             <div class="home-page-block-8-item-content-date">
-                                <a class="float-right home-page-link" href="/news/{{id}}/">подробнее</a>
+                                <span class="float-right home-page-link">подробнее</span>
                                 <span class="d-none d-md-inline">Опубликовано: </span>{{date("M d. Y",strtotime({{date}}))}}
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
