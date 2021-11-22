@@ -34,7 +34,7 @@
               <th class="text-right">Действие</th>
             </tr>
           </thead>
-          <tbody data-wb-role="foreach" data-wb-from="result" data-wb-add="true" data-wb-size="{{_ENV[page_size]}}" data-wb-sort="id">
+          <tbody data-wb-role="foreach" data-wb-from="result" data-wb-add="true" data-wb-size="{{_ENV[page_size]}}">
             <tr>
               <td class="nowrap">{{email}}</td>
               <td class="nowrap">{{phone}}</td>

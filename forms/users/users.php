@@ -1,6 +1,27 @@
 <?php
 wbRouterAdd("/lk",'/controller:form/form:users/mode:show/tpl:lk.php');
 
+
+function users_list()
+{
+    $out=wbGetForm($_ENV["route"]["form"], $_ENV["route"]["mode"]);
+    $flag="";
+    $where='fullname > "" ';
+    $Item=array();
+    if (isset($_ENV["route"]["item"])) {
+        $where='role="'.$_ENV["route"]["item"].'"';
+		if ($_ENV["route"]["item"] == 'user') $where .= ' AND fullname > "" ';
+    }
+    $Item["result"]=wbItemList($_ENV["route"]["form"], $where);
+    $Item["result"]=wbArraySort($Item["result"], "email");
+    $Item["_table"]=$_ENV["route"]["form"];
+    $out->wbSetData($Item);
+    //if ($flag=="category") {$out->replaceWith($out->find("#{$_ENV["route"]["form"]}List .list")->html());}
+    return $out;
+}
+
+
+
 function ajax_change_password() {
 	if ($_SESSION["user_role"]!=="user") return;
 	$user=wbItemRead("users",$_SESSION["user_id"]);
