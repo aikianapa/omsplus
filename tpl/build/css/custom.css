@@ -1,6 +1,7 @@
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
 input[type="number"]:hover,
 input[type="number"]:focus {
     -moz-appearance: textfield;
@@ -755,6 +756,7 @@ input:-webkit-autofill {
     display: inline-block;
 }
 
+
 /* Кастомный скроллбар */
 
 .custom-scroll::-webkit-scrollbar-track {
@@ -1040,6 +1042,7 @@ body {
         min-height: calc(100vh - 108px);
     }
 }
+
 .home-page-block-1 .container {
     height: 100%;
     padding-top: 60px;
@@ -1607,116 +1610,6 @@ body {
     outline: none
 }
 
-
-/*.home-page .input:focus ~ label, .home-page .input:valid ~ label {*/
-
-
-/*  top: -20px*/
-
-
-/*}*/
-
-
-/*.home-page .input:focus {*/
-
-
-/*  outline: none*/
-
-
-/*}*/
-
-
-/*.home-page .group {*/
-
-
-/*  position: relative;*/
-
-
-/*  margin-bottom: 20px*/
-
-
-/*}*/
-
-
-/*@media (min-width: 768px) {*/
-
-
-/*  .home-page .group {*/
-
-
-/*    margin-bottom: 24px*/
-
-
-/*  }*/
-
-
-/*}*/
-
-
-/*.home-page .input {*/
-
-
-/*  padding: 0;*/
-
-
-/*  height: 32px;*/
-
-
-/*  border: none;*/
-
-
-/*  border-bottom: 1px solid #C6C6C6;*/
-
-
-/*  border-radius: 0;*/
-
-
-/*  background: none;*/
-
-
-/*  max-width: 100%*/
-
-
-/*}*/
-
-
-/*.home-page .input.textarea {*/
-
-
-/*  height: 100px*/
-
-
-/*}*/
-
-
-/*.home-page .label {*/
-
-
-/*  transition: .2s ease all;*/
-
-
-/*  font-size: 14px;*/
-
-
-/*  top: 6px;*/
-
-
-/*  left: 0;*/
-
-
-/*  margin: 0;*/
-
-
-/*  padding: 0;*/
-
-
-/*  position: absolute;*/
-
-
-/*  pointer-events: none;*/
-
-
-/*  opacity: .8*/
-
-
-/*}*/
+.price__info p {
+    color: white;
+}
