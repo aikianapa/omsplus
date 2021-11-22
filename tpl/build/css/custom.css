@@ -1613,3 +1613,7 @@ body {
 .price__info p {
     color: white;
 }
+
+.consult *:not(.button) {
+    color: white;
+}
