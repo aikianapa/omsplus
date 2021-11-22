@@ -420,5 +420,9 @@
     </div>
 </div>
 
+<div id="button-up">
+  <img src="/tpl/build/img/svg/up.svg" alt="">
+</div>
+
 <meta data-wb-role="include" src="template" data-wb-name="scripts.inc.php">
 <!--meta data-wb-role="include" src="snippet" data-wb-name="cookies"-->
