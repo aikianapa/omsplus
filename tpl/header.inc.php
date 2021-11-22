@@ -75,7 +75,7 @@
         </div>
         <div class="d-flex align-items-center">
           <div class="header__phone d-none d-lg-block">
-            <a href="tel:+7 (499) 348-86-29">+7 (499) 348-86-29</a>
+            <a href="tel:{{text2tel({{_SETT[phone]}})}}">{{_SETT.phone}}</a>
           </div>
 
           <div class="link-lk" data-toggle="modal" data-target="#modal-login">
