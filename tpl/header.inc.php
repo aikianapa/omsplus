@@ -89,7 +89,7 @@
                id="logged-user-menu-button"
                data-wb-where='"{{_sess.user_role}}"="user"'
                data-wb-hide="wb">
-            <span>Личный кабинет!!!</span>
+            <span>Личный кабинет</span>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
               <path id="ic_person_24px"
@@ -97,7 +97,7 @@
                     transform="translate(-4 -4)" />
             </svg>
             <div class="logged-user-menu" style="display:none;">
-              <a href="/">
+              <a href="/lk">
                 Профиль
               </a>
               <a href="/">
