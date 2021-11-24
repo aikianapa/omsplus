@@ -57,9 +57,9 @@
     </div>
 </div>
 
-         <div class="home-stock" data-wb-role="formdata" data-wb-form="pages" data-wb-item="action" data-wb-hide="wb">
+        <!--div class="home-stock" data-wb-role="formdata" data-wb-form="pages" data-wb-item="action" data-wb-hide="wb">
             {{content.action.data.code}}
-    </div>
+        </div-->
     
 <div class="partners" data-wb-role="tree" data-wb-from="content" data-wb-branch="partners" data-wb-children="false" data-wb-hide="wb">
     <div class="container">
