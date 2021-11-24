@@ -78,49 +78,51 @@
             <a href="tel:{{text2tel({{_SETT[phone]}})}}">{{_SETT.phone}}</a>
           </div>
 
-                            <div class="col-auto order-lg-last text-right lk-wrap">
-                                <span class="link-lk" data-toggle="modal" data-target="#modal-login"
-                                    data-wb-where='"{{_sess.user_role}}"!="user" AND "{{_mode}}" != "login" AND "{{_mode}}" != "signup"'
-                                    data-wb-hide="wb">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                        <path id="ic_person_24px"
-                                            d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
-                                            transform="translate(-4 -4)" />
-                                    </svg>
-                                    <span>Личный кабинет</span>
-                                </span>
-                                <a class="link-lk" href="/lk"
-                                    data-wb-where='"{{_sess.user_role}}"="user" AND "{{_route.tpl}}" != "lk.php"'
-                                    data-wb-hide="wb">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                        <path id="ic_person_24px"
-                                            d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
-                                            transform="translate(-4 -4)" />
-                                    </svg>
-                                    <span>Личный кабинет</span>
-                                </a>
-                                <a class="link-lk" href="/logout"
-                                    data-wb-where='"{{_sess.user_role}}"="user" AND "{{_route.tpl}}" = "lk.php"'
-                                    data-wb-hide="wb">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                        <path id="ic_person_24px"
-                                            d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
-                                            transform="translate(-4 -4)" />
-                                    </svg>
-                                    <span>Выход из кабинета</span>
-                                </a>
-                                <span class="header__menu-open" data-toggle="modal" data-target="#modal-menu">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.001" height="10"
-                                        viewBox="0 0 25.001 10">
-                                        <g id="Group_3250" data-name="Group 3250" transform="translate(-1281.999 -42)">
-                                            <rect id="Rectangle_67" data-name="Rectangle 67" width="25.001" height="2"
-                                                rx="1" transform="translate(1281.999 42)" />
-                                            <rect id="Rectangle_69" data-name="Rectangle 69" width="25.001" height="2"
-                                                rx="1" transform="translate(1281.999 50)" />
-                                        </g>
-                                    </svg>
-                                    </a>
-                            </div>
+          <div class="link-lk"
+               id="modal-login-button"
+               data-wb-where='"{{_sess.user_role}}"!="user"'
+               data-wb-hide="wb">
+            <span>Личный кабинет</span>
+          </div>
+
+          <div class="link-lk position-relative"
+               id="logged-user-menu-button"
+               data-wb-where='"{{_sess.user_role}}"="user"'
+               data-wb-hide="wb">
+            <span>Личный кабинет!!!</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path id="ic_person_24px"
+                    d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"
+                    transform="translate(-4 -4)" />
+            </svg>
+            <div class="logged-user-menu" style="display:none;">
+              <a href="/">
+                Профиль
+              </a>
+              <a href="/">
+                История заказов
+              </a>
+              <a href="/">
+                Настройки профиля
+              </a>
+              <a href="/logout">
+                Выйти
+              </a>
+            </div>
+          </div>
+
+          <div class="header__menu-open" data-toggle="modal" data-target="#modal-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25.001" height="10"
+                 viewBox="0 0 25.001 10">
+              <g id="Group_3250" data-name="Group 3250" transform="translate(-1281.999 -42)">
+                <rect id="Rectangle_67" data-name="Rectangle 67" width="25.001" height="2"
+                      rx="1" transform="translate(1281.999 42)"></rect>
+                <rect id="Rectangle_69" data-name="Rectangle 69" width="25.001" height="2"
+                      rx="1" transform="translate(1281.999 50)"></rect>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="collapse-menu" id="collapseMenu">

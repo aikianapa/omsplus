@@ -273,7 +273,8 @@ $(document).on('click', '.call-back', function() {
         $('#modal-call-back').modal('show');
     }
 });
-$(document).on('click', '.link-lk', function() {
+
+$(document).on('click', '#modal-login-button', function() {
     if ($('body').hasClass('modal-open')) {
         $(document).one('hidden.bs.modal', '#modal-menu', function() {
             $('#modal-login').modal('show');
@@ -281,6 +282,23 @@ $(document).on('click', '.link-lk', function() {
         $('#modal-menu').modal('hide');
     } else {
         $('#modal-login').modal('show');
+    }
+});
+const loggedUserMenuBlock = $('.logged-user-menu');
+$(document).on('click', () => {
+    loggedUserMenuBlock.hide();
+})
+loggedUserMenuBlock.on('click', '#logged-user-menu-button', function (event) {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+});
+$(document).on('click', '#logged-user-menu-button', function (event) {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    if (loggedUserMenuBlock.is(":visible")) {
+        loggedUserMenuBlock.hide();
+    } else {
+        loggedUserMenuBlock.show();
     }
 });
 //endregion

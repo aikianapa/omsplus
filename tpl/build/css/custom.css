@@ -1095,11 +1095,11 @@ body {
     border-radius: 20px;
     padding: 60px 30px 40px;
     max-width: 350px;
-    width: 100%
+    width: 100%;
+    margin-bottom: 48px;
 }
 
 .home-page-block-1-info {
-    margin-top: 48px;
     margin-bottom: 48px;
     align-self: flex-start;
     padding: 20px 32px;
