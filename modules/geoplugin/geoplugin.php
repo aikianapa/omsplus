@@ -35,8 +35,9 @@ function geoplugin__getip() {
 
 function geoplugin__info($ip = null) {
 	if (!$ip) $ip = geoplugin__getip();
-	$AGENT = file($_ENV["path_app"]."/uploads/agents.txt");
-	$AGENT = $AGENT[rand(0,count($AGENT)-1)];
+	//$AGENT = file($_ENV["path_app"]."/uploads/agents.txt");
+	//$AGENT = $AGENT[rand(0,count($AGENT)-1)];
+  $AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
 	$link = "http://www.geoplugin.net/json.gp?ip=".$ip;
 	$context = stream_context_create(
 	    ['http' => [
