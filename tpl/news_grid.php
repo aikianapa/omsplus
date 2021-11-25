@@ -47,10 +47,10 @@
                 </div>
             </div>
             -->
-            <ul class="nav nav-tabs nav-tabs--custom">
+            <!--ul class="nav nav-tabs nav-tabs--custom">
                 <li class="nav-item"><a class="nav-link {{_var.act_news}}" href="/news/">Новости</a></li>
                 <li class="nav-item"><a class="nav-link {{_var.act_blog}}" href="/blog/">Статьи</a></li>
-            </ul>
+            </ul-->
 
         </div>
         

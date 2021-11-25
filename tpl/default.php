@@ -208,7 +208,7 @@
                 <div class="home-page-title flex-fill">
                     Актуальные новости и статьи
                 </div>
-                <a href="/news" class="home-page-link">
+                <a href="/blog" class="home-page-link">
                     Все новости и статьи
                 </a>
             </div>
