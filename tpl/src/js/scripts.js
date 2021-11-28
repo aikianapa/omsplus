@@ -1,5 +1,3 @@
-//region Плавный скролл
-
 $(function() {
 
     geopos();
@@ -288,11 +286,11 @@ const loggedUserMenuBlock = $('.logged-user-menu');
 $(document).on('click', () => {
     loggedUserMenuBlock.hide();
 })
-loggedUserMenuBlock.on('click', '#logged-user-menu-button', function (event) {
+loggedUserMenuBlock.on('click', '#logged-user-menu-button', function(event) {
     event.stopPropagation();
     event.stopImmediatePropagation();
 });
-$(document).on('click', '#logged-user-menu-button', function (event) {
+$(document).on('click', '#logged-user-menu-button', function(event) {
     event.stopPropagation();
     event.stopImmediatePropagation();
     if (loggedUserMenuBlock.is(":visible")) {
@@ -518,8 +516,24 @@ $(document).click(function(event) {
     event.stopPropagation();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileBottomBar = document.querySelector('.mobile-bottom-bar');
 
-document.addEventListener("DOMContentLoaded", function() {
+    const checkAndChangeDisplayValue = () => {
+        if (window.innerWidth < 992) {
+            if (window.scrollY > 0) {
+                mobileBottomBar.style.display = 'flex';
+            } else {
+                mobileBottomBar.style.display = 'none';
+            }
+        }
+    }
+    document.addEventListener('scroll', checkAndChangeDisplayValue);
+    checkAndChangeDisplayValue();
+    mobileBottomBar.querySelector('.mobile-bottom-bar-top').addEventListener('click', () => {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    })
+
     new Swiper(".home-page-block-6-swiper", {
         slidesPerView: 1,
         spaceBetween: 10,

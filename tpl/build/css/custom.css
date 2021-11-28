@@ -1637,3 +1637,86 @@ body {
 .consult *:not(.button) {
     color: white;
 }
+
+.mobile-bottom-bar {
+    position: fixed;
+    padding: 24px;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-top {
+    width: 54px;
+    height: 54px;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid #FF0000;
+    border-radius: 100%;
+    background: transparent;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-top:focus {
+    outline: none;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    height: 52px;
+    border-radius: 40px;
+    padding: 0 30px;
+    font-weight: 500;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons button span {
+    display: none;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons button:focus {
+    outline: none;
+}
+
+@media (min-width: 500px) {
+    .mobile-bottom-bar .mobile-bottom-bar-buttons button span {
+        display: block;
+    }
+    .mobile-bottom-bar .mobile-bottom-bar-buttons button svg {
+        margin-right: 12px;
+    }
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons {
+    display: flex;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-write {
+    background: #F9F9F9;
+    margin-right: 20px;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-write span {
+    color: #4A4A4A;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-call {
+    background: #FF0000;
+}
+
+.mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-call span {
+    color: #FFFFFF;
+}
+
+@media (min-width: 992px) {
+    .mobile-bottom-bar {
+        display: none;
+    }
+}
