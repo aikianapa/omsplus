@@ -2,6 +2,13 @@
 setlocale(LC_ALL, 'ru_RU', 'ru_RU.UTF-8', 'ru', 'russian');
 if (!isset($_SESSION['lang'])) $_SESSION['lang'] = 'rus';
 
+
+    function wbDigitsOnly($str)
+    {
+        return preg_replace('/\D/', '', $str);
+    }
+
+
 function wbBeforeEngine() {
       $var = &$_ENV["settings"];
       $var["local_phone"] = $var["phone"];

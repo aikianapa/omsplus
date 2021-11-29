@@ -1665,7 +1665,7 @@ body {
     outline: none;
 }
 
-.mobile-bottom-bar .mobile-bottom-bar-buttons button {
+.mobile-bottom-bar .mobile-bottom-bar-buttons a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1675,21 +1675,31 @@ body {
     border-radius: 40px;
     padding: 0 30px;
     font-weight: 500;
+    text-decoration: none;
 }
 
-.mobile-bottom-bar .mobile-bottom-bar-buttons button span {
+.mobile-bottom-bar .mobile-bottom-bar-buttons a span {
     display: none;
 }
 
-.mobile-bottom-bar .mobile-bottom-bar-buttons button:focus {
+.mobile-bottom-bar .mobile-bottom-bar-buttons a:focus {
     outline: none;
 }
 
-@media (min-width: 500px) {
-    .mobile-bottom-bar .mobile-bottom-bar-buttons button span {
+@media (min-width: 375px) {
+    .mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-call span {
         display: block;
     }
-    .mobile-bottom-bar .mobile-bottom-bar-buttons button svg {
+    .mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-call svg {
+        margin-right: 12px;
+    }
+}
+
+@media (min-width: 500px) {
+    .mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-write span {
+        display: block;
+    }
+    .mobile-bottom-bar .mobile-bottom-bar-buttons .mobile-bottom-bar-write svg {
         margin-right: 12px;
     }
 }
