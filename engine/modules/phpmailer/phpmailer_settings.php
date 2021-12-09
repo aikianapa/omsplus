@@ -14,6 +14,11 @@
     </div>
 
     <div class="row form-group">
+        <label class="col-sm-4 control-label" title="DKIM path">DKIM path</label>
+        <div class="col-sm-8"><input type="text" name="phmail[dkim]" class="form-control" placeholder="DKIM path"></div>
+    </div>
+
+    <div class="row form-group">
         <label class="col-sm-4 control-label" title="Set mailer to use SMTP">Use SMTP</label>
         <div class="col-sm-8">
 		<label class="switch switch-sm switch-success">

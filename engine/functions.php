@@ -219,6 +219,10 @@ function wbMail(
                 $sett["secure"] = false;
             }
 
+            if (isset($sett['dkim']) && $sett['dkim'] > '') {
+                $mail->DKIM_selector = $sett['func'];
+                $mail->DKIM_private = $sett['dkim'];
+            }
             $mail->isSMTP();
             $mail->Host = $sett["host"];
             $sett["smtp"] == "on" ? $mail->SMTPAuth = true : $mail->SMTPAuth = false;
