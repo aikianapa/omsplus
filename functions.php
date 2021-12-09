@@ -52,6 +52,46 @@ function wbAfterInit() {
 
 }
 
+function calcPrice($price, $fmt = true) {
+		isset($_COOKIE['promocode']) ? $promo = $_COOKIE['promocode'] : $promo = '';
+		if ($promo > '' && intval(str_replace(' ','',$price)) > 0) {
+			$tree = wbTreeRead('promo');
+			$tree = $tree["tree"];
+			$tree = wbTreeFindBranch($tree, $promo);
+			if (isset($tree[0]['id']) && $tree[0]['id'] == $promo) {
+				$expired = date('Y-m-d',strtotime($tree[0]['data']['expired']));
+                $now = date('Y-m-d');
+				if ($expired > $now) {
+                    $discount = 1 - intval($tree[0]['data']['discount']) / 100;
+                    $price = intval(str_replace(' ','',$price) * $discount);
+					$fmt ? $price = number_format($price, 0, ',', ' ') : null;
+				}
+			}
+		}
+        return $price;
+}
+
+
+function ajax_checkPromocode() {
+	header('Content-Type: text/json; charset=utf-8');
+    $res = false;
+    setcookie('promocode', null, 0, '/');
+    isset($_POST['promo']) ? $promo = $_POST['promo'] : $promo = '';
+	if (strlen($promo)>'') {
+		$tree = wbTreeRead('promo');
+		$tree = $tree["tree"];
+		$tree = wbTreeFindBranch($tree, $promo);
+		if (isset($tree[0]['id']) && $tree[0]['id'] == $promo) {
+            $res = true;
+            $expired = strtotime($tree[0]['data']['expired']);
+			setcookie('promocode', $promo, $expired, '/');
+
+		}
+	}
+    echo json_encode(['result'=>$res]);
+    die;
+}
+
 function ajax_checkExpiredItems() {
     header('Content-Type: text/json; charset=utf-8');
 	ini_set("max_execution_time", 9999999);

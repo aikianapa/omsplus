@@ -403,12 +403,16 @@
                         <span class="switch__slider round"></span>
                     </label>
                 </div>
-                <div class="input-group input form-white__input">
-                    <input class="input__field" type="text" id="promocode" data-label="Есть промокод" not-required />
+                <div class="input-group input form-white__input"  data-wb-where="'{{_cook.promocode}}'==''">
+                    <input class="form-control" type="text" name="promocode" id="promocodeEnter" not-required />
                     <label class="input__label" for="promocode">
                         <span class="input__label-content">Есть промокод</span>
                     </label>
                 </div>
+                <div class="input-group input form-white__input"  data-wb-where="'{{_cook.promocode}}'>''">
+                    <p>Промокод применён</p>
+                </div>
+
                 <div class="text-center mt-2 pt-1">
                     <p class="text-semibold text-red data-price"></p>
                 </div>

@@ -8,7 +8,6 @@
 <body>
 
     <meta data-wb-role="include" src="template" data-wb-name="header.inc.php">
-
     <div class="price">
         <div class="bread-crumbs">
             <div class="container">
@@ -21,9 +20,20 @@
             </div>
         </div>
         <div class="container price__container">
-            <div class="price__title title-30">
+            <div class="price__title row">
+                <div class="title-30 col-sm-8">
                 Цены
+                </div>
+            <div class="col-sm-4 text-right">
+                <div class="input-group" data-wb-where="'{{_cook.promocode}}'==''">
+                    <input class="form-control" type="text" name="promocode" id="promocodeEnter" placeholder="Есть промокод">
+                    <div class="input-group-append cursor-pointer">
+                        <span class="input-group-text"><i class="fa fa-percent"></i></span>
+                    </div>
+                </div>
+            </div>                
             </div>
+
         </div>
         <div class="price__subtitle">
             <div class="container">
@@ -53,8 +63,9 @@
                             </div>
                         </div>
                         <div class="col-sm-3 text-right">
-                            <div class="price__price">
-                                {{data.prop.price.value}} <i class="fa fa-rub"></i>
+                            <div class="price__price" >
+                                <span>{{calcPrice({{data.prop.price.value}})}} <i class="fa fa-rub"></i></span>
+                                <div data-wb-where='"{{_cook.promocode}}">""'><s class="small text-red" >{{data.prop.price.value}} <i class="fa fa-rub text-red"></i></s></div>
                             </div>
                             <!--div class="mt-2">
                             <a href="/services/#service-{{id}}">Подробно</a>

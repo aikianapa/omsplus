@@ -12,7 +12,7 @@ function orders_create() {
     foreach($_POST["service"] as $i => $srv) {
         if ($srv > "") {
             $serv = wbTreeFindBranch($servlist["content"],"tabs->{$srv}");
-            $price = $serv[0]["data"]["prop"]["price"]["value"];
+            $price = calcPrice($serv[0]["data"]["prop"]["price"]["value"],false);
             $price = intval(str_replace(" ","",$price));
             if ($_POST["extr"] == "on") $price = $price * 1.5; // +50%
             $names[] = $serv[0]["name"];

@@ -22,6 +22,12 @@ $(function() {
         });
     });
 
+    $('#promocodeEnter').on('change', function() {
+        $.post('/ajax/checkPromocode', { promo: $(this).val() }, function(data) {
+            data.result == true ? document.location.reload() : null;
+        })
+    })
+
 
     $(document).on("wb_ajax_done", function(ev, el, ajax, data) {
         if (ajax == "/orders/create/_new/") {
