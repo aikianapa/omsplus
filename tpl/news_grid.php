@@ -55,7 +55,7 @@
         </div>
         
 
-		
+		<meta data-wb-role="variable" var="first_news" value="{{id}}">
         <div class="new-big" data-wb-role="foreach" data-wb-table="news" data-wb-where="'{{active}}'=='on' {{_var.wh}}" data-wb-limit="1" data-wb-tpl="false" data-wb-sort="date:d">
             <meta data-wb-role="variable" var="first_news" value="{{id}}">
             <div class="row">
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="news-row row" data-wb-role="foreach" data-wb-table="news" data-wb-more="#moreNews" data-wb-size="4" data-wb-sort="date:d" data-wb-where="active=='on' {{_var.wh}} AND '{{id}}' !=='{{_var.first_news}}'">
+        <div class="news-row row" data-wb-role="foreach" data-wb-table="news" data-wb-more="#moreNews" data-wb-size="6" data-wb-sort="date:d" data-wb-where="active=='on' {{_var.wh}} AND '{{id}}' !=='{{_var.first_news}}'">
             <div class="col-md-6 col-xl-4">
                 <div class="new-item" data-wb-where='id>""'>
                     <a href="/news/{{id}}/" class="new-item__link link-default">
