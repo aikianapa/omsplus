@@ -28,10 +28,12 @@ class tagThumbnail extends kiNode  {
         $show=$this->DOM->attr("data-wb-show");
         $class=$this->DOM->attr("class");
         $style=$this->DOM->attr("style");
-        $width=$this->DOM->attr("width");
+
         if ($width=="") $width=$_ENV['thumb_width']."px";
+
         $height=$this->DOM->attr("height");
         if ($height=="") $height=$_ENV['thumb_height']."px";
+
         $offset=$this->DOM->attr("offset");
         $contain=$this->DOM->attr("contain");
         if ($contain=="true") $bkg = true;
@@ -278,8 +280,10 @@ class tagThumbnail extends kiNode  {
         $this->DOM->removeAttr("size");
         $this->DOM->attr("data-ext",$srcExt);
         $this->DOM->attr("class",$class);
-        $this->DOM->attr("width",$width);
-        $this->DOM->attr("height",$height);
+
+$this->DOM->attr("width", intval($width));
+$this->DOM->attr("height", intval($height));
+
 //        $this->DOM->attr("noimg",$noimg);
         $this->DOM->attr("style",$style);
 // === lazy Load ===
