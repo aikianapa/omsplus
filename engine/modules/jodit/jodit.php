@@ -13,9 +13,15 @@ function jodit__init(&$dom) {
                 $out->find(".jodit")->attr($atn,$atv);
             }
         }
+
         if ($out->find(".jodit")->attr('id') == '') {
             $out->find(".jodit")->attr('id', 'jd-'.wbNewId());
         }
+
+        if ($out->find(".jodit")->attr('name') == '') {
+            $out->find(".jodit")->attr('name', 'text');
+        }
+
         $out->wbSetData();
         return $out;
 	}
