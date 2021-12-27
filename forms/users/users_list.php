@@ -13,11 +13,16 @@
 	<label class="content-left-label">Группы</label>
 	<ul id="{{_form}}Catalog" data-wb-role="foreach" data-wb-form="users" data-wb-where='isgroup="on" AND active="on"' class="nav mg-t-1-force">
 		<li class="nav-item">
-			<a class="nav-link" data-wb-ajax="/form/list/users/{{id}}/" title="{{name}}" data-wb-html=".content-box">
+			<a class="nav-link" data-wb-ajax="/form/list/users/{{id}}/" data-id="{{id}}" title="{{name}}" data-wb-html=".content-box">
 				<div class="clearfix">{{id}}</div>
 			</a>
 		</li>
 	</ul>
+
+<br>
+
+<button class="btn btn-primary" href="#" onclick="users_remove_empty()">Удалить пустые</button>
+
 			</div>
 		</div>
 
@@ -53,3 +58,11 @@
     </div>
 </div>
 <script type="text/locale" data-wb-role="include" src="users_common"></script>
+<script>
+  var users_remove_empty = function() {
+      $.post('/form/remove_empty/users/',{},function(res){
+          $('#usersCatalog a[data-id="user"]').trigger('click');
+          alert(res.msg);
+      })
+  }
+</script>
