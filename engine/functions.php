@@ -220,8 +220,10 @@ function wbMail(
             }
 
             if (isset($sett['dkim']) && $sett['dkim'] > '') {
-                $mail->DKIM_selector = $sett['func'];
+                $mail->DKIM_domain = $_ENV['route']['domain'];
+                $mail->DKIM_selector = 'phpmailer';
                 $mail->DKIM_private = $sett['dkim'];
+                $mail->DKIM_passphrase = $sett['dkim_pass'];
             }
             $mail->isSMTP();
             $mail->Host = $sett["host"];
