@@ -6,11 +6,10 @@ function users_list()
 {
     $out=wbGetForm($_ENV["route"]["form"], $_ENV["route"]["mode"]);
     $flag="";
-    $where='fullname > "" ';
     $Item=array();
     if (isset($_ENV["route"]["item"])) {
         $where='role="'.$_ENV["route"]["item"].'"';
-		if ($_ENV["route"]["item"] == 'user') $where .= ' AND fullname > "" ';
+//		if ($_ENV["route"]["item"] == 'user') $where .= ' AND fullname > "" ';
     }
     $Item["result"]=wbItemList($_ENV["route"]["form"], $where);
     $Item["result"]=wbArraySort($Item["result"], "email");
