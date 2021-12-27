@@ -218,13 +218,6 @@ function wbMail(
             if ($sett["secure"] == "") {
                 $sett["secure"] = false;
             }
-
-            if (isset($sett['dkim']) && $sett['dkim'] > '') {
-                $mail->DKIM_domain = $_ENV['route']['domain'];
-                $mail->DKIM_selector = 'phpmailer';
-                $mail->DKIM_private = $sett['dkim'];
-                $mail->DKIM_passphrase = $sett['dkim_pass'];
-            }
             $mail->isSMTP();
             $mail->Host = $sett["host"];
             $sett["smtp"] == "on" ? $mail->SMTPAuth = true : $mail->SMTPAuth = false;
@@ -241,6 +234,12 @@ function wbMail(
         } else {
             $mail->setFrom($from[0], $from[1]);
         }
+            if (isset($sett['dkim']) && $sett['dkim'] > '') {
+                $mail->DKIM_domain = $_ENV['route']['domain'];
+                $mail->DKIM_selector = 'phpmailer';
+                $mail->DKIM_private = $sett['dkim'];
+                $mail->DKIM_passphrase = $sett['dkim_pass'];
+            }
         $mail->addReplyTo($from[0], $from[1]);
         $mail->isHTML(true);
         $mail->Subject = $subject;
@@ -299,9 +298,10 @@ function wbMail(
                 if ($error == true) {$error = false;} else { $error = true;}
                 $_ENV["error"][__FUNCTION__] = $error;
 
-            }
+            }	
         }
     }
+    				
     if ($error > "") {
         return false;
     } else {
@@ -3590,3 +3590,4 @@ function wbBr2nl($str)
     // ошибки есть
     return false;
 }
+?>
