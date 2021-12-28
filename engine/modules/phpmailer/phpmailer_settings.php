@@ -18,6 +18,10 @@
         <div class="col-sm-8"><input type="text" name="phmail[dkim]" class="form-control" placeholder="DKIM path"></div>
     </div>
     <div class="row form-group">
+        <label class="col-sm-4 control-label" title="DKIM selector">DKIM selector</label>
+        <div class="col-sm-8"><input type="text" name="phmail[dkim_selector]" class="form-control" placeholder="DKIM selector"></div>
+    </div>
+    <div class="row form-group">
         <label class="col-sm-4 control-label" title="DKIM path">DKIM pass</label>
         <div class="col-sm-8"><input type="text" name="phmail[dkim_pass]" class="form-control" placeholder="DKIM pass"></div>
     </div>

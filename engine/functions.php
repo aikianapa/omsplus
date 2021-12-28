@@ -238,8 +238,12 @@ function wbMail(
         }
 
             if (isset($sett['dkim']) && $sett['dkim'] > '') {
+                !isset($sett['dkim']) ? $sett['dkim'] = '' : null;
+                !isset($sett['dkim_pass']) ? $sett['dkim_pass'] = '' : null;
+                !isset($sett['dkim_selector']) ? $sett['dkim_selector'] = 'phpmailer' : null;
+
                 $mail->DKIM_domain = $_ENV['route']['domain'];
-                $mail->DKIM_selector = 'phpmailer';
+                $mail->DKIM_selector = $sett['dkim_selector'];
                 $mail->DKIM_private = $sett['dkim'];
                 $mail->DKIM_passphrase = $sett['dkim_pass'];
                 $mail->DKIM_identity = $mail->From;
