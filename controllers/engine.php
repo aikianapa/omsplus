@@ -1,5 +1,9 @@
 <?php
 function engine_controller_signup() {
+
+            header("Cache-Control: no-cache, no-store, must-revalidate");
+            header("Pragma: no-cache");
+
 	$app = new wbApp();
 	$app->fromTpl("login.htm");
 

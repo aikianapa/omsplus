@@ -1618,6 +1618,7 @@ function wbSetCache($out = '')
 function wbGetCache()
 {
     if (count($_POST)) return null;
+    if (isset($_SERVER['HTTP_CACHE_CONTROL'])) return null;
     if ($_GET['mode'] !== 'show') return null;
     if (isset($_GET['params']) AND isset($_GET['params']['update'])) return null;
     $cid = wbGetCacheId();
