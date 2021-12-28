@@ -7,10 +7,10 @@ require __DIR__.'/engine/modules/phpmailer/vendor/autoload.php';
 
 //Usual setup
 $mail = new PHPMailer();
-$mail->setFrom('mail@medpoverennyi.ru', 'Medpoverennyi');
-$mail->addAddress('tanden.anapa@gmail.com', 'tanden');
+$mail->setFrom('mail@medpoverennyi.ru', 'Медицинский поверенный');
+$mail->addAddress('digiport-spb@yandex.ru', 'tanden');
 $mail->Subject = 'Вы успешно зарегистрированы на сайте https://medpoverennyi.ru';
-$mail->msgHTML(file_get_contents('robots.txt'), __DIR__);
+$mail->msgHTML('<html><p>Вы успешно зарегистрированы на сайте https://medpoverennyi.ru</p></html>', __DIR__);
 
 //This should be the same as the domain of your From address
 $mail->DKIM_domain = $_SERVER['HTTP_HOST'];
