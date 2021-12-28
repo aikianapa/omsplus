@@ -215,7 +215,6 @@ function wbMail(
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
          */
-        $mail->SMTPDebug  = 2;
 
         if ($sett["smtp"] == "on") {
             if ($sett["secure"] == "") {
