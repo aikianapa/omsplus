@@ -29,7 +29,6 @@ function engine_controller_signup() {
 			];
 			$saved=$app->itemSave("users",$newuser,true);
             $subj="Регистрация на ".$_ENV["settings"]["header"];
-            $subj = mb_encode_mimeheader($subj,"UTF-8");
             $message="<p>Вы успешно зарегистрированы на сайте {$_ENV["route"]["hostp"]} - {$_ENV["settings"]["header"]}</p><p>Логин: {$_REQUEST["email"]}<br>Пароль: {$pass}";
             wbMail("{$_ENV['settings']['email']};{$_ENV['settings']['header']}",$_REQUEST["email"],$subj,$message);
             if ($saved) engine__controller_login_success($newuser);
