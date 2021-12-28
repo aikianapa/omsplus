@@ -9,7 +9,7 @@ require __DIR__.'/engine/modules/phpmailer/vendor/autoload.php';
 $mail = new PHPMailer();
 $mail->setFrom('mail@medpoverennyi.ru', 'Medpoverennyi');
 $mail->addAddress('tanden.anapa@gmail.com', 'tanden');
-$mail->Subject = 'PHPMailer mail() test';
+$mail->Subject = 'Вы успешно зарегистрированы на сайте https://medpoverennyi.ru';
 $mail->msgHTML(file_get_contents('robots.txt'), __DIR__);
 
 //This should be the same as the domain of your From address
@@ -21,7 +21,7 @@ $mail->DKIM_private = '/root/medpoverennyi.ru.private';
 //Set this to your own selector
 $mail->DKIM_selector = 'phpmailer';
 //Put your private key's passphrase in here if it has one
-$mail->DKIM_passphrase = 'w1dvYPFb4P';
+//$mail->DKIM_passphrase = 'w1dvYPFb4P';
 //The identity you're signing as - usually your From address
 $mail->DKIM_identity = $mail->From;
 //Suppress listing signed header fields in signature, defaults to true for debugging purpose
