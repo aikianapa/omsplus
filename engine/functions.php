@@ -3,6 +3,7 @@ require_once __DIR__ . '/wbrouter.php';
 require_once __DIR__ . '/lib/vendor/autoload.php';
 require_once __DIR__ . '/kiDom.php';
 require_once __DIR__ . '/wbapp.php';
+use PHPMailer\PHPMailer\PHPMailer;
 
 function wbInit()
 {
@@ -201,7 +202,7 @@ function wbMail(
     }
 
     if ($_ENV["settings"]["phpmailer"] == "on") {
-        require_once __DIR__ . '/modules/phpmailer/phpmailer/PHPMailerAutoload.php';
+        require_once __DIR__ . '/modules/phpmailer/vendor/autoload.php';
         $sett = $_ENV["settings"]["phmail"];
         $mail = ($sett["func"] == "sendmail") ? new PHPMailer(true) : new PHPMailer();
         /*
@@ -239,6 +240,7 @@ function wbMail(
                 $mail->DKIM_selector = 'phpmailer';
                 $mail->DKIM_private = $sett['dkim'];
                 $mail->DKIM_passphrase = $sett['dkim_pass'];
+                $mail->DKIM_identity = $mail->From;
             }
         $mail->addReplyTo($from[0], $from[1]);
         $mail->isHTML(true);
