@@ -215,6 +215,8 @@ function wbMail(
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
          */
+        $mail->SMTPDebug  = 2;
+
         if ($sett["smtp"] == "on") {
             if ($sett["secure"] == "") {
                 $sett["secure"] = false;
@@ -235,6 +237,7 @@ function wbMail(
         } else {
             $mail->setFrom($from[0], $from[1]);
         }
+
             if (isset($sett['dkim']) && $sett['dkim'] > '') {
                 $mail->DKIM_domain = $_ENV['route']['domain'];
                 $mail->DKIM_selector = 'phpmailer';
@@ -275,6 +278,7 @@ function wbMail(
                 }
             }
         }
+
         //send the message, check for errors
         if (isset($_POST["_fakesend"])) {
             $error = $_ENV["error"][__FUNCTION__] = $_POST["_fakesend"];
