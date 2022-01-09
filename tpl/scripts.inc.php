@@ -18,7 +18,8 @@
                 "/tpl/src/js/bootstrap-datetimepicker.min.js",
                 "/tpl/src/js/owl.carousel.min.js",
                 "/tpl/src/js/jquery.ui.touch-punch.min.js",
-                "/tpl/src/js/lightcase.js"
+                "/tpl/src/js/lightcase.js",
+                "https://unpkg.com/swiper@7/swiper-bundle.min.js"
             ], 'ready', function() {
                 wbapp.loadScripts(["/tpl/src/js/scripts.js"]);
             })
@@ -26,4 +27,3 @@
     });
 </script>
 <script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

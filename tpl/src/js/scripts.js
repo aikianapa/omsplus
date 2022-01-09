@@ -473,6 +473,7 @@ $(document).ready(function() {
 
     var regionText = $("#popup-select-region .region-list__item--active .region-list__text").text();
     $(".region-selection .region-js").text(regionText);
+    omsInit();
 
 });
 //endregion
@@ -522,7 +523,7 @@ $(document).click(function(event) {
     event.stopPropagation();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+var omsInit = function() {
     const mobileBottomBar = document.querySelector('.mobile-bottom-bar');
 
     const checkAndChangeDisplayValue = () => {
@@ -574,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('cookie', '-');
         infoBlock.classList.add('d-none');
     }
-});
+};
 
 
 function getScrollbarWidth() {
