@@ -156,7 +156,7 @@
             </div>
         </div>
 
-        <div class="home-page-block-6-swiper swiper">
+        <div class="home-page-block-6-swiper swiper container">
             <div class="swiper-wrapper" data-wb-role="tree" data-wb-from="children">
                 <div class="swiper-slide">
                     <div class="home-page-block-6-swiper-slide">
@@ -257,7 +257,7 @@
         </div>
     </div>
 
-    <div class="home-page-block-9">
+    <div class="home-page-block-9 container">
         <div class="container">
             <div class="d-flex flex-column flex-md-row">
                 <div class="home-page-title flex-fill">
