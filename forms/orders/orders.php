@@ -26,6 +26,7 @@ function orders_create() {
         }
     }
     $names = strip_tags(implode(", ", $names));
+    $promo = isset($_COOKIE['promocode']) ? $_COOKIE['promocode'] : '';
     $order=[
         "id"        => $_SESSION["order_id"],
         "client"    => $_SESSION["user_id"],
@@ -37,7 +38,8 @@ function orders_create() {
         "active"    => "on",
         "reason"    => "Оплата по договору №{$_SESSION["order_id"]} за выполнение услуги: «{$names}»",
         "currency"  => 'RUB',
-        "total"     => $total
+        "total"     => $total,
+        "promo"     => $promo
     ];
     
     $_ENV["yakassa_text"]="По вашей заявке на оказание услуг создан договор №{$_SESSION["order_id"]}. Стоимость услуги составляет: {$total} рублей.";
