@@ -23,8 +23,12 @@ $(document).on('site-ready', function() {
     });
 
     $('#promocodeEnter').on('change', function() {
+        let that = this;
         $.post('/ajax/checkPromocode', { promo: $(this).val() }, function(data) {
-            data.result == true ? document.location.reload() : null;
+            if (data.result) {
+                setCookie('promocode', $(that).val(), data.days);
+                if ($(that).parents('.price').length) document.location.reload();
+            }
         })
     })
 

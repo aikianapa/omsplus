@@ -81,14 +81,19 @@ function ajax_checkPromocode() {
 		$tree = wbTreeRead('promo');
 		$tree = $tree["tree"];
 		$tree = wbTreeFindBranch($tree, $promo);
+        $diff = 0;
 		if (isset($tree[0]['id']) && $tree[0]['id'] == $promo) {
             $res = true;
             $expired = strtotime($tree[0]['data']['expired']);
 			setcookie('promocode', $promo, $expired, '/');
-
+            $diff = intval(($expired - time())/86400);
+            if ($diff < 0) {
+                $diff = 0;
+                $res = false;
+            }
 		}
 	}
-    echo json_encode(['result'=>$res]);
+    echo json_encode(['result'=>$res,'days'=>$diff]);
     die;
 }
 
