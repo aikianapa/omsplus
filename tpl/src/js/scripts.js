@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('site-ready', function() {
 
     geopos();
 
@@ -157,6 +157,28 @@ $(function() {
         return false;
     });
     svg4everybody();
+
+    /**
+     * При прокрутке страницы, показываем или срываем кнопку
+     */
+    $(window).scroll(function() {
+        // Если отступ сверху больше 50px то показываем кнопку "Наверх"
+        var heightBody = $("body").height() - $(window).height() - 50;
+        if ($(this).scrollTop() > 100 && $(this).scrollTop() < heightBody) {
+            $('#button-up').fadeIn();
+        } else {
+            $('#button-up').fadeOut();
+        }
+    });
+
+
+    /** При нажатии на кнопку мы перемещаемся к началу страницы */
+    $('#button-up').click(function() {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
 
 });
 //endregion
@@ -353,32 +375,6 @@ $('#modal-menu').on('show.bs.modal', function(e) {
 
 //endregion
 
-//region наверх
-$(document).ready(function() {
-    /**
-     * При прокрутке страницы, показываем или срываем кнопку
-     */
-    $(window).scroll(function() {
-        // Если отступ сверху больше 50px то показываем кнопку "Наверх"
-        var heightBody = $("body").height() - $(window).height() - 50;
-        if ($(this).scrollTop() > 100 && $(this).scrollTop() < heightBody) {
-            $('#button-up').fadeIn();
-        } else {
-            $('#button-up').fadeOut();
-        }
-    });
-
-
-    /** При нажатии на кнопку мы перемещаемся к началу страницы */
-    $('#button-up').click(function() {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-
-});
-//endregion
 
 $(window).on('load', () => {
     let iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
@@ -567,13 +563,16 @@ var omsInit = function() {
 
     const infoBlock = document.querySelector('.home-page-block-1-info');
 
-    if (!localStorage.getItem('cookie')) {
-        infoBlock.classList.remove('d-none');
-    }
+    if (infoBlock) {
 
-    window.hideCookieBlock = () => {
-        localStorage.setItem('cookie', '-');
-        infoBlock.classList.add('d-none');
+        if (!localStorage.getItem('cookie')) {
+            infoBlock.classList.remove('d-none');
+        }
+
+        window.hideCookieBlock = () => {
+            localStorage.setItem('cookie', '-');
+            infoBlock.classList.add('d-none');
+        }
     }
 };
 
