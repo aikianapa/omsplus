@@ -150,7 +150,11 @@
 
                 <div class="col-sm-8">
                     <div class="input form-white__input">
-                        <input class="form-control" type="text" id="insure" name="insure" />
+                        <select class="form-control" data-wb-role="foreach" data-wb-table="smo" data-wb-sort="_created:d active:d" id="insure" name="insure">
+                            <option>
+                                {{name}}
+                            </option>
+                        </select>
                         <label class="input__label" for="insure">
                             <span class="input__label-content">Страховая медицинская организация</span>
                         </label>
@@ -178,6 +182,7 @@
                         <div data-branch="1" class="d-none row">
                             <div class="col-12 mb-2">
                                 <select data-recepients name="orgtype" class="form-control">
+                                    <option data-recepients>Где?</option>
                                     <option data-recepients="depart,insure">В поликлинике</option>
                                     <option data-recepients="depart,insure,tfoms">В стационаре</option>
                                 </select>
@@ -189,6 +194,7 @@
                         <div data-branch="2" class="d-none row">
                            <div class="col-12 mb-2">
                                 <select data-recepients name="orgtype" class="form-control">
+                                    <option data-recepients>Где?</option>
                                     <option data-recepients="tfoms,insure">В поликлинике</option>
                                     <option data-recepients="foms, tfoms,insure">В стационаре</option>
                                 </select>
@@ -219,7 +225,7 @@
                         </div>
                         <div class="col-12 d-none insure">
                             <div class="input form-white__input" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
-                                <select name="insure" class="form-control" data-wb-role="tree" data-wb-from="content"  data-wb-hide="wb" required>
+                                <select name="insure" data-wb-role="foreach" data-wb-table="smo" data-wb-sort="_created:d active:d" class="form-control">
                                     <option value="" data-wb-where='"{{_idx}}"=="0"'>Страховая медицинская организация</option>
                                     <option value="{{name}}"  data-wb-where='"{{id}}" !== "block1"'>
                                         {{name}}
