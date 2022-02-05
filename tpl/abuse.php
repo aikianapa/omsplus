@@ -233,9 +233,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="col-sm-8">
                         <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)" placeholder="Регион">
-                    </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
@@ -268,11 +266,11 @@
 
                 <div class="branches col-12">
 <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-2">
                         <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)" placeholder="Регион обращения">
                 </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                         <select id="type" class="form-control" required>
                             <option value="0">Подать обращение:</option>
                             <option value="1">Жалоба на оказание медицинской помощи</option>
@@ -312,67 +310,39 @@
                         </div>
                     </div>
 
-                    <div class="recepients">
-                        <div class="col-12 d-none depart">
-                            <div class="input form-white__input" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
+                    <div class="recepients row">
+                        <div class="col-12 d-none depart" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
                                     <select name="depart[]" class="form-control" data-wb-role="tree" data-wb-from="content"  data-wb-hide="wb" required>
                                         <option value="" data-wb-where='"{{_idx}}"=="0"'>"Департамент здравоохранения"</option>
                                         <option value="{{name}}"  data-wb-where='"{{id}}" !== "block1"'>
                                             {{name}}
                                         </option>
                                     </select>
-                            </div>
                         </div>
                         <div class="col-12 d-none insure">
-                            <div class="input form-white__input">
                                 <input type="text" class="form-control" name="insure" value="" readonly onclick="selectInsure(this)" placeholder="Страховая медицинская организация">
-                            </div>
                         </div>
                         <div class="col-12 d-none tfoms">
-                            <div class="input form-white__input">
-                                <input class="form-control" type="text" id="tfoms" name="tfoms" />
-                                <label class="input__label" for="tfoms">
-                                    <span class="input__label-content">ТФОМС</span>
-                                </label>
-                            </div>
+                                <input class="form-control" type="text" id="tfoms" name="tfoms" placeholder="ТФОМС" />
                         </div>
                         <div class="col-12 d-none foms">
-                            <div class="input form-white__input">
-                                <input class="form-control" type="text" id="foms" name="foms" />
-                                <label class="input__label" for="foms">
-                                    <span class="input__label-content">ФОМС</span>
-                                </label>
-                            </div>
+                                <input class="form-control" type="text" id="foms" name="foms" placeholder="ФОМС" />
                         </div>
                         <div class="col-12 d-none foms">
-                            <div class="input form-white__input">
-                                <input class="form-control" type="text" id="roszd" name="roszd" />
-                                <label class="input__label" for="roszd">
-                                    <span class="input__label-content">Росздравнадзор</span>
-                                </label>
-                            </div>
+                                <input class="form-control" type="text" id="roszd" name="roszd" placeholder="Росздравнадзор" />
                         </div>
                     </div>
 
 
-                <div class="col-12">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="prev" name="prev" />
-                        <label class="input__label" for="prev">
-                            <span class="input__label-content">Ранее обращался по данному вопросу:</span>
-                        </label>
-                    </div>
+                <div class="col-12 mb-2">
+                        <input class="form-control" type="text" id="prev" name="prev" placeholder="Ранее обращался по данному вопросу:" />
                 </div>
 
-                <div class="col-12">
-                    <div class="input form-white__input">
-                        <textarea class="form-control" type="text" id="body" required></textarea>
-                        <label class="input__label" for="body">
-                            <span class="input__label-content">Текст обращения</span>
-                        </label>
+                <div class="col-12 mb-2">
+                        <textarea class="form-control" type="text" id="body" placeholder="Текст обращения" required></textarea>
                     </div>
 
-
+<div class="col-12">
                     <div class="custom-control custom-checkbox mb-3">
                         <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger">
                         <label class="custom-control-label textPale" for="dangerAbuseForm">
@@ -385,7 +355,7 @@
                         <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя, отчество, контактные номера телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в электронной форме, а также на их обработку с использованием средств автоматизации, включая осуществление сбора, накопления, систематизации, хранения, уточнения, использования, распространения (в т.ч. передачу), обезличивание, блокирование, уничтожение.
                         </label>
                     </div>
-
+</div>
 
                     <div class="text-center mt-4 pt-1">
                         <span class="button button--red" data-wb-ajax="/ajax/mail/">Отправить</span>
