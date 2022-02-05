@@ -71,6 +71,30 @@ function calcPrice($price, $fmt = true) {
         return $price;
 }
 
+function ajax_smo() {
+	header('Content-Type: text/json; charset=utf-8');
+    $list = wbItemList('smo');
+    return json_encode($list);
+}
+
+
+function ajax_mo()
+{
+    header('Content-Type: text/json; charset=utf-8');
+    $list = wbItemList('mo');
+    $region = $_GET['params']['region'];
+	foreach($list as $key => $item) {
+		if ($item['region'] !== $region) unset($list[$key]);
+	}
+    return json_encode($list);
+}
+
+function ajax_region() {
+	header('Content-Type: text/json; charset=utf-8');
+    $list = wbTreeRead("area");
+    return json_encode($list['tree']);
+}
+
 
 function ajax_checkPromocode() {
 	header('Content-Type: text/json; charset=utf-8');

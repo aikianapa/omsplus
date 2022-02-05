@@ -9,6 +9,73 @@
 
     <meta data-wb-role="include" src="template" data-wb-name="header.inc.php">
 
+<modals>
+
+<div id="selectRegion1" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <div class="w-100 modal-title">
+            <input type="search" class="form-control" placeholder="Поиск...">
+            </div>
+        </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <template>
+                    {{#each items}}
+                    <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
+                    {{/each}}
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="selectMed" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <div class="w-100 modal-title">
+            <input type="search" class="form-control" placeholder="Поиск...">
+            </div>
+        </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <template>
+                    {{#each items}}
+                    <li class="list-group-item cursor-pointer" data-region="{{region}}">{{name}}</li>
+                    {{/each}}
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="selectInsure" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <div class="w-100 modal-title">
+            <input type="search" class="form-control" placeholder="Поиск...">
+            </div>
+        </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <template>
+                    {{#each items}}
+                    <li class="list-group-item cursor-pointer" data-region="{{region}}">{{name}}</li>
+                    {{/each}}
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</modals>
+
     <div class="container">
         <div class="content-title">{{header}}</div>
     </div>
@@ -121,14 +188,8 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="input form-white__input">
-                        <select name="region" id="region" class="form-control" placeholder="Выбрать регион..." data-label="Регион"
-                            data-wb-role="tree" data-wb-item="area" data-wb-hide="wb" required>
-                            <option value="{{name}}" data-area="{{data.iso}}">{{name}}</option>
-                        </select>
-                        <label class="input__label" for="region">
-                            <span class="input__label-content">Регион</span>
-                        </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)" placeholder="Регион">
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -149,16 +210,7 @@
                 </div>
 
                 <div class="col-sm-8">
-                    <div class="input form-white__input">
-                        <select class="form-control" data-wb-role="foreach" data-wb-table="smo" data-wb-sort="_created:d active:d" id="insure" name="insure">
-                            <option>
-                                {{name}}
-                            </option>
-                        </select>
-                        <label class="input__label" for="insure">
-                            <span class="input__label-content">Страховая медицинская организация</span>
-                        </label>
-                    </div>
+                        <input type="text" class="form-control" name="insure" value="" readonly onclick="selectInsure(this,true)" placeholder="Страховая медицинская организация">
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
@@ -188,7 +240,7 @@
                                 </select>
                             </div>
                             <div class="col-12 mb-2">
-                                <input class="form-control" type="text" id="org1" name="org" placeholder="Наименование организации" />
+                                <input type="text" class="form-control" name="org" value="" readonly onclick="selectMed(this,true)" placeholder="Наименование медучреждения">
                             </div>
                         </div>
                         <div data-branch="2" class="d-none row">
@@ -200,9 +252,7 @@
                                 </select>
                             </div>
                             <div class="col-12 mb-2">
-                                <div class="input form-white__input">
-                                    <input class="form-control" type="text" id="org2" name="org" placeholder="Наименование организации" />
-                                </div>
+                                <input type="text" class="form-control" name="org" value="" readonly onclick="selectMed(this,true)" placeholder="Наименование медучреждения">
                             </div>
                         </div>
                         <div data-branch="3" class="d-none row">
@@ -224,13 +274,8 @@
                             </div>
                         </div>
                         <div class="col-12 d-none insure">
-                            <div class="input form-white__input" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
-                                <select name="insure" data-wb-role="foreach" data-wb-table="smo" data-wb-sort="_created:d active:d" class="form-control">
-                                    <option value="" data-wb-where='"{{_idx}}"=="0"'>Страховая медицинская организация</option>
-                                    <option value="{{name}}"  data-wb-where='"{{id}}" !== "block1"'>
-                                        {{name}}
-                                    </option>
-                                </select>
+                            <div class="input form-white__input">
+                                <input type="text" class="form-control" name="insure" value="" readonly onclick="selectInsure(this)" placeholder="Страховая медицинская организация">
                             </div>
                         </div>
                         <div class="col-12 d-none tfoms">
@@ -302,13 +347,30 @@
 
     </div>
 
-
     <meta data-wb-role="include" src="template" data-wb-name="footer.inc.php">
     <script>
-        var jqwait = setInterval(function() {
-            if (typeof jQuery == "undefined") return;
-            clearInterval(jqwait);
-            $(document).ready(function() {
+        var selMed, selIns, selReg, selectInsure, selectRegion;
+            $(document).on('site-ready',function() {
+
+                selMed = new Ractive({
+                    target: '#selectMed .list-group',
+                    template: $('#selectMed template').html(),
+                    data: {items:[]} 
+                });
+
+                selIns = new Ractive({
+                    target: '#selectInsure .list-group',
+                    template: $('#selectInsure template').html(),
+                    data: {items:[]} 
+                });
+
+                selReg = new Ractive({
+                    target: '#selectRegion1 .list-group',
+                    template: $('#selectRegion1 template').html(),
+                    data: {items:[]} 
+                });
+
+
                 $(".content-list-item").find("b").parents("p").addClass("content-list-item-label");
                 $(".content-list-item").find("p:not(.content-list-item-label)").addClass(
                     "content-list-item-value");
@@ -339,6 +401,11 @@
                     }
                 })
 
+
+                $.get('/ajax/region/',function(data){
+                    selReg.set('items', data);
+                })
+                
                 $("#formAbuse #type").on('change',function(){
                     $(`#formAbuse .branches [data-branch]`).addClass('d-none');
                     $("#formAbuse .recepients > *").addClass('d-none');
@@ -363,8 +430,92 @@
 
                 });
 
+
+        selectInsure = function(that,all = false) {
+            $('#selectInsure').modal('show');
+            $('#selectInsure input').val('').focus();
+            let region = $('#formAbuse').data('region');
+            $('#selectInsure .list-group-item').hide();
+            $('#selectInsure .list-group-item[data-region='+region+']').show();
+
+            $('#selectInsure .list-group-item').off('click');
+            $('#selectInsure .list-group-item').on('click',function(){
+                all ? $('#formAbuse [name=insure]').val($(this).text()) : $(that).val($(this).text());
+                $('#selectInsure').modal('hide');
+            })
+
+            $('#selectInsure input').off('keyup');
+            $('#selectInsure input').on('keyup',function(){
+                let regex = $(this).val();
+                if (regex > ' ') {
+                    regex = new RegExp(regex, "gi");
+                    $.each($('#selectInsure .list-group-item'), function(i, item) {
+                        let str = $(item).text();
+                        str.match(regex) ? $(this).show() : $(this).hide();
+                    });
+                }
             });
-        }, 10)
+        }
+
+        selectRegion = function(that) {
+            $('#selectRegion1').modal('show');
+            $('#selectRegion1 input').val('').focus();
+            $('#selectRegion1 .list-group-item').off('click');
+            $('#selectRegion1 .list-group-item').on('click',function(){
+                $(that).val($(this).text());
+                let region = $(this).data('region');
+                $.get('/ajax/smo/?region='+region,function(data){
+                    selIns.set('items', data);
+                })
+                $.get('/ajax/mo/?region='+region,function(data){
+                    selMed.set('items', data);
+                })
+                $('#formAbuse').data('region',region);
+                $('#selectRegion1').modal('hide');
+            })
+
+            $('#selectRegion1 input').off('keyup');
+            $('#selectRegion1 input').on('keyup',function(){
+                let regex = $(this).val();
+                if (regex > ' ') {
+                    regex = new RegExp(regex, "gi");
+                    $.each($('#selectRegion1 .list-group-item'), function(i, item) {
+                        let str = $(item).text();
+                        str.match(regex) ? $(this).show() : $(this).hide();
+                    });
+                }
+            });
+        }
+
+        selectMed= function(that,all = false) {
+            $('#selectMed').modal('show');
+            $('#selectMed input').val('').focus();
+            let region = $('#formAbuse').data('region');
+            $('#selectMed .list-group-item').hide();
+            $('#selectMed .list-group-item[data-region='+region+']').show();
+
+            $('#selectMed .list-group-item').off('click');
+            $('#selectMed .list-group-item').on('click',function(){
+                all ? $('#formAbuse [name=org]').val($(this).text()) : $(that).val($(this).text());
+                $('#selectMed').modal('hide');
+            })
+
+            $('#selectMed input').off('keyup');
+            $('#selectMed input').on('keyup',function(){
+                let regex = $(this).val();
+                if (regex > ' ') {
+                    regex = new RegExp(regex, "gi");
+                    $.each($('#selectMed .list-group-item'), function(i, item) {
+                        let str = $(item).text();
+                        str.match(regex) ? $(this).show() : $(this).hide();
+                    });
+                }
+            });
+        }
+
+
+            });
+                
     </script>
 </body>
 

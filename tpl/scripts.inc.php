@@ -20,6 +20,7 @@
                 "/tpl/src/js/jquery.ui.touch-punch.min.js",
                 "/tpl/src/js/lightcase.js",
                 "https://unpkg.com/swiper@7/swiper-bundle.min.js",
+                "/tpl/src/js/ractive.js",
                 "/tpl/src/js/scripts.js"
 
             ], 'site-ready')
