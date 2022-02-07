@@ -95,7 +95,6 @@ function ajax_region() {
     return json_encode($list['tree']);
 }
 
-
 function ajax_checkPromocode() {
 	header('Content-Type: text/json; charset=utf-8');
     $res = false;

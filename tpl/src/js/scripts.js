@@ -1,5 +1,6 @@
 $(document).on('site-ready', function() {
-
+    const ev_site_ready = new Event('site-jq-ready');
+    document.dispatchEvent(ev_site_ready);
     geopos();
 
     $("[data-wb-ajax='/ajax/mail/']").on("click", function() {
