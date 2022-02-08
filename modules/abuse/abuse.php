@@ -52,7 +52,7 @@ function abuse_print()
     $data = file_get_contents($pdf);
     
     $subject = "Медицинский поверенный: жалоба ". $data['from_name'];
-    $from = $data['last_name'].' '.$data['first_name'].' '.$data['middle_name'].';'.$data['email'];
+    $from = 'Медицинский поверенный;'.$_ENV['settings']['email'];
     $sent = 'oleg_frolov@mail.ru';
     $attach = $pdf;
     $message = "Жалоба в прикреплённом файле";
