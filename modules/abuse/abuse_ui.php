@@ -3,22 +3,22 @@
             <input type="hidden" name="_mailto" value="{{_sett.email}}" />
             <div class="form-body row">
 
-                <div class="col-sm-4 mb-4">
-                    <div class="input">
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="last_name" required />
                         <label>Фамилия</label>
-                        <input class="form-control" type="text" name="last_name" required />
                     </div>
                 </div>
-                <div class="col-sm-4 mb-4">
-                    <div class="input">
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="first_name" required />
                         <label>Имя</label>
-                        <input class="form-control" type="text" name="first_name" required />
                     </div>
                 </div>
-                <div class="col-sm-4 mb-4">
-                    <div class="input">
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="middle_name" required />
                         <label>Отчество</label>
-                        <input class="form-control" type="text" name="middle_name" required />
                     </div>
                 </div>
                 <div class="col-sm-4 mb-4">
@@ -644,4 +644,30 @@
 .content-button:focus {
     outline: none
 }
+
+.form-group.floating>label {
+    bottom: 34px;
+    left: 8px;
+    position: relative;
+    background-color: white;
+    padding: 0px 5px 0px 5px;
+    font-size: 1.1em;
+    transition: 0.1s;
+    pointer-events: none;
+    font-weight: 500 !important;
+    transform-origin: bottom left;
+}
+
+.form-control.floating:focus~label{
+    transform: translate(1px,-85%) scale(0.80);
+    opacity: .8;
+    color: #005ebf;
+}
+
+.form-control.floating:valid~label{
+    transform-origin: bottom left;
+    transform: translate(1px,-85%) scale(0.80);
+    opacity: .8;
+}
+
 </style>
