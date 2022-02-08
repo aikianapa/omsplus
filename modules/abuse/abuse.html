@@ -14,14 +14,14 @@
             </td>
             <td width="50%" style="text-align:rigth;">
 
-                <p style="text-align:right;">
-                    Название организации
-                </p>
-
-                (13) Название организации (Справочник) Адрес
-                <p>
-
-                    (15) Копия: второй адрес</p>
+                <div data-wb-role="foreach" data-wb-from="recepients">
+                    <p data-wb-where='"{{_idx}}">"0"'>
+                        <br><u>Копия</u>:<br>
+                    </p>
+                    <p>
+                        {{name}}<br>{{strtolower({{email}})}}
+                    </p>
+                </div>
                 <p>
                     &nbsp;</p>
                 <p>
@@ -33,10 +33,12 @@
                 <p>
                     {{zip}}, {{address}}, {{place}}, {{region}}
                 </p>
-                <p data-wb-where='"{{polis}}">""'>
-                    Полис № {{polis}}</p>
+                <br>
+                <p>
+                    Полис № <span data-wb-where='"{{polis}}">""'>{{polis}}</span></p>
                 <p>
                     Страховая компания {{insure}}</p>
+                <br>
                 <p>
                     {{email}}
                 </p>
@@ -64,7 +66,7 @@
         Прошу обеспечить необходимым лекарством {{drug}}.
     </p>
     <p>
-        Ответ прошу направить на адрес электронной почты {{email}} в установленный законом срок.</p>
+        Ответ прошу направить на адрес электронной почты <b>{{email}}</b> в установленный законом срок.</p>
     <p>
         &nbsp;</p>
     <p>

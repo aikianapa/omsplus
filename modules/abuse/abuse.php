@@ -43,6 +43,15 @@ function abuse_print()
             $petrovich->firstname($data['first_name'], Petrovich::CASE_GENITIVE).' '.
             $petrovich->middlename($data['middle_name'], Petrovich::CASE_GENITIVE);
     $html = wbFromFile($file);
+
+
+    $sent = recepients($data); // в $data меняется recepients
+    if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
+        $sent=trim($_ENV["settings"]["mod_abuse"]);
+        $sent=str_replace([' ',';'], ',', $sent);
+        $sent=explode(',', $sent);
+    }
+
     $html->wbSetData($data);
     $mpdf = new \Mpdf\Mpdf();
     $mpdf->WriteHTML($html->outerHtml());
@@ -50,20 +59,14 @@ function abuse_print()
 
     $subject = "Медицинский поверенный: жалоба ". $data['from_name'];
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
-    $sent = recepients($data);
-    print_r($sent);
-    $sent='oleg_frolov@mail.ru';
+    $sent=['oleg_frolov@mail.ru','info@idees.ru'];
     $attach = $pdf;
     $message = "Жалоба в прикреплённом файле";
 
-
-    //$res = mail($sent,$subject,$message);
-
     $res = wbMail($from , $sent, $subject, $message, $attach);
-    unlink($pdf);
 
-    var_dump($res);
-    die;
+    //var_dump($res);
+    //die;
 
 
     header('Content-type: application/pdf');
@@ -73,27 +76,48 @@ function abuse_print()
     echo $result;
 }
 
-function recepients($data)
+function recepients(&$data)
 {
     $recepients = [];
     $region = getRegion($data['region']);
     $rec=explode(',', $data['recepients']);
+    $data['recepients'] = [];
     foreach ($rec as $r) {
         switch ($r) {
         case 'depart':
+            // Департамент здравоохранения
             $recepients[] = $region['data']['dpzdrv_email'];
+            $data['recepients'][] = ['name'=>$region['data']['dpzdrv'],'email'=>$region['data']['dpzdrv_email']];
             break;
         case 'insure':
+            // Страховая компания
             $recepients[] = $data['insure_email'];
+            $data['recepients'][] = ['name'=>$data['insure'],'email'=>$data['insure_email']];
             break;
         case 'tfoms':
+            // Территориальный фонд ОМС
             $recepients[] = $region['data']['tfoms_email'];
+            $data['recepients'][] = ['name'=>$region['data']['tfoms'],'email'=>$region['data']['tfoms_email']];
             break;
         case 'foms':
-            //
+            // Фонд ОМС
+            if (isset($_ENV["settings"]["email_foms"]) && $_ENV["settings"]["email_foms"] > '') {
+                $recepients[] = $_ENV["settings"]["email_foms"];
+                $data['recepients'][] = [
+                    'name'=>'Федеральный фонд обязательного медицинского страхования',
+                    'email'=>$_ENV["settings"]["email_foms"]
+                ];
+            }
             break;
         case 'roszn':
-            //
+            // Росздравнадзор
+            if (isset($_ENV["settings"]["email_roszdrav"]) && $_ENV["settings"]["email_roszdrav"] > '') {
+                $recepients[] = $_ENV["settings"]["email_roszdrav"];
+                $data['recepients'][] = [
+                    'name'=>'Федеральная служба по надзору в сфере здравоохранения',
+                    'email'=>$_ENV["settings"]["email_roszdrav"]
+                ];
+            } 
             break;
         }
     }
