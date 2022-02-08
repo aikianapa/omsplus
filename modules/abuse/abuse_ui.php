@@ -6,19 +6,19 @@
                 <div class="col-sm-4">
                     <div class="input form-white__input">
                         <label>Фамилия</label>
-                        <input class="form-control" type="text" name="last_name" required1 />
+                        <input class="form-control" type="text" name="last_name" required />
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
                         <label>Имя</label>
-                        <input class="form-control" type="text" name="first_name" required1 />
+                        <input class="form-control" type="text" name="first_name" required />
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
                         <label>Отчество</label>
-                        <input class="form-control" type="text" name="middle_name" required1 />
+                        <input class="form-control" type="text" name="middle_name" required />
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -167,7 +167,7 @@
                     </div>
 
                     <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="checkAbuseForm">
+                        <input type="checkbox" class="custom-control-input" id="checkAbuseForm" required>
                         <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и
                             использование следующих моих персональных данных: фамилия, имя, отчество, контактные номера
                             телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в
@@ -305,6 +305,7 @@
 
         $('#formAbuse .btn-abuse').on('click', function(e) {
             if (wb_check_required('#formAbuse')) {
+                $('#formAbuse :input:not(:visible)').remove();
                 let data = $('#formAbuse').serializeArray();
                 let $form = $('<form id="printAbuse" />');
                 $form.attr('method', 'POST').attr('target', '_blank').attr('action', '/module/abuse/print');
@@ -315,10 +316,7 @@
                 $form.submit();
                 $form.remove();
             };
-
-
         })
-
 
         $("#formAbuse [name=type]").on('change', function() {
             $(`#formAbuse .branches [data-branch]`).addClass('d-none');
