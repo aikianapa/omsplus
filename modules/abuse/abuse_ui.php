@@ -5,106 +5,75 @@
 
                 <div class="col-sm-4">
                     <div class="input form-white__input">
-                        <input class="form-control" type="text" id="last-name" name="last_name" required />
-                        <label class="input__label" for="last-name">
-                            <span class="input__label-content">Фамилия</span>
-                        </label>
+                        <label>Фамилия</label>
+                        <input class="form-control" type="text" name="last_name" required1 />
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
-                        <input class="form-control" type="text" id="first-name" name="first_name" required />
-                        <label class="input__label" for="first-name">
-                            <span class="input__label-content">Имя</span>
-                        </label>
+                        <label>Имя</label>
+                        <input class="form-control" type="text" name="first_name" required1 />
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input form-white__input">
-                        <input class="form-control" type="text" id="patronymic" name="patronymic" required />
-                        <label class="input__label" for="patronymic">
-                            <span class="input__label-content">Отчество</span>
-                        </label>
+                        <label>Отчество</label>
+                        <input class="form-control" type="text" name="middle_name" required1 />
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="email" name="email" required />
-                        <label class="input__label" for="email">
-                            <span class="input__label-content">Е-mail</span>
-                        </label>
-                    </div>
+                    <label>Е-mail</label>
+                    <input class="form-control" type="text" id="email" name="email" required1 />
                 </div>
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" data-wb-mask="+7 (999) 999-99-99" id="phone"
-                            name="phone" />
-                        <label class="input__label" for="phone">
-                            <span class="input__label-content">Контактный телефон</span>
-                        </label>
-                    </div>
+                        <label>Телефон</label>
+                        <input class="form-control" type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
                 </div>
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="citizen" name="citizen" required />
-                        <label class="input__label" for="citizen">
-                            <span class="input__label-content">Гражданство</span>
-                        </label>
-                    </div>
+                    <label>Гражданство</label>
+                    <input class="form-control" type="text" name="citizen" required1 />
                 </div>
 
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" data-wb-mask="999999" id="zip" name="zip" required />
-                        <label class="input__label" for="zip">
-                            <span class="input__label-content">Индекс</span>
-                        </label>
-                    </div>
+                    <label>Индекс</label>
+                    <input class="form-control" type="text" data-wb-mask="999999" name="zip" required1 />
                 </div>
                 <div class="col-sm-8">
+                    <label>Регион</label>
                     <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)"
-                        placeholder="Регион">
+                        placeholder="Укажите...">
                 </div>
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="place" name="place" required />
-                        <label class="input__label" for="palce">
-                            <span class="input__label-content">Населённый пункт</span>
-                        </label>
-                    </div>
+                    <label>Населённый пункт</label>
+                    <input class="form-control" type="text" name="place" required1 />
                 </div>
                 <div class="col-sm-8">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="address" name="address" required />
-                        <label class="input__label" for="addres">
-                            <span class="input__label-content">Адрес</span>
-                        </label>
-                    </div>
+                    <label>Адрес</label>
+                    <input class="form-control" type="text" name="address" required1 />
                 </div>
 
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="insure" value="" readonly
-                        onclick="selectInsure(this,true)" placeholder="Страховая медицинская организация">
+                    <label>Страховая медицинская организация</label>
+                    <input type="text" class="form-control" name="insure" value="" readonly 
+                        onclick="selectInsure(this,true)" placeholder="Укажите...">
                 </div>
                 <div class="col-sm-4">
-                    <div class="input form-white__input">
-                        <input class="form-control" type="text" id="polis" name="polis" />
-                        <label class="input__label" for="polis">
-                            <span class="input__label-content">Номер полиса</span>
-                        </label>
-                    </div>
+                    <label>Номер полиса</label>
+                    <input class="form-control" type="text" id="polis" name="polis" />
                 </div>
 
                 <div class="branches col-12">
                     <div class="row">
                         <div class="col-12 mb-2">
-                            <input type="text" class="form-control" name="region_to" value="" readonly required
-                                onclick="selectRegion(this)" placeholder="Регион обращения">
+                             <label>Регион обращения</label>
+                            <input type="text" class="form-control" name="region_to" placeholder="Укажите..." value="" readonly required1
+                                onclick="selectRegion(this)">
                         </div>
 
                         <div class="col-12 mb-2">
-                            <select class="form-control" name="type" required placeholder="Подать обращение">
-                                <option value="">Подать обращение:</option>
+                            <label>Повод обращения</label>
+                            <select class="form-control" name="type" required1>
+                                <option value="">Укажите...</option>
                                 <option value="1">Жалоба на оказание медицинской помощи</option>
                                 <option value="2">Провести экспертизу качества медицинской помощи</option>
                                 <option value="3">Жалоба на лекарственное обеспечение</option>
@@ -113,28 +82,32 @@
                     </div>
                     <div data-branch="1" class="d-none row">
                         <div class="col-12 mb-2">
-                            <select data-recepients name="orgtype" class="form-control" required>
-                                <option data-recepients>Где?</option>
+                            <label>Где?</label>
+                            <select data-recepients name="orgtype" class="form-control" required1>
+                                <option data-recepients>Укажите...</option>
                                 <option data-recepients="depart,insure">В поликлинике</option>
                                 <option data-recepients="depart,insure,tfoms">В стационаре</option>
                             </select>
                         </div>
                         <div class="col-12 mb-2">
-                            <input type="text" class="form-control" name="org" value="" readonly required
-                                onclick="selectMed(this,true)" placeholder="Наименование медучреждения">
+                            <label>Наименование медучреждения</label>
+                            <input type="text" class="form-control" name="org" value="" readonly required1
+                                onclick="selectMed(this,true)" placeholder="Укажите...">
                         </div>
                     </div>
                     <div data-branch="2" class="d-none row">
                         <div class="col-12 mb-2">
-                            <select data-recepients name="orgtype" class="form-control" required>
-                                <option data-recepients>Где?</option>
+                            <label>Где?</label>
+                            <select data-recepients name="orgtype" class="form-control" required1>
+                                <option data-recepients>Укажите...</option>
                                 <option data-recepients="tfoms,insure">В поликлинике</option>
                                 <option data-recepients="foms, tfoms,insure">В стационаре</option>
                             </select>
                         </div>
                         <div class="col-12 mb-2">
-                            <input type="text" class="form-control" name="org" value="" readonly required
-                                onclick="selectMed(this,true)" placeholder="Наименование медучреждения">
+                            <label>Наименование медучреждения</label>
+                            <input type="text" class="form-control" name="org" value="" readonly required1
+                                onclick="selectMed(this,true)" placeholder="Укажите...">
                         </div>
                     </div>
                     <div data-branch="3" class="d-none row">
@@ -145,18 +118,20 @@
                     </div>
                 </div>
 
-                <div class="recepients row">
+                <div class="recepients col-12">
+                    <div class="row">
                     <div class="col-12 d-none depart" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
                         <select name="depart" class="form-control" data-wb-role="tree" data-wb-from="content"
-                            data-wb-hide="wb" required>
+                            data-wb-hide="wb" required1>
                             <option value="{{name}}" data-wb-where='"{{id}}" !== "block1"'>
                                 {{name}}
                             </option>
                         </select>
                     </div>
                     <div class="col-12 d-none insure">
+                        <label>Страховая медицинская организация</label>
                         <input type="text" class="form-control" name="insure" value="" readonly
-                            onclick="selectInsure(this)" placeholder="Страховая медицинская организация">
+                            onclick="selectInsure(this)" placeholder="Укажите...">
                     </div>
                     <div class="col-12 d-none tfoms">
                         <input class="form-control" type="text" id="tfoms" name="tfoms" placeholder="ТФОМС" />
@@ -167,17 +142,20 @@
                     <div class="col-12 d-none foms">
                         <input class="form-control" type="text" id="roszd" name="roszd" placeholder="Росздравнадзор" />
                     </div>
+                    </div>
                 </div>
 
 
                 <div class="col-12 mb-2">
+                    <label>Куда обращались ранее по данному вопросу</label>
                     <textarea class="form-control" name="prev" placeholder="Куда обращались ранее по данному вопросу"
-                        required></textarea>
+                        required1></textarea>
                 </div>
 
                 <div class="col-12 mb-2">
+                    <label>Текст обращения</label>
                     <textarea class="form-control" type="text" name="text" placeholder="Текст обращения"
-                        required></textarea>
+                        required1></textarea>
                 </div>
 
                 <div class="col-12">
@@ -246,6 +224,8 @@
                                 {{#each items}}
                                 <li class="list-group-item cursor-pointer" data-region="{{region}}"><span>{{name}}</span> [{{kmo}}]
                                 </li>
+                                {{else}}
+                                    <p class="alert alert-info">Пожалуйста, вначале укажите регион.</p>
                                 {{/each}}
                             </template>
                         </ul>
@@ -270,6 +250,8 @@
                                     <span>{{name}}</span> [{{ksmo}}]
                                     <div class="tx-10">{{address}}</div>
                                 </li>
+                                {{else}}
+                                    <p class="alert alert-info">Пожалуйста, вначале укажите регион.</p>
                                 {{/each}}
                             </template>
                         </ul>

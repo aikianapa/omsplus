@@ -73,6 +73,14 @@ function calcPrice($price, $fmt = true) {
 
 function ajax_smo() {
 	header('Content-Type: text/json; charset=utf-8');
+    $region = $_GET['params']['region'];
+    foreach ($list as $key => $item) {
+        if ($item['region'] !== $region) {
+            unset($list[$key]);
+        } else {
+            $item['name'] = htmlentities($item['name']);
+		}
+    }
     $list = wbItemList('smo');
     return json_encode($list);
 }
@@ -84,7 +92,13 @@ function ajax_mo()
     $list = wbItemList('mo');
     $region = $_GET['params']['region'];
 	foreach($list as $key => $item) {
-		if ($item['region'] !== $region) unset($list[$key]);
+        if ($item['region'] !== $region) {
+            unset($list[$key]);
+        } else {
+            $item['name'] = htmlentities($item['name']);
+			$item['address'] = htmlentities($item['address']);
+		}
+
 	}
     return json_encode($list);
 }

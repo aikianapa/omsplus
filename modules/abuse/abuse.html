@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body style="font-family:'Times New Roman';font-size:14pt;color:#000000;">
+
+    <table>
+        <tr>
+            <td width="50%" style="vertical-align:top;">
+                <img src="/tpl/build/img/svg/logo-footer.svg" style="max-width:100%;" width="218" height="47" alt="">
+            </td>
+            <td width="50%" style="text-align:rigth;">
+
+                <p style="text-align:right;">
+                    Название организации
+                </p>
+
+                (13) Название организации (Справочник) Адрес
+                <p>
+
+                    (15) Копия: второй адрес</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    От
+                </p>
+                <p>
+                    {{from_name}}
+                </p>
+                <p>
+                    {{zip}}, {{address}}, {{place}}, {{region}}
+                </p>
+                <p data-wb-where='"{{polis}}">""'>
+                    Полис № {{polis}}</p>
+                <p>
+                    Страховая компания {{insure}}</p>
+                <p>
+                    {{email}}
+                </p>
+                <p>
+                    Тел. {{phone}}
+                </p>
+
+            </td>
+        </tr>
+    </table>
+
+    <h3 style="text-align:center;">Заявление</h3>
+    <p>{{text}}</p>
+    <p>
+        Все это происходило в {{orgtype}} {{org}}</p>
+    <p data-wb-where='"{{danger}}"="on"'>Это ситуация несет угрозу жизни</p>
+    <p data-wb-where='"{{prev}}">""'>
+        {{prev}}
+    </p>
+    <p data-wb-where='"{{type}}"="1"'>
+        Прошу разобраться в данной ситуации и привлечь виновных к ответственности</p>
+    <p data-wb-where='"{{type}}"="2"'>
+        Прошу провести экспертизу качества медицинской помощи по данному случаю.</p>
+    <p data-wb-where='"{{type}}"="3"'>
+        Прошу обеспечить необходимым лекарством {{drug}}.
+    </p>
+    <p>
+        Ответ прошу направить на адрес электронной почты {{email}} в установленный законом срок.</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        {{date}} {{last_name}} {{first_name}} {{middle_name}}
+    </p>
+</body>
+
+</html>

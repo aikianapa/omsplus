@@ -1,8 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\Settings;
+require $_SERVER['DOCUMENT_ROOT'].'/modules/pdfdoc/vendor/autoload.php';
+require_once(__DIR__.'/petrovich/Petrovich.php');
 
 
 function abuse_init()
@@ -22,21 +20,31 @@ function abuse_init()
 }
 
 function abuse_print() {
+/* types:
+'D': download the PDF file
+'I': serves in-line to the browser
+'S': returns the PDF document as a string
+'F': save as file $file_out
+*/
+    $type = 'F';
     $data = &$_POST;
     $data['date'] = date('d.m.Y');
-    $file = __DIR__.'/abuse.docx';
+    $file = __DIR__.'/abuse.html';
     $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
     $tid = 'abs_'.wbNewId();
-    $tmp = $pathtmp.$tid.$key.'.docx';
     $pdf = $pathtmp.$tid.$key.'.pdf';
+    $petrovich = new Petrovich(Petrovich::GENDER_MALE);
 
-           /*1*/   $phpWord = new \PhpOffice\PhpWord\TemplateProcessor($file);
-            /*2*/  $phpWord->setValues($data);
-            /*3*/  $phpWord->saveAs($tmp);
-            
-            /*4*/   exec('export HOME='.$pathtmp.' && lowriter  --headless  --convert-to pdf --outdir '.$pathtmp.' '.$tmp);
-                    unlink($tmp);
+    $data['from_name'] = $petrovich->lastname($data['last_name'], Petrovich::CASE_GENITIVE).' '.
+            $petrovich->firstname($data['first_name'], Petrovich::CASE_GENITIVE).' '.
+            $petrovich->middlename($data['middle_name'], Petrovich::CASE_GENITIVE);
 
+
+    $html = wbFromFile($file);
+    $html->wbSetData($data);
+    $mpdf = new \Mpdf\Mpdf();
+    $mpdf->WriteHTML($html->outerHtml());
+    $mpdf->Output($pdf, $type);
   $data = file_get_contents($pdf);
   header('Content-type: application/pdf');
   header('Content-Disposition: inline; filename="'.$tid.'.pdf"');
