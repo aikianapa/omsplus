@@ -3,74 +3,74 @@
             <input type="hidden" name="_mailto" value="{{_sett.email}}" />
             <div class="form-body row">
 
-                <div class="col-sm-4">
-                    <div class="input form-white__input">
+                <div class="col-sm-4 mb-4">
+                    <div class="input">
                         <label>Фамилия</label>
                         <input class="form-control" type="text" name="last_name" required />
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="input form-white__input">
+                <div class="col-sm-4 mb-4">
+                    <div class="input">
                         <label>Имя</label>
                         <input class="form-control" type="text" name="first_name" required />
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="input form-white__input">
+                <div class="col-sm-4 mb-4">
+                    <div class="input">
                         <label>Отчество</label>
                         <input class="form-control" type="text" name="middle_name" required />
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                     <label>Е-mail</label>
                     <input class="form-control" type="text" id="email" name="email" required1 />
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                         <label>Телефон</label>
                         <input class="form-control" type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                     <label>Гражданство</label>
                     <input class="form-control" type="text" name="citizen" required1 />
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                     <label>Индекс</label>
                     <input class="form-control" type="text" data-wb-mask="999999" name="zip" required1 />
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-4 mb-4">
                     <label>Регион</label>
                     <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)"
                         placeholder="Укажите...">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                     <label>Населённый пункт</label>
                     <input class="form-control" type="text" name="place" required1 />
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-12 mb-4">
                     <label>Адрес</label>
                     <input class="form-control" type="text" name="address" required1 />
                 </div>
 
-                <div class="col-sm-8">
+                <div class="col-sm-6 mb-4">
                     <label>Страховая медицинская организация</label>
                     <input type="text" class="form-control" name="insure" value="" readonly 
                         onclick="selectInsure(this,true)" placeholder="Укажите...">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 mb-4">
                     <label>Номер полиса</label>
                     <input class="form-control" type="text" id="polis" name="polis" />
                 </div>
 
                 <div class="branches col-12">
                     <div class="row">
-                        <div class="col-12 mb-2">
+                        <div class="col-12 ">
                              <label>Регион обращения</label>
                             <input type="text" class="form-control" name="region_to" placeholder="Укажите..." value="" readonly required1
                                 onclick="selectRegion(this)">
                         </div>
 
-                        <div class="col-12 mb-2">
+                        <div class="col-12 ">
                             <label>Повод обращения</label>
                             <select class="form-control" name="type" required1>
                                 <option value="">Укажите...</option>
@@ -146,13 +146,13 @@
                 </div>
 
 
-                <div class="col-12 mb-2">
+                <div class="col-12 mb-4">
                     <label>Куда обращались ранее по данному вопросу</label>
                     <textarea class="form-control" name="prev" placeholder="Куда обращались ранее по данному вопросу"
                         required1></textarea>
                 </div>
 
-                <div class="col-12 mb-2">
+                <div class="col-12 mb-3">
                     <label>Текст обращения</label>
                     <textarea class="form-control" type="text" name="text" placeholder="Текст обращения"
                         required1></textarea>
