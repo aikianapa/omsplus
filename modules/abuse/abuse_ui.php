@@ -3,21 +3,22 @@
             <input type="hidden" name="_mailto" value="{{_sett.email}}" />
             <div class="form-body row">
 
-                <div class="col-sm-4 mb-4">
-                    <div class="content-form-block"> <div class="group"> <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" required=""> <label class="label">
-                                                            Номер телефона
-                                                        </label> </div>   </div>
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <div class="input">
-                        <label>Имя</label>
-                        <input class="form-control" type="text" name="first_name" required />
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="last_name" required />
+                        <label>Фамилия</label>
                     </div>
                 </div>
-                <div class="col-sm-4 mb-4">
-                    <div class="input">
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="first_name" required />
+                        <label>Имя</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group floating">
+                        <input class="form-control floating" type="text" name="middle_name" required />
                         <label>Отчество</label>
-                        <input class="form-control" type="text" name="middle_name" required />
                     </div>
                 </div>
                 <div class="col-sm-4 mb-4">
@@ -53,8 +54,8 @@
 
                 <div class="col-sm-6 mb-4">
                     <label>Страховая медицинская организация</label>
-                    <input type="text" class="form-control" name="insure" value="" readonly
-                        onclick="selectInsure(this,true)" placeholder="Укажите...">
+                    <input type="text" class="form-control" name="insure" value="" readonly 
+                        onclick="selectInsure(this)" placeholder="Укажите..." data-id>
                 </div>
                 <div class="col-sm-6 mb-4">
                     <label>Номер полиса</label>
@@ -118,30 +119,13 @@
                 </div>
 
                 <div class="recepients col-12">
-                    <div class="row">
-                    <div class="col-12 d-none depart" data-wb-role="formdata" data-wb-form="pages" data-wb-item="quote">
-                        <select name="depart" class="form-control" data-wb-role="tree" data-wb-from="content"
-                            data-wb-hide="wb" required1>
-                            <option value="{{name}}" data-wb-where='"{{id}}" !== "block1"'>
-                                {{name}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-12 d-none insure">
-                        <label>Страховая медицинская организация</label>
-                        <input type="text" class="form-control" name="insure" value="" readonly
-                            onclick="selectInsure(this)" placeholder="Укажите...">
-                    </div>
-                    <div class="col-12 d-none tfoms">
-                        <input class="form-control" type="text" id="tfoms" name="tfoms" placeholder="ТФОМС" />
-                    </div>
-                    <div class="col-12 d-none foms">
-                        <input class="form-control" type="text" id="foms" name="foms" placeholder="ФОМС" />
-                    </div>
-                    <div class="col-12 d-none foms">
-                        <input class="form-control" type="text" id="roszd" name="roszd" placeholder="Росздравнадзор" />
-                    </div>
-                    </div>
+                    <!--div class="row">
+                        <div class="col-12 d-none insure">
+                            <label>Страховая медицинская организация</label>
+                            <input type="text" class="form-control" name="insure" value="" readonly
+                                onclick="selectInsure(this)" placeholder="Укажите..." data-id>
+                        </div>
+                    </div-->
                 </div>
 
 
@@ -197,13 +181,20 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <ul class="list-group">
+                        <ul class="list-group pr-2">
                             <template>
                                 {{#each items}}
                                 <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
                                 {{/each}}
                             </template>
                         </ul>
+                        <ul class="list-group pl-2">
+                                                    <template>
+                                                        {{#each items}}
+                                                        <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
+                                                        {{/each}}
+                                                    </template>
+                                                </ul>
                     </div>
                 </div>
             </div>
@@ -245,7 +236,7 @@
                         <ul class="list-group">
                             <template>
                                 {{#each items}}
-                                <li class="list-group-item cursor-pointer" data-region="{{region}}">
+                                <li class="list-group-item cursor-pointer" data-region="{{region}}" data-id="{{id}}" data-email="{{email}}">
                                     <span>{{name}}</span> [{{ksmo}}]
                                     <div class="tx-10">{{address}}</div>
                                 </li>
@@ -309,8 +300,19 @@
                 let $form = $('<form id="printAbuse" />');
                 $form.attr('method', 'POST').attr('target', '_blank').attr('action', '/module/abuse/print');
                 $.each(data, function(i,k) {
-                    $form.append(`<input type="hidden" name="${k.name}" value="${k.value}">`);
+                    $form.append(`<input type="hidden" name="${k.name}" value="${htmlentities(k.value)}">`);
                 });
+                let email = $('#formAbuse [name=insure]:last').data('email');
+                let inid  = $('#formAbuse [name=insure]:last').data('id');
+                let region = $('#formAbuse [name=region_to]').data('region');
+                let recp =  $('#formAbuse [data-recepients]:visible');
+                $(recp).is('select') ? recp = $(recp).find(':selected').data('recepients') : recp = $(recp).data('recepients');
+
+                $form.append(`<input type="hidden" name="insure_id" value="${inid}">`);
+                $form.append(`<input type="hidden" name="insure_email" value="${email}">`);
+                $form.append(`<input type="hidden" name="recepients" value="${recp}">`);
+                $form.find('[name=region]').val(region);
+
                 $form.appendTo('body');
                 $form.submit();
                 $form.remove();
@@ -332,11 +334,14 @@
             } else {
                 recep = $(this).find('option:selected').attr('data-recepients').split(',');
             }
-            $("#formAbuse .recepients > *").addClass('d-none');
+            $("#formAbuse .recepients > .row > *").addClass('d-none');
             $.each(recep, function(i, val) {
                 val = val.trim();
                 console.log(val);
-                if (val > "") $("#formAbuse .recepients > ." + val).removeClass('d-none');
+                if (val > "") {
+                    $("#formAbuse .recepients > .row").removeClass('d-none');
+                    $("#formAbuse .recepients > .row ." + val).removeClass('d-none');
+                }
             });
 
         });
@@ -351,7 +356,11 @@
             $('#selectInsure .list-group-item').off('click');
             $('#selectInsure .list-group-item').on('click', function() {
                 let name = $(this).children('span').text();
+                let email = $(this).data('email');
+                let id = $(this).data('id');
                 all ? $('#formAbuse [name=insure]').val(name) : $(that).val(name);
+                all ? $('#formAbuse [name=insure]').attr('data-id',id) : $(that).attr('data-id',id);
+                all ? $('#formAbuse [name=insure]').attr('data-email',email) : $(that).attr('data-email',email);
                 $('#selectInsure').modal('hide');
             })
 
@@ -374,6 +383,7 @@
             $('#selectRegion1 .list-group-item').off('click');
             $('#selectRegion1 .list-group-item').on('click', function() {
                 $(that).val($(this).text());
+                $(that).attr('data-region',$(this).data('region'));
                 let region = $(this).data('region');
                 $.get('/ajax/smo/?region=' + region, function(data) {
                     selIns.set('items', data);
@@ -431,7 +441,6 @@
     </script>
 
     <style>
-
 .content-form-block .input:focus~label,
 .content-form-block .input:valid~label {
     top: -20px
@@ -445,7 +454,14 @@
     position: relative;
     margin-bottom: 24px
 }
-
+@media(max-width: 640px){
+        .modal-body{
+            flex-direction: column;
+        }
+        .list-group{
+            padding: 0;
+        }
+    }
 @media (min-width: 768px) {
     .content-form-block .group {
         margin-bottom: 40px
@@ -642,4 +658,30 @@
 .content-button:focus {
     outline: none
 }
+
+.form-group.floating>label {
+    bottom: 34px;
+    left: 8px;
+    position: relative;
+    background-color: white;
+    padding: 0px 5px 0px 5px;
+    font-size: 1.1em;
+    transition: 0.1s;
+    pointer-events: none;
+    font-weight: 500 !important;
+    transform-origin: bottom left;
+}
+
+.form-control.floating:focus~label{
+    transform: translate(1px,-85%) scale(0.80);
+    opacity: .8;
+    color: #005ebf;
+}
+
+.form-control.floating:valid~label{
+    transform-origin: bottom left;
+    transform: translate(1px,-85%) scale(0.80);
+    opacity: .8;
+}
+
 </style>
