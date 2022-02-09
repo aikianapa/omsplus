@@ -181,13 +181,20 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <ul class="list-group">
+                        <ul class="list-group pr-2">
                             <template>
                                 {{#each items}}
                                 <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
                                 {{/each}}
                             </template>
                         </ul>
+                        <ul class="list-group pl-2">
+                                                    <template>
+                                                        {{#each items}}
+                                                        <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
+                                                        {{/each}}
+                                                    </template>
+                                                </ul>
                     </div>
                 </div>
             </div>
@@ -447,7 +454,14 @@
     position: relative;
     margin-bottom: 24px
 }
-
+@media(max-width: 640px){
+        .modal-body{
+            flex-direction: column;
+        }
+        .list-group{
+            padding: 0;
+        }
+    }
 @media (min-width: 768px) {
     .content-form-block .group {
         margin-bottom: 40px
