@@ -740,7 +740,7 @@
     overflow-y: scroll;
     height: 500px;
 }
-.modal-dialog modal-xl modal-dialog-centered{
+.modal-dialog{
 width:1000px!important;
 }
 .list-group{
