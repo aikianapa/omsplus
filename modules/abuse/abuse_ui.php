@@ -717,10 +717,12 @@
         animation: inputHighlighter 0.3s ease;
     }
 
-    .content-form-block .input:focus ~ label,
-    .content-form-block .input:valid ~ label {
-        top: -20px
-    }
+   .content-form-block .input:focus~label,
+   .content-form-block .input:not(:placeholder-shown)~label,
+   .content-form-block .input:valid~label {
+       top: -20px
+   }
+
 
     .content-form-block .input:focus {
         outline: none
@@ -730,7 +732,18 @@
         position: relative;
         margin-bottom: 24px
     }
-
+.modal-content{
+    overflow-y: scroll;
+    height: 500px;
+}
+@media(max-width: 640px){
+        .modal-body{
+            flex-direction: column;
+        }
+        .list-group{
+            padding: 0;
+        }
+        }
     @media (min-width: 768px) {
         .content-form-block .group {
             margin-bottom: 40px
