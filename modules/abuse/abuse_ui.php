@@ -181,14 +181,14 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <ul class="list-group pr-2">
+                        <ul class="list-group ">
                             <template>
                                 {{#each items}}
                                 <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
                                 {{/each}}
                             </template>
                         </ul>
-                        <ul class="list-group pl-2">
+                        <ul class="list-group ">
                                                     <template>
                                                         {{#each items}}
                                                         <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
@@ -441,6 +441,10 @@
     </script>
 
     <style>
+    .modal-content{
+    overflow-y: scroll;
+        height: 500px;
+    }
 .content-form-block .input:focus~label,
 .content-form-block .input:valid~label {
     top: -20px
