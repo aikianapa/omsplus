@@ -740,13 +740,16 @@
     overflow-y: scroll;
     height: 500px;
 }
+.list-group{
+grid-gap: 0 2rem;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+}
 @media(max-width: 640px){
         .modal-body{
             flex-direction: column;
         }
-        .list-group{
-            padding: 0;
-        }
+
         }
     @media (min-width: 768px) {
         .content-form-block .group {
