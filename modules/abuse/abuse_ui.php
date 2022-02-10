@@ -740,6 +740,9 @@
     overflow-y: scroll;
     height: 500px;
 }
+.modal-dialog modal-xl modal-dialog-centered{
+width:1000px!important;
+}
 .list-group{
 grid-gap: 0 2rem;
     grid-template-columns: 1fr 1fr;
@@ -748,6 +751,9 @@ grid-gap: 0 2rem;
 @media(max-width: 640px){
         .modal-body{
             flex-direction: column;
+        }
+        .list-group{
+        grid-template-columns: 1fr;
         }
 
         }
