@@ -741,7 +741,7 @@
     height: 500px;
 }
 .modal-dialog{
-width:1000px!important;
+max-width:1000px!important;
 }
 .list-group{
 grid-gap: 0 2rem;
