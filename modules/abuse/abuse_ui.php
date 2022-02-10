@@ -742,7 +742,7 @@
 }
 .modal-dialog {
   @media (min-width: 576px) {
-    max-width: 440px;
+    max-width: 1000px;
   }
 }
 .list-group{
