@@ -9,7 +9,7 @@
             <div class="col-sm-4">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="last_name" required />
+                        <input class="input" placeholder="Укажите.." type="text" name="last_name" required />
                         <label class="label" >Фамилия</label>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
             <div class="col-sm-4">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="first_name" required />
+                        <input class="input" placeholder="Укажите.." type="text" name="first_name" required />
                         <label class="label" >Имя</label>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-sm-4">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="middle_name" required />
+                        <input class="input" placeholder="Укажите.." type="text" name="middle_name" required />
                         <label class="label" >Отчество</label>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" id="email" name="email" required1 />
+                        <input class="input" placeholder="Укажите.." type="text" id="email" name="email" required1 />
                         <label class="label" >E-mail</label>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
+                        <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
                         <label class="label" >Телефон</label>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="citizen" required1 />
+                        <input class="input" placeholder="Укажите.." type="text" name="citizen" required1 />
                         <label class="label" >Гражданство</label>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" data-wb-mask="999999" name="zip" required1 />
+                        <input class="input" placeholder="Укажите.." type="text" data-wb-mask="999999" name="zip" required1 />
                         <label class="label" >Индекс</label>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input type="text" class="input" name="region" value="" readonly onclick="selectRegion(this)">
+                        <input type="text" placeholder="Укажите.." class="input" name="region" value="" readonly onclick="selectRegion(this)">
                         <label class="label" >Регион</label>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             <div class="col-sm-4 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="place" required1 />
+                        <input class="input" placeholder="Укажите.." type="text" name="place" required1 />
                         <label class="label" >Населенный пункт</label>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             <div class="col-sm-12 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" name="address" required1 />
+                        <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
                         <label class="label" >Адрес</label>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <div class="col-sm-6 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input type="text" class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
+                        <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
                         <label class="label" >Страховая медицинская организация</label>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
             <div class="col-sm-6 ">
                 <div class="content-form-block">
                     <div class="group">
-                        <input class="input" type="text" id="polis" name="polis" />
+                        <input class="input" placeholder="Укажите.." type="text" id="polis" name="polis" />
                         <label class="label" >Номер полиса</label>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="content-form-block">
                     <div class="group">
-                        <input type="text" class="input" name="region_to" value="" readonly required1 onclick="selectRegion(this)">
+                        <input type="text" class="input" placeholder="Укажите.." name="region_to" value="" readonly required1 onclick="selectRegion(this)">
                         <label class="label" >Регион обращения</label>
                     </div>
                 </div>
@@ -155,13 +155,13 @@
                 </div>
                 <div class="col-12 mb-2">
                     <label>Наименование медучреждения</label>
-                    <input type="text" class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите..."
+                    <input type="text" placeholder="Укажите.." class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите..."
                     />
                 </div>
             </div>
             <div data-branch="3" class="d-none row">
                 <div class="col-12 mb-2">
-                    <input class="form-control" type="text" id="drug" name="drug" data-recepients="depart,roszn" placeholder="Какое лекартство?"
+                    <input class="form-control" placeholder="Укажите.." type="text" id="drug" name="drug" data-recepients="depart,roszn" placeholder="Какое лекартство?"
                     />
                 </div>
             </div>
@@ -183,7 +183,7 @@
             </div>
             <div class="content-form-block">
                 <div class="group">
-                    <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" required="">
+                    <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" required="">
                     <label class="label" >Куда обращались ранее по данному вопросу</label>
                 </div>
             </div>
@@ -191,14 +191,14 @@
         <div class="col-12 p-0">
             <div class="content-form-block">
                 <div class="group">
-                    <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" required="">
+                    <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" required="">
                     <label class="label" >Текст обращения</label>
                 </div>
             </div>
         </div>
         <div class="col-12">
             <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger" />
+                <input type="checkbox"  class="custom-control-input" id="dangerAbuseForm" name="danger" />
                 <label class="custom-control-label textPale" for="dangerAbuseForm">
                     Существует угроза жизни
                 </label>
@@ -717,9 +717,13 @@
         animation: inputHighlighter 0.3s ease;
     }
 
+   .content-form-block .input::placeholder{
+   color:transparent
+   }
+
    .content-form-block .input:focus~label,
-   .content-form-block .input:not(:placeholder-shown)~label,
-   .content-form-block .input:valid~label {
+   .content-form-block .input:not(:placeholder-shown)~label
+    {
        top: -20px
    }
 
