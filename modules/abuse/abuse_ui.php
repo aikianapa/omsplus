@@ -740,8 +740,10 @@
     overflow-y: scroll;
     height: 500px;
 }
-.modal-dialog{
-max-width:1000px!important;
+.modal-dialog {
+  @media (min-width: 576px) {
+    max-width: 440px;
+  }
 }
 .list-group{
 grid-gap: 0 2rem;
