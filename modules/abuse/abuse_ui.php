@@ -722,31 +722,10 @@
         top: -20px
     }
 
-.content-form-block .input:focus~label,
-.content-form-block .input:not(:placeholder-shown)~label,
-.content-form-block .input:valid~label {
-    top: -20px
-}
-
     .content-form-block .input:focus {
         outline: none
     }
 
-.content-form-block .group {
-    position: relative;
-    margin-bottom: 24px
-}
-.modal-content{
-    overflow-y: scroll;
-    height: 500px;
-}
-@media(max-width: 640px){
-        .modal-body{
-            flex-direction: column;
-        }
-        .list-group{
-            padding: 0;
-        }
     .content-form-block .group {
         position: relative;
         margin-bottom: 24px
