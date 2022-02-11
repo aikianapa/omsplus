@@ -190,25 +190,32 @@
                     </div -->
         </div>
 
-        <div class="col-12 p-0">
+       <div class="col-sm-12 ">
+                       <div class="content-form-block">
+                           <div class="group">
+                               <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
+                               <label class="label" >Адрес</label>
+                           </div>
+                       </div>
+                   </div> <div class="col-12 p-0">
 
             <div class="content-form-block-title pb-4 pt-6 ">
                 Информация
             </div>
             <div class="content-form-block">
-                <div class="group">
-                                        <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
-                                        <label class="label" >Куда обращались ранее по данному вопросу</label>
-                                    </div>
-            </div>
+                               <div class="group">
+                                   <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
+                                   <label class="label" >Куда обращались ранее по данному вопросу</label>
+                               </div>
+                           </div>
         </div>
         <div class="col-12 p-0">
             <div class="content-form-block">
-               <div class="group">
-                                                       <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
-                                                       <label class="label" >Текст обращения</label>
-                                                   </div>
-            </div>
+                               <div class="group">
+                                   <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
+                                   <label class="label" >Текст обращения</label>
+                               </div>
+                           </div>
         </div>
         <div class="col-12">
             <div class="custom-control custom-checkbox mb-3">
