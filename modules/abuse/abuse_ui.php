@@ -117,53 +117,67 @@
                 </div>
                 <div class="col-12 p-0 mb-6">
                     <div class="floating-label">
-                        <select class="floating-select" name="type" required1 onclick="this.setAttribute('value', this.value);" value="">
-                            <option value=""></option>
-                            <option value="1">Укажите...</option>
-                            <option value="2">Жалоба на оказание медицинской помощи</option>
-                            <option value="3">Провести экспертизу качества медицинской помощи</option>
-                            <option value="4">Жалоба на лекарственное обеспечение</option>
+                        <select class="floating-select" name="type" required1 value="">
+                            <option></option>
+                            <option value="1">Жалоба на оказание медицинской помощи</option>
+                            <option value="2">Провести экспертизу качества медицинской помощи</option>
+                            <option value="3">Жалоба на лекарственное обеспечение</option>
                         </select>
-                        <label>Повод обращения</label>
+                        <label class="label">Повод обращения</label>
                     </div>
                 </div>
-            </div>
+            
 
             <div data-branch="1" class="d-none row">
                 <div class="col-12 mb-2">
-                    <label>Где?</label>
-                    <select data-recepients name="orgtype" class="form-control" required1>
-                        <option data-recepients>Укажите...</option>
+                    <div class="floating-label">
+                    <select data-recepients name="orgtype" class="floating-select" required1 value="">
+                        <option data-recepients></option>
                         <option data-recepients="depart,insure">В поликлинике</option>
                         <option data-recepients="depart,insure,tfoms">В стационаре</option>
                     </select>
+                    <label class="label">Где?</label>
+                    </div>
                 </div>
                 <div class="col-12 mb-2">
-                    <label>Наименование медучреждения</label>
-                    <input type="text" class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите..."
-                    />
+                    <div class="content-form-block">
+                    <div class="group">
+                    <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)"  />
+                    <label class="label">Наименование медучреждения</label>
+                    </div>
+                    </div>
                 </div>
             </div>
             <div data-branch="2" class="d-none row">
                 <div class="col-12 mb-2">
-                    <label>Где?</label>
-                    <select data-recepients name="orgtype" class="form-control" required1>
-                        <option data-recepients>Укажите...</option>
+                    <div class="floating-label">
+                    <select data-recepients name="orgtype" class="floating-select" value="" required1>
+                        <option data-recepients></option>
                         <option data-recepients="tfoms,insure">В поликлинике</option>
                         <option data-recepients="foms, tfoms,insure">В стационаре</option>
                     </select>
+                    <label class="label">Где?</label>
+                    </div>
                 </div>
                 <div class="col-12 mb-2">
-                    <label>Наименование медучреждения</label>
-                    <input type="text" placeholder="Укажите.." class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите..."
-                    />
+                    <div class="content-form-block">
+                    <div class="group">
+                    <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)" />
+                    <label class="label">Наименование медучреждения</label>
+                    </div>
+                    </div>
                 </div>
             </div>
             <div data-branch="3" class="d-none row">
                 <div class="col-12 mb-2">
-                    <input class="form-control" placeholder="Укажите.." type="text" id="drug" name="drug" data-recepients="depart,roszn" placeholder="Какое лекартство?"
-                    />
+                    <div class="content-form-block">
+                    <div class="group">
+                    <input class="input" type="text" value="" name="drug" placeholder=" " data-recepients="depart,roszn" value="" />
+                    <label class="label">Какое лекартство?</label>
+                    </div>
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
         <div class="recepients col-12">
@@ -183,7 +197,7 @@
             </div>
             <div class="content-form-block">
                 <div class="group">
-                    <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" required="">
+                    <textarea class="input" name="prev" required1></textarea>
                     <label class="label" >Куда обращались ранее по данному вопросу</label>
                 </div>
             </div>
@@ -191,7 +205,7 @@
         <div class="col-12 p-0">
             <div class="content-form-block">
                 <div class="group">
-                    <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" required="">
+                    <textarea class="input" type="text" name="text" required1></textarea>
                     <label class="label" >Текст обращения</label>
                 </div>
             </div>
@@ -502,6 +516,10 @@
             selReg.set('items', data);
         })
 
+        $('#formAbuse .floating-select').on('change', function(e) {
+            $(this).attr('value',$(this).val());
+        });
+
         $('#formAbuse .btn-abuse').on('click', function(e) {
             if (wb_check_required('#formAbuse')) {
                 $('#formAbuse :input:not(:visible)').remove();
@@ -715,6 +733,10 @@
         -webkit-animation: inputHighlighter 0.3s ease;
         -moz-animation: inputHighlighter 0.3s ease;
         animation: inputHighlighter 0.3s ease;
+    }
+
+    .content-form-block textarea.input {
+        height: auto;
     }
 
    .content-form-block .input::placeholder{
@@ -978,6 +1000,10 @@ grid-gap: 0 2rem;
         transform-origin: bottom left;
         transform: translate(1px, -85%) scale(0.80);
         opacity: .8;
+    }
+
+    .modal-xl {
+        max-width: 80vw;
     }
 
 </style>
