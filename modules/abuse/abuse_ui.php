@@ -197,7 +197,7 @@
             </div>
             <div class="content-form-block">
                 <div class="group">
-                    <input placeholder="Укажите.." class="input" name="prev" required1></textarea>
+                   <input placeholder="Укажите.." class="input" type="text" name="text" required1 />
                     <label class="label" >Куда обращались ранее по данному вопросу</label>
                 </div>
             </div>
@@ -205,7 +205,8 @@
         <div class="col-12 p-0">
             <div class="content-form-block">
                 <div class="group">
-                    <input placeholder="Укажите.." class="input" type="text" name="text" required1></textarea>
+                    <input placeholder="Укажите.." class="input" type="text" name="text" required1 />
+
                     <label class="label" >Текст обращения</label>
                 </div>
             </div>
