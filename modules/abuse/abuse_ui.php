@@ -197,17 +197,17 @@
             </div>
             <div class="content-form-block">
                 <div class="group">
-                    <textarea class="input" name="prev" required1></textarea>
-                    <label class="label" >Куда обращались ранее по данному вопросу</label>
-                </div>
+                                        <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
+                                        <label class="label" >Куда обращались ранее по данному вопросу</label>
+                                    </div>
             </div>
         </div>
         <div class="col-12 p-0">
             <div class="content-form-block">
-                <div class="group">
-                    <textarea class="input" type="text" name="text" required1></textarea>
-                    <label class="label" >Текст обращения</label>
-                </div>
+               <div class="group">
+                                                       <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
+                                                       <label class="label" >Текст обращения</label>
+                                                   </div>
             </div>
         </div>
         <div class="col-12">
