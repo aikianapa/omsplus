@@ -197,26 +197,25 @@
                                <label class="label" >Адрес</label>
                            </div>
                        </div>
-                   </div> <div class="col-12 p-0">
-
-            <div class="content-form-block-title pb-4 pt-6 ">
-                Информация
-            </div>
-            <div class="content-form-block">
-                               <div class="group">
-                                   <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
-                                   <label class="label" >Куда обращались ранее по данному вопросу</label>
-                               </div>
-                           </div>
-        </div>
-        <div class="col-12 p-0">
-            <div class="content-form-block">
-                               <div class="group">
-                                   <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
-                                   <label class="label" >Текст обращения</label>
-                               </div>
-                           </div>
-        </div>
+                   </div>
+                   <div class="branches col-12">
+                                   <div class="content-form-block-title pb-4 ">
+                                       Куда подаем жалобу
+                                   </div>
+                                   <div class="content-form-block">
+                                                       <div class="group">
+                                                           <input class="input" placeholder="Укажите.." type="text" name="last_name" required />
+                                                           <label class="label" >Фамилия</label>
+                                                       </div>
+                                                   </div>
+                                   <div class="col-12 p-0 mb-6">
+                                      <div class="content-form-block">
+                                                          <div class="group">
+                                                              <input class="input" placeholder="Укажите.." type="text" name="last_name" required />
+                                                              <label class="label" >Фамилия</label>
+                                                          </div>
+                                                      </div>
+                                   </div>
         <div class="col-12">
             <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox"  class="custom-control-input" id="dangerAbuseForm" name="danger" />
