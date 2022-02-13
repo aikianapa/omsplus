@@ -216,6 +216,24 @@
                         </div>
                     </div>
 
+                    <div class="col-12 d-none foms">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="tfoms" value="Фонд обязательного медицинского страхования"  placeholder=" " data-id data-email="{{_sett.email_foms}}">
+                                <label class="label">Фонд ОМС</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-none roszn">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="roszn" value="Росздравнадзор"  placeholder=" " data-id data-email="{{_sett.email_roszdrav}}">
+                                <label class="label">Росздравнадзор</label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-12">
