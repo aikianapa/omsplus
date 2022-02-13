@@ -1,7 +1,7 @@
 <div class="container blocks">
     <form class="form-white form-white--gray" id="formAbuse">
-    <input type="hidden" name="_subject" value="Обращение с сайта {{_route.host}}" />
-    <input type="hidden" name="_mailto" value="{{_sett.email}}" />
+        <input type="hidden" name="_subject" value="Обращение с сайта {{_route.host}}" />
+        <input type="hidden" name="_mailto" value="{{_sett.email}}" />
         <div class="content-form-block-title pb-4">
             Личные данные
         </div>
@@ -10,7 +10,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="last_name" required />
-                        <label class="label" >Фамилия</label>
+                        <label class="label">Фамилия</label>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="first_name" required />
-                        <label class="label" >Имя</label>
+                        <label class="label">Имя</label>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="middle_name" required />
-                        <label class="label" >Отчество</label>
+                        <label class="label">Отчество</label>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" id="email" name="email" required1 />
-                        <label class="label" >E-mail</label>
+                        <label class="label">E-mail</label>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
-                        <label class="label" >Телефон</label>
+                        <label class="label">Телефон</label>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="citizen" required1 />
-                        <label class="label" >Гражданство</label>
+                        <label class="label">Гражданство</label>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" data-wb-mask="999999" name="zip" required1 />
-                        <label class="label" >Индекс</label>
+                        <label class="label">Индекс</label>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input type="text" placeholder="Укажите.." class="input" name="region" value="" readonly onclick="selectRegion(this)">
-                        <label class="label" >Регион</label>
+                        <label class="label">Регион</label>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="place" required1 />
-                        <label class="label" >Населенный пункт</label>
+                        <label class="label">Населенный пункт</label>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" name="address" required1 />
-                        <label class="label" >Адрес</label>
+                        <label class="label">Адрес</label>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
-                        <label class="label" >Страховая медицинская организация</label>
+                        <label class="label">Страховая медицинская организация</label>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input class="input" placeholder="Укажите.." type="text" id="polis" name="polis" />
-                        <label class="label" >Номер полиса</label>
+                        <label class="label">Номер полиса</label>
                     </div>
                 </div>
             </div>
@@ -112,287 +112,158 @@
                 <div class="content-form-block">
                     <div class="group">
                         <input type="text" class="input" placeholder="Укажите.." name="region_to" value="" readonly required1 onclick="selectRegion(this)">
-                        <label class="label" >Регион обращения</label>
+                        <label class="label">Регион обращения</label>
                     </div>
                 </div>
-                <div class="col-12 p-0 mb-6">
-                    <div class="floating-label">
-                        <select class="floating-select" name="type" required1 value="">
-                            <option></option>
-                            <option value="1">Жалоба на оказание медицинской помощи</option>
-                            <option value="2">Провести экспертизу качества медицинской помощи</option>
-                            <option value="3">Жалоба на лекарственное обеспечение</option>
-                        </select>
-                        <label class="label">Повод обращения</label>
-                    </div>
-                </div>
-            
 
-            <div data-branch="1" class="d-none row">
-                <div class="col-12 mb-2">
-                    <div class="floating-label">
-                    <select data-recepients name="orgtype" class="floating-select" required1 value="">
-                        <option data-recepients></option>
-                        <option data-recepients="depart,insure">В поликлинике</option>
-                        <option data-recepients="depart,insure,tfoms">В стационаре</option>
-                    </select>
-                    <label class="label">Где?</label>
-                    </div>
-                </div>
-                <div class="col-12 mb-2">
-                    <div class="content-form-block">
-                    <div class="group">
-                    <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)"  />
-                    <label class="label">Наименование медучреждения</label>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div data-branch="2" class="d-none row">
-                <div class="col-12 mb-2">
-                    <div class="floating-label">
-                    <select data-recepients name="orgtype" class="floating-select" value="" required1>
-                        <option data-recepients></option>
-                        <option data-recepients="tfoms,insure">В поликлинике</option>
-                        <option data-recepients="foms, tfoms,insure">В стационаре</option>
-                    </select>
-                    <label class="label">Где?</label>
-                    </div>
-                </div>
-                <div class="col-12 mb-2">
-                    <div class="content-form-block">
-                    <div class="group">
-                    <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)" />
-                    <label class="label">Наименование медучреждения</label>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div data-branch="3" class="d-none row">
-                <div class="col-12 mb-2">
-                    <div class="content-form-block">
-                    <div class="group">
-                    <input class="input" type="text" value="" name="drug" placeholder=" " data-recepients="depart,roszn" value="" />
-                    <label class="label">Какое лекартство?</label>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="recepients col-12">
-            <!--div class="row">
-                        <div class="col-12 d-none insure">
-                            <label>Страховая медицинская организация</label>
-                            <input type="text" class="form-control" name="insure" value="" readonly
-                                onclick="selectInsure(this)" placeholder="Укажите..." data-id>
+
+                <div class="row">
+                    <div class="col-12 mb-6">
+                        <div class="floating-label">
+                            <select class="floating-select" name="type" required1 value="">
+                                <option></option>
+                                <option value="1">Жалоба на оказание медицинской помощи</option>
+                                <option value="2">Провести экспертизу качества медицинской помощи</option>
+                                <option value="3">Жалоба на лекарственное обеспечение</option>
+                            </select>
+                            <label class="label">Повод обращения</label>
                         </div>
-                    </div -->
-        </div>
+                    </div>
+                </div>
 
-        <div class="col-12 p-0">
 
-            <div class="content-form-block-title pb-4 pt-6 ">
-                Информация
-            </div>
-            <div class="content-form-block">
-                <div class="group">
-                   <input placeholder="Укажите.." class="input" type="text" name="text" required1 />
-                    <label class="label" >Куда обращались ранее по данному вопросу</label>
+                <div data-branch="1" class="d-none row">
+                    <div class="col-12 mb-2">
+                        <div class="floating-label">
+                            <select data-recepients name="orgtype" class="floating-select" required1 value="">
+                                <option data-recepients></option>
+                                <option data-recepients="depart,insure">В поликлинике</option>
+                                <option data-recepients="depart,insure,tfoms">В стационаре</option>
+                            </select>
+                            <label class="label">Где?</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)" />
+                                <label class="label">Наименование медучреждения</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-branch="2" class="d-none row">
+                    <div class="col-12 mb-2">
+                        <div class="floating-label">
+                            <select data-recepients name="orgtype" class="floating-select" value="" required1>
+                                <option data-recepients></option>
+                                <option data-recepients="tfoms,insure">В поликлинике</option>
+                                <option data-recepients="foms, tfoms,insure">В стационаре</option>
+                            </select>
+                            <label class="label">Где?</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 onclick="selectMed(this,true)" />
+                                <label class="label">Наименование медучреждения</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-branch="3" class="d-none row">
+                    <div class="col-12 mb-2">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input class="input" type="text" value="" name="drug" placeholder=" " data-recepients="depart,roszn" value="" />
+                                <label class="label">Какое лекартство?</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="recepients d-none row">
+                    <div class="col-12 head">
+                        <div class="content-form-block-title pb-4 pt-6 ">
+                            Адресаты
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-none depart">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="depart" value="" readonly onclick="selectDepart(this)" placeholder=" " data-id>
+                                <label class="label">Департамент здравоохранения</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-none insure">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="insure" value="" readonly onclick="selectInsure(this)" placeholder=" " data-id>
+                                <label class="label">Страховая медицинская организация</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-none tfoms">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input type="text" class="input" name="tfoms" value="" readonly onclick="selectTfoms(this)" placeholder=" " data-id>
+                                <label class="label">Территориальный фонд ОМС</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-form-block-title pb-4 pt-6 ">
+                            Информация
+                        </div>
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input placeholder="Укажите.." class="input" type="text" name="prev" required1 />
+                                <label class="label">Куда обращались ранее по данному вопросу</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="content-form-block">
+                            <div class="group">
+                                <input placeholder="Укажите.." class="input" type="text" name="text" required1 />
+
+                                <label class="label">Текст обращения</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger" />
+                            <label class="custom-control-label textPale" for="dangerAbuseForm">
+                                Существует угроза жизни
+                            </label>
+                        </div>
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="checkAbuseForm" required />
+                            <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя,
+                                отчество, контактные номера телефонов, адрес электронной почты, иные сведения, содержащие
+                                персональные данные в электронной форме, а также на их обработку с использованием средств
+                                автоматизации, включая осуществление сбора, накопления, систематизации, хранения, уточнения,
+                                использования, распространения (в т.ч. передачу), обезличивание, блокирование, уничтожение.
+                            </label>
+                        </div>
+                    </div>
+                    <div class=" mt-4 pt-1">
+                        <button type="button" class="button button--red btn-abuse">Отправить</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 p-0">
-            <div class="content-form-block">
-                <div class="group">
-                    <input placeholder="Укажите.." class="input" type="text" name="text" required1 />
-
-                    <label class="label" >Текст обращения</label>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox"  class="custom-control-input" id="dangerAbuseForm" name="danger" />
-                <label class="custom-control-label textPale" for="dangerAbuseForm">
-                    Существует угроза жизни
-                </label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="checkAbuseForm" required />
-                <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя, отчество, контактные
-                    номера телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в электронной
-                    форме, а также на их обработку с использованием средств автоматизации, включая осуществление сбора, накопления,
-                    систематизации, хранения, уточнения, использования, распространения (в т.ч. передачу), обезличивание,
-                    блокирование, уничтожение.
-                </label>
-            </div>
-        </div>
-        <div class=" mt-4 pt-1">
-            <button type="button" class="button button--red btn-abuse">Отправить</button>
         </div>
 </div>
 
 
-<!--
-
-<form class="form-white form-white--gray" id="formAbuse">
-    <input type="hidden" name="_subject" value="Обращение с сайта {{_route.host}}" />
-    <input type="hidden" name="_mailto" value="{{_sett.email}}" />
-    <div class="form-body row">
-
-        <div class="col-sm-4">
-            <div class="form-group floating">
-                <input class="form-control floating" type="text" name="last_name" required />
-                <label>Фамилия</label>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group floating">
-                <input class="form-control floating" type="text" name="first_name" required />
-                <label>Имя</label>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group floating">
-                <input class="form-control floating" type="text" name="middle_name" required />
-                <label>Отчество</label>
-            </div>
-        </div>
-        <div class="col-sm-4 mb-4">
-            <label>Е-mail</label>
-            <input class="form-control" type="text" id="email" name="email" required1 />
-        </div>
-        <div class="col-sm-4 mb-4">
-            <label>Телефон</label>
-            <input class="form-control" type="text" data-wb-mask="+7 (999) 999-99-99" name="phone" />
-        </div>
-        <div class="col-sm-4 mb-4">
-            <label>Гражданство</label>
-            <input class="form-control" type="text" name="citizen" required1 />
-        </div>
-
-        <div class="col-sm-4 mb-4">
-            <label>Индекс</label>
-            <input class="form-control" type="text" data-wb-mask="999999" name="zip" required1 />
-        </div>
-        <div class="col-sm-4 mb-4">
-            <label>Регион</label>
-            <input type="text" class="form-control" name="region" value="" readonly onclick="selectRegion(this)" placeholder="Укажите...">
-        </div>
-        <div class="col-sm-4 mb-4">
-            <label>Населённый пункт</label>
-            <input class="form-control" type="text" name="place" required1 />
-        </div>
-        <div class="col-sm-12 mb-4">
-            <label>Адрес</label>
-            <input class="form-control" type="text" name="address" required1 />
-        </div>
-
-        <div class="col-sm-6 mb-4">
-            <label>Страховая медицинская организация</label>
-            <input type="text" class="form-control" name="insure" value="" readonly onclick="selectInsure(this)" placeholder="Укажите..."
-                data-id>
-        </div>
-        <div class="col-sm-6 mb-4">
-            <label>Номер полиса</label>
-            <input class="form-control" type="text" id="polis" name="polis" />
-        </div>
-
-        <div class="branches col-12">
-            <div class="row">
-                <div class="col-12 ">
-                    <label>Регион обращения</label>
-                    <input type="text" class="form-control" name="region_to" placeholder="Укажите..." value="" readonly required1 onclick="selectRegion(this)">
-                </div>
-
-                <div class="col-12 ">
-                    <label>Повод обращения</label>
-                    <select class="form-control" name="type" required1>
-                        <option value="">Укажите...</option>
-                        <option value="1">Жалоба на оказание медицинской помощи</option>
-                        <option value="2">Провести экспертизу качества медицинской помощи</option>
-                        <option value="3">Жалоба на лекарственное обеспечение</option>
-                    </select>
-                </div>
-            </div>
-            <div data-branch="1" class="d-none row">
-                <div class="col-12 mb-2">
-                    <label>Где?</label>
-                    <select data-recepients name="orgtype" class="form-control" required1>
-                        <option data-recepients>Укажите...</option>
-                        <option data-recepients="depart,insure">В поликлинике</option>
-                        <option data-recepients="depart,insure,tfoms">В стационаре</option>
-                    </select>
-                </div>
-                <div class="col-12 mb-2">
-                    <label>Наименование медучреждения</label>
-                    <input type="text" class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите...">
-                </div>
-            </div>
-            <div data-branch="2" class="d-none row">
-                <div class="col-12 mb-2">
-                    <label>Где?</label>
-                    <select data-recepients name="orgtype" class="form-control" required1>
-                        <option data-recepients>Укажите...</option>
-                        <option data-recepients="tfoms,insure">В поликлинике</option>
-                        <option data-recepients="foms, tfoms,insure">В стационаре</option>
-                    </select>
-                </div>
-                <div class="col-12 mb-2">
-                    <label>Наименование медучреждения</label>
-                    <input type="text" class="form-control" name="org" value="" readonly required1 onclick="selectMed(this,true)" placeholder="Укажите...">
-                </div>
-            </div>
-            <div data-branch="3" class="d-none row">
-                <div class="col-12 mb-2">
-                    <input class="form-control" type="text" id="drug" name="drug" data-recepients="depart,roszn" placeholder="Какое лекартство?"
-                    />
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="col-12 mb-4">
-            <label>Куда обращались ранее по данному вопросу</label>
-            <textarea class="form-control" name="prev" placeholder="Куда обращались ранее по данному вопросу" required1></textarea>
-        </div>
-
-        <div class="col-12 mb-3">
-            <label>Текст обращения</label>
-            <textarea class="form-control" type="text" name="text" placeholder="Текст обращения" required1></textarea>
-        </div>
-
-        <div class="col-12">
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger">
-                <label class="custom-control-label textPale" for="dangerAbuseForm">
-                    Существует угроза жизни
-                </label>
-            </div>
-
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="checkAbuseForm" required>
-                <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя, отчество, контактные
-                    номера телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в электронной
-                    форме, а также на их обработку с использованием средств автоматизации, включая осуществление сбора, накопления,
-                    систематизации, хранения, уточнения, использования, распространения (в т.ч. передачу), обезличивание,
-                    блокирование, уничтожение.
-                </label>
-            </div>
-        </div>
-
-        <div class="text-center mt-4 pt-1">
-            <button type="button" class="button button--red btn-abuse">Отправить</button>
-        </div>
-    </div>
-
-
-    </div>
-</form>
--->
 <modals>
 
     <div id="selectRegion1" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
@@ -404,13 +275,6 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <ul class="list-group ">
-                        <template>
-                            {{#each items}}
-                            <li class="list-group-item cursor-pointer" data-region="{{id}}">{{name}}</li>
-                            {{/each}}
-                        </template>
-                    </ul>
                     <ul class="list-group ">
                         <template>
                             {{#each items}}
@@ -474,10 +338,61 @@
         </div>
     </div>
 
+
+    <div id="selectDepart" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="w-100 modal-title">
+                        <input type="search" class="form-control" placeholder="Поиск...">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <template>
+                            {{#each items}}
+                            <li class="list-group-item cursor-pointer" data-region="{{id}}" data-id="{{id}}" data-email="{{email}}">
+                                <span>{{name}}</span>
+                            </li>
+                            {{else}}
+                            <p class="alert alert-info">Пожалуйста, вначале укажите регион.</p>
+                            {{/each}}
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="selectTfoms" class="modal nowb" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="w-100 modal-title">
+                        <input type="search" class="form-control" placeholder="Поиск...">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <template>
+                            {{#each items}}
+                            <li class="list-group-item cursor-pointer" data-region="{{id}}" data-id="{{id}}" data-email="{{email}}">
+                                <span>{{name}}</span>
+                            </li>
+                            {{else}}
+                            <p class="alert alert-info">Пожалуйста, вначале укажите регион.</p>
+                            {{/each}}
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </modals>
 
 <script>
-    var selMed, selIns, selReg, selectInsure, selectRegion;
+    var selMed, selIns, selReg, selDep, selTfoms, selectInsure, selectRegion;
     document.addEventListener("site-jq-ready", function() {
         selMed = new Ractive({
             target: '#selectMed .list-group',
@@ -503,6 +418,22 @@
             }
         });
 
+        selDep = new Ractive({
+            target: '#selectDepart .list-group',
+            template: $('#selectDepart template').html(),
+            data: {
+                items: []
+            }
+        });
+
+        selTfoms = new Ractive({
+            target: '#selectTfoms .list-group',
+            template: $('#selectTfoms template').html(),
+            data: {
+                items: []
+            }
+        });
+
         $(document).on('wb_mail_done', function(ev, a) {
             if ($(ev.target).parents('#content-call-back')) {
                 $(ev.target).parents('.modal').modal('hide');
@@ -518,7 +449,7 @@
         })
 
         $('#formAbuse .floating-select').on('change', function(e) {
-            $(this).attr('value',$(this).val());
+            $(this).attr('value', $(this).val());
         });
 
         $('#formAbuse .btn-abuse').on('click', function(e) {
@@ -566,13 +497,13 @@
             } else {
                 recep = $(this).find('option:selected').attr('data-recepients').split(',');
             }
-            $("#formAbuse .recepients > .row > *").addClass('d-none');
+            $("#formAbuse .recepients").removeClass('d-none');
+            $("#formAbuse .recepients > *").addClass('d-none');
+            $("#formAbuse .recepients > .head").removeClass('d-none');
             $.each(recep, function(i, val) {
                 val = val.trim();
-                console.log(val);
                 if (val > "") {
-                    $("#formAbuse .recepients > .row").removeClass('d-none');
-                    $("#formAbuse .recepients > .row ." + val).removeClass('d-none');
+                    $("#formAbuse .recepients > ." + val).removeClass('d-none');
                 }
             });
 
@@ -626,6 +557,13 @@
                 $.get('/ajax/mo/?region=' + region, function(data) {
                     selMed.set('items', data);
                 })
+                $.get('/ajax/dep/?region=' + region, function(data) {
+                    selDep.set('items', data);
+                })
+                $.get('/ajax/tfoms/?region=' + region, function(data) {
+                    selTfoms.set('items', data);
+                })
+
                 $('#formAbuse').data('region', region);
                 $('#selectRegion1').modal('hide');
             })
@@ -671,12 +609,76 @@
             });
             $('#selectMed input').val('').focus().trigger('keyup');
         }
+        selectDepart = function(that, all = false) {
+            $('#selectDepart').modal('show');
+            let region = $('#formAbuse').data('region');
+            $('#selectDepart .list-group-item').hide();
+            $('#selectDepart .list-group-item[data-region=' + region + ']').show();
 
+            $('#selectDepart .list-group-item').off('click');
+            $('#selectDepart .list-group-item').on('click', function() {
+                let name = $(this).children('span').text();
+                let email = $(this).data('email');
+                let id = $(this).data('id');
+                all ? $('#formAbuse [name=depart]').val(name) : $(that).val(name);
+                all ? $('#formAbuse [name=depart]').attr('data-id', id) : $(that).attr('data-id',
+                    id);
+                all ? $('#formAbuse [name=depart]').attr('data-email', email) : $(that).attr(
+                    'data-email', email);
+                $('#selectDepart').modal('hide');
+            })
+
+            $('#selectDepart input').off('keyup');
+            $('#selectDepart input').on('keyup', function() {
+                let regex = $(this).val();
+                if (regex > ' ') {
+                    regex = new RegExp(regex, "gi");
+                    $.each($('#selectDepart .list-group-item[data-region=' + region + ']'),
+                        function(i, item) {
+                            let str = $(item).text();
+                            str.match(regex) ? $(this).show() : $(this).hide();
+                        });
+                }
+            });
+            $('#selectDepart input').val('').focus().trigger('keyup');
+        }
+        selectTfoms = function(that, all = false) {
+            $('#selectTfoms').modal('show');
+            let region = $('#formAbuse').data('region');
+            $('#selectTfoms .list-group-item').hide();
+            $('#selectTfoms .list-group-item[data-region=' + region + ']').show();
+
+            $('#selectTfoms .list-group-item').off('click');
+            $('#selectTfoms .list-group-item').on('click', function() {
+                let name = $(this).children('span').text();
+                let email = $(this).data('email');
+                let id = $(this).data('id');
+                all ? $('#formAbuse [name=tfoms]').val(name) : $(that).val(name);
+                all ? $('#formAbuse [name=tfoms]').attr('data-id', id) : $(that).attr('data-id',
+                    id);
+                all ? $('#formAbuse [name=tfoms]').attr('data-email', email) : $(that).attr(
+                    'data-email', email);
+                $('#selectTfoms').modal('hide');
+            })
+
+            $('#selectTfoms input').off('keyup');
+            $('#selectTfoms input').on('keyup', function() {
+                let regex = $(this).val();
+                if (regex > ' ') {
+                    regex = new RegExp(regex, "gi");
+                    $.each($('#selectTfoms .list-group-item[data-region=' + region + ']'),
+                        function(i, item) {
+                            let str = $(item).text();
+                            str.match(regex) ? $(this).show() : $(this).hide();
+                        });
+                }
+            });
+            $('#selectTfoms input').val('').focus().trigger('keyup');
+        }
 
     });
 </script>
 <style>
-
     .floating-select {
         appearance: none;
     }
@@ -693,7 +695,8 @@
         height: 32px;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid #C6C6C6;;
+        border-bottom: 1px solid #C6C6C6;
+        ;
     }
 
     .floating-select:focus {
@@ -701,7 +704,7 @@
         border-bottom: 1px solid #C6C6C6;
     }
 
-    label {
+    label:not(.custom-control-label) {
         color: #999;
         font-size: 14px;
         font-weight: normal;
@@ -713,24 +716,29 @@
         -webkit-transition: 0.2s ease all;
     }
 
-    .floating-select:focus ~ label, .floating-select:not([value=""]):valid ~ label {
+    .floating-select:focus~label,
+    .floating-select:not([value=""]):valid~label {
         top: -19px;
         font-size: 14px;
     }
 
     /* active state */
-    .floating-select:focus ~ .floating-select:focus ~ {
+
+    .floating-select:focus~.floating-select:focus~ {
         width: 50%;
     }
 
-    *, *:before, *:after {
+    *,
+    *:before,
+    *:after {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
 
     /* active state */
-    .floating-select:focus ~ {
+
+    .floating-select:focus~ {
         -webkit-animation: inputHighlighter 0.3s ease;
         -moz-animation: inputHighlighter 0.3s ease;
         animation: inputHighlighter 0.3s ease;
@@ -740,15 +748,14 @@
         height: auto;
     }
 
-   .content-form-block .input::placeholder{
-   color:transparent
-   }
+    .content-form-block .input::placeholder {
+        color: transparent
+    }
 
-   .content-form-block .input:focus~label,
-   .content-form-block .input:not(:placeholder-shown)~label
-    {
-       top: -20px
-   }
+    .content-form-block .input:focus~label,
+    .content-form-block .input:not(:placeholder-shown)~label {
+        top: -20px
+    }
 
 
     .content-form-block .input:focus {
@@ -759,29 +766,34 @@
         position: relative;
         margin-bottom: 24px
     }
-.modal-content{
-    overflow-y: scroll;
-    height: 500px;
-}
-.modal-dialog {
-  @media (min-width: 576px) {
-    max-width: 1000px;
-  }
-}
-.list-group{
-grid-gap: 0 2rem;
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-}
-@media(max-width: 640px){
-        .modal-body{
+
+    .modal-content {
+        overflow-y: scroll;
+        height: 500px;
+    }
+
+    .modal-dialog {
+        @media (min-width: 576px) {
+            max-width: 1000px;
+        }
+    }
+
+    .list-group {
+        grid-gap: 0 2rem;
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+    }
+
+    @media(max-width: 640px) {
+        .modal-body {
             flex-direction: column;
         }
-        .list-group{
-        grid-template-columns: 1fr;
+        .list-group {
+            grid-template-columns: 1fr;
         }
 
-        }
+    }
+
     @media (min-width: 768px) {
         .content-form-block .group {
             margin-bottom: 40px
@@ -978,7 +990,7 @@ grid-gap: 0 2rem;
         outline: none
     }
 
-    .form-group.floating > label {
+    .form-group.floating>label {
         bottom: 34px;
         left: 8px;
         position: relative;
@@ -991,13 +1003,13 @@ grid-gap: 0 2rem;
         transform-origin: bottom left;
     }
 
-    .form-control.floating:focus ~ label {
+    .form-control.floating:focus~label {
         transform: translate(1px, -85%) scale(0.80);
         opacity: .8;
         color: #005ebf;
     }
 
-    .form-control.floating:valid ~ label {
+    .form-control.floating:valid~label {
         transform-origin: bottom left;
         transform: translate(1px, -85%) scale(0.80);
         opacity: .8;
@@ -1006,5 +1018,4 @@ grid-gap: 0 2rem;
     .modal-xl {
         max-width: 80vw;
     }
-
 </style>

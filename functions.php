@@ -72,6 +72,7 @@ function calcPrice($price, $fmt = true) {
 }
 
 function ajax_smo() {
+    // Список страховых
 	header('Content-Type: text/json; charset=utf-8');
     $region = $_GET['params']['region'];
     $list = wbItemList('smo');
@@ -89,6 +90,7 @@ function ajax_smo() {
 
 function ajax_mo()
 {
+    // Список Мед.организаций
     header('Content-Type: text/json; charset=utf-8');
     $list = wbItemList('mo');
     $region = $_GET['params']['region'];
@@ -103,6 +105,48 @@ function ajax_mo()
 	}
     return json_encode($list);
 }
+
+function ajax_dep() {
+    // список департаментов
+    header('Content-Type: text/json; charset=utf-8');
+    $list = wbTreeRead("area");
+    $result = [];
+    $region = $_GET['params']['region'];
+    foreach($list['tree'] as $item) {
+
+        if ($item['id'] == $region) {
+            $result[] = [
+            'id'=>$item['id'],
+            'name'=>$item['data']['dpzdrv'],
+            'email'=>$item['data']['dpzdrv_email']
+            ];
+            break;
+        }
+    }
+    return json_encode($result);
+}
+
+
+function ajax_tfoms()
+{
+    // список департаментов
+    header('Content-Type: text/json; charset=utf-8');
+    $list = wbTreeRead("area");
+    $result = [];
+    $region = $_GET['params']['region'];
+    foreach ($list['tree'] as $item) {
+        if ($item['id'] == $region) {
+            $result[] = [
+            'id'=>$item['id'],
+            'name'=>$item['data']['tfoms'],
+            'email'=>$item['data']['tfoms_email']
+            ];
+            break;
+        }
+    }
+    return json_encode($result);
+}
+
 
 function ajax_region() {
 	header('Content-Type: text/json; charset=utf-8');
