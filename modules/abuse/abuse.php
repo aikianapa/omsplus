@@ -48,7 +48,7 @@ function abuse_print()
     $sent = recepients($data); // в $data меняется recepients
     if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
         $sent=trim($_ENV["settings"]["mod_abuse"]);
-        $sent=str_replace([' ',';'], ',', $sent);
+        $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
         $sent=explode(',', $sent);
     }
 

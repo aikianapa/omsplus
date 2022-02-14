@@ -198,7 +198,11 @@ function wbMail(
             if (!is_array($s)) {$sent[$k] = explode(";", $s);}
         }
     } else if (is_array($sent) and !is_array($sent[0]) and !strpos($sent[0], ";")) {
-        $sent = array($sent);
+        $arr=[];
+        foreach($sent as $em) {
+            $arr[] = [$em,$em];
+        }
+        $sent = $arr;
     }
 
     if ($_ENV["settings"]["phpmailer"] == "on") {
