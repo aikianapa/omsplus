@@ -219,7 +219,7 @@
                     <div class="col-12 d-none foms">
                         <div class="content-form-block">
                             <div class="group">
-                                <input type="text" class="input" name="tfoms" value="Фонд обязательного медицинского страхования"  placeholder=" " data-id data-email="{{_sett.email_foms}}">
+                                <input type="text" class="input" name="foms" value="Фонд обязательного медицинского страхования"  placeholder=" " data-id data-email="{{_sett.email_foms}}">
                                 <label class="label">Фонд ОМС</label>
                             </div>
                         </div>
@@ -472,8 +472,14 @@
 
         $('#formAbuse .btn-abuse').on('click', function(e) {
             if (wb_check_required('#formAbuse')) {
-                $('#formAbuse :input:not(:visible)').remove();
+                $('#formAbuse [name]:input:not(:visible)').each(function(){
+                    $(this).attr('data-name',$(this).attr('name')).removeAttr('name');
+                });
                 let data = $('#formAbuse').serializeArray();
+                $('#formAbuse [data-name]:input:not(:visible)').each(function(){
+                    $(this).attr('name',$(this).attr('data-name')).removeAttr('data-name');
+                });
+
                 let $form = $('<form id="printAbuse" />');
                 $form.attr('method', 'POST').attr('target', '_blank').attr('action',
                     '/module/abuse/print');
@@ -482,16 +488,27 @@
                         `<input type="hidden" name="${k.name}" value="${htmlentities(k.value)}">`
                     );
                 });
+
+                let region = $('#formAbuse [name=region_to]').data('region');
+                let recp ='';
+                $('#formAbuse .recepients [name][data-email]').each(function(){
+                    let fld = $(this).attr('name');
+                    let email = $(this).attr('data-email');
+                    $form.append(`<input type="hidden" name="${fld}_email" value="${email}">`);
+                    recp > '' ? recp +=`, ${fld}` : recp += fld;
+                });
+                
+                $form.append(`<input type="hidden" name="recepients" value="${recp}">`);
+
+                /*
+
                 let email = $('#formAbuse [name=insure]:last').data('email');
                 let inid = $('#formAbuse [name=insure]:last').data('id');
-                let region = $('#formAbuse [name=region_to]').data('region');
-                let recp = $('#formAbuse [data-recepients]:visible');
-                $(recp).is('select') ? recp = $(recp).find(':selected').data('recepients') : recp = $(
-                    recp).data('recepients');
 
                 $form.append(`<input type="hidden" name="insure_id" value="${inid}">`);
                 $form.append(`<input type="hidden" name="insure_email" value="${email}">`);
-                $form.append(`<input type="hidden" name="recepients" value="${recp}">`);
+                
+                */
                 $form.find('[name=region]').val(region);
 
                 $form.appendTo('body');

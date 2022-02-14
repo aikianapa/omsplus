@@ -59,7 +59,7 @@ function abuse_print()
 
     $subject = "Медицинский поверенный: жалоба ". $data['from_name'];
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
-    $sent=['oleg_frolov@mail.ru','info@idees.ru'];
+
     $attach = $pdf;
     $message = "Жалоба в прикреплённом файле";
 
@@ -79,46 +79,15 @@ function abuse_print()
 function recepients(&$data)
 {
     $recepients = [];
-    $region = getRegion($data['region']);
     $rec=explode(',', $data['recepients']);
     $data['recepients'] = [];
-    foreach ($rec as $r) {
-        switch ($r) {
-        case 'depart':
-            // Департамент здравоохранения
-            $recepients[] = $region['data']['dpzdrv_email'];
-            $data['recepients'][] = ['name'=>$region['data']['dpzdrv'],'email'=>$region['data']['dpzdrv_email']];
-            break;
-        case 'insure':
-            // Страховая компания
-            $recepients[] = $data['insure_email'];
-            $data['recepients'][] = ['name'=>$data['insure'],'email'=>$data['insure_email']];
-            break;
-        case 'tfoms':
-            // Территориальный фонд ОМС
-            $recepients[] = $region['data']['tfoms_email'];
-            $data['recepients'][] = ['name'=>$region['data']['tfoms'],'email'=>$region['data']['tfoms_email']];
-            break;
-        case 'foms':
-            // Фонд ОМС
-            if (isset($_ENV["settings"]["email_foms"]) && $_ENV["settings"]["email_foms"] > '') {
-                $recepients[] = $_ENV["settings"]["email_foms"];
-                $data['recepients'][] = [
-                    'name'=>'Федеральный фонд обязательного медицинского страхования',
-                    'email'=>$_ENV["settings"]["email_foms"]
-                ];
-            }
-            break;
-        case 'roszn':
-            // Росздравнадзор
-            if (isset($_ENV["settings"]["email_roszdrav"]) && $_ENV["settings"]["email_roszdrav"] > '') {
-                $recepients[] = $_ENV["settings"]["email_roszdrav"];
-                $data['recepients'][] = [
-                    'name'=>'Федеральная служба по надзору в сфере здравоохранения',
-                    'email'=>$_ENV["settings"]["email_roszdrav"]
-                ];
-            } 
-            break;
+    foreach($rec as $r) {
+        $r=trim($r);
+        if (isset($data[$r]) && $data[$r]> '') {
+
+        $recepients[]  = $data[$r.'_email'];
+        $data['recepients'][] = ['name'=>$data[$r],'email'=>$data[$r.'_email']];
+
         }
     }
     return $recepients;
