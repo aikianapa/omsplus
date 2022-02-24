@@ -2,6 +2,10 @@
     <form class="form-white form-white--gray" id="formAbuse">
         <input type="hidden" name="_subject" value="Обращение с сайта {{_route.host}}" />
         <input type="hidden" name="_mailto" value="{{_sett.email}}" />
+        <div class="content-form-block-title">
+            Написать обращение
+        </div>
+        <div class="content-form-block-hr"></div>
         <div class="content-form-block-title pb-4">
             Личные данные
         </div>
@@ -88,23 +92,6 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 ">
-                <div class="content-form-block">
-                    <div class="group">
-                        <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
-                        <label class="label">Страховая медицинская организация</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 ">
-                <div class="content-form-block">
-                    <div class="group">
-                        <input class="input" placeholder="Укажите.." type="text" id="polis" name="polis" />
-                        <label class="label">Номер полиса</label>
-                    </div>
-                </div>
-            </div>
-
             <div class="branches col-12">
                 <div class="content-form-block-title pb-4 ">
                     Куда подаем жалобу
@@ -135,6 +122,16 @@
                 <div data-branch="1" class="d-none row">
                     <div class="col-12 mb-2">
                         <div class="floating-label">
+                            <select name="paytype" class="floating-select" required1 value="">
+                                <option data-recepients></option>
+                                <option>Платная</option>
+                                <option>Бесплатная ОМС</option>
+                            </select>
+                            <label class="label">Тип услуги</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="floating-label">
                             <select data-recepients name="orgtype" class="floating-select" required1 value="">
                                 <option data-recepients></option>
                                 <option data-recepients="depart,insure">В поликлинике</option>
@@ -153,6 +150,16 @@
                     </div>
                 </div>
                 <div data-branch="2" class="d-none row">
+                    <div class="col-12 mb-2">
+                        <div class="floating-label">
+                            <select name="paytype" class="floating-select" required1 value="">
+                                <option data-recepients></option>
+                                <option>Платная</option>
+                                <option>Бесплатная ОМС</option>
+                            </select>
+                            <label class="label">Тип услуги</label>
+                        </div>
+                    </div>
                     <div class="col-12 mb-2">
                         <div class="floating-label">
                             <select data-recepients name="orgtype" class="floating-select" value="" required1>
@@ -200,10 +207,22 @@
                         </div>
                     </div>
                     <div class="col-12 d-none insure">
-                        <div class="content-form-block">
-                            <div class="group">
-                                <input type="text" class="input" name="insure" value="" readonly onclick="selectInsure(this)" placeholder=" " data-id>
-                                <label class="label">Страховая медицинская организация</label>
+                        <div class="row">
+                            <div class="col-sm-6 ">
+                                <div class="content-form-block">
+                                    <div class="group">
+                                        <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
+                                        <label class="label">Страховая медицинская организация</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ">
+                                <div class="content-form-block">
+                                    <div class="group">
+                                        <input class="input" placeholder="Укажите.." type="text" id="polis" name="polis" />
+                                        <label class="label">Номер полиса</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -240,6 +259,16 @@
                         <div class="content-form-block-title pb-4 pt-6 ">
                             Информация
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-checkbox mb-5">
+                            <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger" />
+                            <label class="custom-control-label textPale" for="dangerAbuseForm">
+                                Существует угроза жизни
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
                         <div class="content-form-block">
                             <div class="group">
                                 <textarea placeholder=" " class="input" name="prev" required1 ></textarea>
@@ -257,12 +286,6 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="dangerAbuseForm" name="danger" />
-                            <label class="custom-control-label textPale" for="dangerAbuseForm">
-                                Существует угроза жизни
-                            </label>
-                        </div>
                         <div class="custom-control custom-checkbox mb-3">
                             <input type="checkbox" class="custom-control-input" id="checkAbuseForm" required />
                             <label class="custom-control-label textPale" for="checkAbuseForm">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя,

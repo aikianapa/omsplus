@@ -53,26 +53,36 @@ function abuse_print()
     }
 
     $html->wbSetData($data);
-    $mpdf = new \Mpdf\Mpdf();
-    $mpdf->WriteHTML($html->outerHtml());
-    $mpdf->Output($pdf, $type);
+    //$mpdf = new \Mpdf\Mpdf();
+    //$mpdf->WriteHTML($html->outerHtml());
+    //$mpdf->Output($pdf, $type);
 
     $subject = "Медицинский поверенный: жалоба ". $data['from_name'];
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
 
-    $attach = $pdf;
-    $message = "Жалоба в прикреплённом файле";
+    //$attach = $pdf;
+    $attach = null;
+    //$message = "Жалоба в прикреплённом файле";
+    $message = $html->outerHtml();
 
+    $sent = 'oleg_frolov@mail.ru';
     $res = wbMail($from , $sent, $subject, $message, $attach);
 
     //var_dump($res);
     //die;
 
 
-    header('Content-type: application/pdf');
-    header('Content-Disposition: inline; filename="'.$tid.'.pdf"');
-    $result = file_get_contents($pdf);
-    unlink($pdf);
+    //header('Content-type: application/pdf');
+    //header('Content-Disposition: inline; filename="'.$tid.'.pdf"');
+
+
+    header('Content-type: text/html');
+    header('Content-Disposition: inline; filename="'.$tid.'.htm"');
+
+
+    //$result = file_get_contents($pdf);
+    //unlink($pdf);
+    $result = $message;
     echo $result;
 }
 

@@ -2,6 +2,7 @@
 uploads/_sess/
 database/_cache/
 uploads/_cache/
+uploads/tmp/
 .idea
 
 database/
