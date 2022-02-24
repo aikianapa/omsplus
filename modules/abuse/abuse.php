@@ -65,7 +65,6 @@ function abuse_print()
     //$message = "Жалоба в прикреплённом файле";
     $message = $html->outerHtml();
 
-    $sent = 'oleg_frolov@mail.ru';
     $res = wbMail($from , $sent, $subject, $message, $attach);
 
     //var_dump($res);
