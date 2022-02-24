@@ -1730,3 +1730,8 @@ body {
         display: none;
     }
 }
+
+.content-form-block.gray {
+    background: #F9F9F9;
+    padding: 54px 0;
+}

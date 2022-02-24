@@ -15,7 +15,7 @@
         </div>
 
         <div class="company" data-wb-role="tree" data-wb-from="content" data-wb-hide="wb">
-            <div class="content-form-block" data-wb-where='"{{id}}" == "block1"'>
+            <div class="content-form-block gray" data-wb-where='"{{id}}" == "block1"'>
                 <div class="container">
                     <form class="row">
                         <input type="hidden" name="_subject" value="Заказ обратного звонка" />
