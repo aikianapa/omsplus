@@ -41,7 +41,10 @@ function wbBeforeEngine() {
 			  break;
 		  }
 	  }
-	}
+	} else if ($_ENV["route"]["area"]>"" ) {
+        $_ENV["route"]["area"] = $_COOKIE["area"] = $code = "UNK";
+        $_ENV["route"]["areaname"] = $_COOKIE["areaname"] = $name = "Неизвестно";
+    }
 
     setcookie("areaname", $name, time()+(3600*24*3), "/");
 	if (isset($_COOKIE["area"])) $_ENV["route"]["area"] = $_COOKIE["area"];
