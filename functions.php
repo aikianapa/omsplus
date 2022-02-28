@@ -13,7 +13,7 @@ function wbBeforeEngine() {
       $var = &$_ENV["settings"];
       $var["local_phone"] = $var["phone"];
       $var["local_email"] = $var["email"];
-
+    $name = 'Москва';
 	//$geo = json_decode(@geoplugin__info("178.155.4.56"));
 	$geo = json_decode(@geoplugin__info());
 	if ($geo AND $geo->geoplugin_status == 200) {
@@ -21,15 +21,13 @@ function wbBeforeEngine() {
         $name = $geo->geoplugin_regionName;
 		if (!isset($_COOKIE["area"])) {
 			setcookie("area",$code,time()+(3600*24*3),"/");
-            setcookie("areaname", $name, time()+(3600*24*3), "/");
+            setcookie("areaname",$name,time()+(3600*24*3),"/");
             $_ENV["route"]["area"] = $code;
-			$_ENV["route"]["areaname"] = $name;
+            $_ENV["route"]["areaname"] = $name;
+
 		}
 	}
 
-	if (isset($_COOKIE["area"])) $_ENV["route"]["area"] = $_COOKIE["area"];
-    if (isset($_COOKIE["areaname"])) $_ENV["route"]["areaname"] = $_COOKIE["areaname"];
-	
 	if ($_ENV["route"]["area"]>"" && $_ENV["route"]["mode"] == "show") {
 	  $area = wbTreeRead("area");
 	  $area = $area["tree"];
@@ -39,10 +37,15 @@ function wbBeforeEngine() {
 		  if ($arr->data->iso == $_ENV["route"]["area"]) {
 			  if ($arr->data->phone > "") $var["local_phone"] = $arr->data->phone;
 			  if ($arr->data->email > "") $var["local_email"] = $arr->data->email;
+              $name = $arr->name;
 			  break;
 		  }
 	  }
 	}
+
+    setcookie("areaname", $name, time()+(3600*24*3), "/");
+	if (isset($_COOKIE["area"])) $_ENV["route"]["area"] = $_COOKIE["area"];
+    if (isset($_COOKIE["areaname"])) $_ENV["route"]["areaname"] = $name;
 
 }
 
