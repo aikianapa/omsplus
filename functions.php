@@ -17,14 +17,18 @@ function wbBeforeEngine() {
 	//$geo = json_decode(@geoplugin__info("178.155.4.56"));
 	$geo = json_decode(@geoplugin__info());
 	if ($geo AND $geo->geoplugin_status == 200) {
-		$geo = $geo->geoplugin_regionCode;
-		if (!isset($_COOKIE["area"]) OR $_COOKIE["area"] !== $geo) {
-			setcookie("area",$geo,time()+(3600*24*60),"/");
-			$_ENV["route"]["area"] = $geo;
+		$code = $geo->geoplugin_regionCode;
+        $name = $geo->geoplugin_regionName;
+		if (!isset($_COOKIE["area"])) {
+			setcookie("area",$code,time()+(3600*24*3),"/");
+            setcookie("areaname", $name, time()+(3600*24*3), "/");
+            $_ENV["route"]["area"] = $code;
+			$_ENV["route"]["areaname"] = $name;
 		}
 	}
 
 	if (isset($_COOKIE["area"])) $_ENV["route"]["area"] = $_COOKIE["area"];
+    if (isset($_COOKIE["areaname"])) $_ENV["route"]["areaname"] = $_COOKIE["areaname"];
 	
 	if ($_ENV["route"]["area"]>"" && $_ENV["route"]["mode"] == "show") {
 	  $area = wbTreeRead("area");

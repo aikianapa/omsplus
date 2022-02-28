@@ -472,8 +472,10 @@ $(document).ready(function() {
         });
     */
 
-    var regionText = $("#popup-select-region .region-list__item--active .region-list__text").text();
-    $(".region-selection .region-js").text(regionText);
+    if ($("#popup-select-region .region-list__item--active").length) {
+        var regionText = $("#popup-select-region .region-list__item--active .region-list__text").text();
+        $(".region-selection .region-js").text(regionText);
+    }
     omsInit();
 
 });
@@ -607,11 +609,11 @@ function getScrollbarWidth() {
 
 $(document).on('click', '.region-list__item', function() {
     var regionText = $(this).find('.region-list__text').text();
-    var regionText = $(this).find('.region-list__text').text();
     $('.region-list__item--active').removeClass('region-list__item--active');
     $(this).addClass('region-list__item--active');
     $('.region-js').text(regionText);
     setCookie("area", $(this).attr("data-area"));
+    setCookie("areaname", regionText);
     closePopupRegion();
     document.location.href = document.location.href;
 });

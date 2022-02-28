@@ -6,3 +6,5 @@ uploads/tmp/
 .idea
 
 database/
+
+modules/autoinc/autoinc.json

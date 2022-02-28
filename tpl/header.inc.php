@@ -16,12 +16,12 @@
                     d="M6.167,14a.926.926,0,0,1-.659-.275c-.022-.022-.26-.233-.62-.552-1.067-.946-3.052-2.7-3.052-2.77A5.585,5.585,0,0,1,0,6.12,6.082,6.082,0,0,1,6.12,0a6.082,6.082,0,0,1,6.12,6.12A5.872,5.872,0,0,1,10.4,10.491c-.043.043-.881.8-1.768,1.6l-.008.008-.005,0c-.907.819-1.845,1.666-1.89,1.711A.948.948,0,0,1,6.167,14ZM3.147,9.354,6.12,11.977,9.092,9.354A4.332,4.332,0,0,0,6.12,1.836,4.234,4.234,0,0,0,1.748,6.12a4.579,4.579,0,0,0,1.4,3.235h0Z"
                     transform="translate(0 0)" fill="#ec231a"></path>
               </svg>
-              <div class="region-selection__text region-js">Москва</div>
+              <div class="region-selection__text region-js">{{_route.areaname}}</div>
             </div>
             <div id="popup-confirm-region" class="popup-custom popup-region">
               <div class="popup-region__title">
                 Ваш регион:
-                <span class="region-js">Москва</span>?
+                <span class="region-js">{{_route.areaname}}</span>?
               </div>
               <hr>
               <div class="row gutters-xs-10">

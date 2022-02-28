@@ -35,6 +35,39 @@ function geoplugin__getip() {
 
 function geoplugin__info($ip = null) {
 	if (!$ip) $ip = geoplugin__getip();
+
+  if ($ip == '127.0.0.1') {
+    $ip = <<<IP
+      {
+        "geoplugin_request":"127.0.0.1",
+        "geoplugin_status":200,
+        "geoplugin_delay":"0ms",
+        "geoplugin_credit":"Some of the returned data includes GeoLite data created by MaxMind, available from <a href='http:\/\/www.maxmind.com'>http:\/\/www.maxmind.com<\/a>.",
+        "geoplugin_city":"Localhost",
+        "geoplugin_region":"Localhost",
+        "geoplugin_regionCode":"LOC",
+        "geoplugin_regionName":"Localhost",
+        "geoplugin_areaCode":"",
+        "geoplugin_dmaCode":"",
+        "geoplugin_countryCode":"RU",
+        "geoplugin_countryName":"Russia",
+        "geoplugin_inEU":0,
+        "geoplugin_euVATrate":false,
+        "geoplugin_continentCode":"EU",
+        "geoplugin_continentName":"Europe",
+        "geoplugin_latitude":"47.2361",
+        "geoplugin_longitude":"39.7189",
+        "geoplugin_locationAccuracyRadius":"500",
+        "geoplugin_timezone":"Europe\/Moscow",
+        "geoplugin_currencyCode":"RUB",
+        "geoplugin_currencySymbol":"руб",
+        "geoplugin_currencySymbol_UTF8":"руб",
+        "geoplugin_currencyConverter":100
+      }
+    IP;
+    return $ip;
+  }
+
 	//$AGENT = file($_ENV["path_app"]."/uploads/agents.txt");
 	//$AGENT = $AGENT[rand(0,count($AGENT)-1)];
   $AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
