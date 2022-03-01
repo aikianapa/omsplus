@@ -20,12 +20,11 @@ function wbBeforeEngine() {
 		$code = $geo->geoplugin_regionCode;
         $name = $geo->geoplugin_regionName;
 		if (!isset($_COOKIE["area"])) {
-			setcookie("area",$code,time()+(3600*24),"/");
-            setcookie("areaname",$name,time()+(3600*24),"/");
             $_ENV["route"]["area"] = $code;
             $_ENV["route"]["areaname"] = $name;
 		} else {
-            $_ENV["route"]["area"] = $_COOKIE["area"];
+            $_ENV["route"]["area"] = $code = $_COOKIE["area"];
+            $_ENV["route"]["areaname"] = $name = $_COOKIE["areaname"];
         }
 	}
 
@@ -41,14 +40,12 @@ function wbBeforeEngine() {
 			  break;
 		  }
 	  }
-	} else if ($_ENV["route"]["area"]>"" ) {
-        $_ENV["route"]["area"] = $_COOKIE["area"] = $code = "UNK";
-        $_ENV["route"]["areaname"] = $_COOKIE["areaname"] = $name = "Неизвестно";
-    }
-
+	}
+    
+    setcookie("area", $code, time()+(3600*24), "/");
     setcookie("areaname", $name, time()+(3600*24*3), "/");
-	if (isset($_COOKIE["area"])) $_ENV["route"]["area"] = $_COOKIE["area"];
-    if (isset($_COOKIE["areaname"])) $_ENV["route"]["areaname"] = $name;
+	$_ENV["route"]["area"] = $code;
+    $_ENV["route"]["areaname"] = $name;
 
 }
 
