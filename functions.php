@@ -14,8 +14,8 @@ function wbBeforeEngine() {
       $var["local_phone"] = $var["phone"];
       $var["local_email"] = $var["email"];
     $name = $_COOKIE["areaname"];
-	//$geo = json_decode(@geoplugin__info());
-    $geo = json_decode(@geoplugin__info("178.155.4.56"));
+	$geo = json_decode(@geoplugin__info());
+    //$geo = json_decode(@geoplugin__info("178.155.4.56"));
 
 	if ($geo AND $geo->geoplugin_status == 200) {
 		$code = $geo->geoplugin_regionCode;
