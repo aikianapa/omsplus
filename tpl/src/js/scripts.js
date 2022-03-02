@@ -630,7 +630,6 @@ jQuery.expr[':'].Contains = function(a, i, m) {
 
 $(document).on('change', '.region-search__input', function() {
     var filter = $(this).val();
-    console.log(filter);
     if (filter) {
         $matches = $(".region-list__wrap").find('.region-list__item:Contains(' + filter + ')');
         $('.region-list__item').not($matches).hide();
@@ -701,14 +700,17 @@ function eraseCookie(name) {
 function geopos() {
     let area = getCookie("area");
     if (area > "") {
+        if (area == 'LOC') area = 'SPE';
         let region = $(".region-list__wrap [data-area='" + area + "'] .region-list__text");
         if (region.length) {
             $(".region-list__wrap [data-area]").removeClass("region-list__item--active");
             $(region).parent("li").addClass("region-list__item--active");
             $(".region-js").text($(region).text());
+            $("#region").val($(region).text()).trigger('change.select2');
         }
-        return;
-    } else {
+    }
+    if (!getCookie("areafirst")) {
+        setCookie("areafirst", '1', 100);
         $("#region-open").trigger("click");
     }
     /*
