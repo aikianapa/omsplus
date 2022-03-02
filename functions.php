@@ -13,19 +13,15 @@ function wbBeforeEngine() {
       $var = &$_ENV["settings"];
       $var["local_phone"] = $var["phone"];
       $var["local_email"] = $var["email"];
-    $name = 'Москва';
-	//$geo = json_decode(@geoplugin__info("178.155.4.56"));
-	$geo = json_decode(@geoplugin__info());
+    $name = $_COOKIE["areaname"];
+	//$geo = json_decode(@geoplugin__info());
+    $geo = json_decode(@geoplugin__info("178.155.4.56"));
+
 	if ($geo AND $geo->geoplugin_status == 200) {
 		$code = $geo->geoplugin_regionCode;
         $name = $geo->geoplugin_regionName;
-		if (!isset($_COOKIE["area"])) {
-            $_ENV["route"]["area"] = $code;
-            $_ENV["route"]["areaname"] = $name;
-		} else {
-            $_ENV["route"]["area"] = $code = $_COOKIE["area"];
-            $_ENV["route"]["areaname"] = $name = $_COOKIE["areaname"];
-        }
+        $_ENV["route"]["area"] = $_COOKIE["area"] = $code;
+        $_ENV["route"]["areaname"] = $_COOKIE["areaname"] = $name;
 	}
 
 	if ($_ENV["route"]["area"]>"" && $_ENV["route"]["mode"] == "show") {
@@ -41,7 +37,7 @@ function wbBeforeEngine() {
 		  }
 	  }
 	}
-    
+
     setcookie("area", $code, time()+(3600*24), "/");
     setcookie("areaname", $name, time()+(3600*24*3), "/");
 	$_ENV["route"]["area"] = $code;
