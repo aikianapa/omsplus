@@ -10,13 +10,14 @@ if (!isset($_SESSION['lang'])) $_SESSION['lang'] = 'rus';
 
 
 function wbBeforeEngine() {
-      $var = &$_ENV["settings"];
-      $var["local_phone"] = $var["phone"];
-      $var["local_email"] = $var["email"];
-    $name = $_COOKIE["areaname"];
+    $var = &$_ENV["settings"];
+    $var["local_phone"] = $var["phone"];
+    $var["local_email"] = $var["email"];
+    $code = isset($_COOKIE["area"]) ? $_COOKIE["area"] : null;
+    $name = isset($_COOKIE["areaname"]) ? $_COOKIE["areaname"] : null;
 	$geo = json_decode(@geoplugin__info());
     //$geo = json_decode(@geoplugin__info("178.155.4.56"));
-
+    if (!$code OR !$name) {
 	if ($geo AND $geo->geoplugin_status == 200) {
 		$code = $geo->geoplugin_regionCode;
         $name = $geo->geoplugin_regionName;
@@ -37,6 +38,7 @@ function wbBeforeEngine() {
 		  }
 	  }
 	}
+}
 
     setcookie("area", $code, time()+(3600*24), "/");
     setcookie("areaname", $name, time()+(3600*24*3), "/");
