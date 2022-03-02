@@ -612,10 +612,13 @@ $(document).on('click', '.region-list__item', function() {
     $('.region-list__item--active').removeClass('region-list__item--active');
     $(this).addClass('region-list__item--active');
     $('.region-js').text(regionText);
-    setCookie("area", $(this).attr("data-area"));
-    setCookie("areaname", regionText);
+    setCookie("area", $(this).attr("data-area"), 3);
+    setCookie("areaname", regionText, 3);
     closePopupRegion();
-    document.location.href = document.location.href;
+    setTimeout(function() {
+        document.location.href = document.location.href;
+    }, 100);
+
 });
 //endregion
 
@@ -696,8 +699,19 @@ function eraseCookie(name) {
 }
 
 function geopos() {
-    return; // не работает по https без подписки
-    if (getCookie("area") > "") return;
+    let area = getCookie("area");
+    if (area > "") {
+        let region = $(".region-list__wrap [data-area='" + area + "'] .region-list__text");
+        if (region.length) {
+            $(".region-list__wrap [data-area]").removeClass("region-list__item--active");
+            $(region).parent("li").addClass("region-list__item--active");
+            $(".region-js").text($(region).text());
+        }
+        return;
+    } else {
+        $("#region-open").trigger("click");
+    }
+    /*
     $.get("/ajax/geourl", function(data) {
         data = $.parseJSON(data);
         $.get(data.link, function(data) {
@@ -715,4 +729,5 @@ function geopos() {
             }
         });
     });
+    */
 }
