@@ -34,6 +34,9 @@
                     </div>
                 </div>
             </div>
+            <div class="content-form-block-title abuse-form-block-title mb-40 mt-25 col-sm-12">
+                Адрес
+            </div>
             <div class="col-sm-6 col-lg-4">
                 <div class="content-form-block">
                     <div class="group">
@@ -57,9 +60,6 @@
                         <label class="label">Телефон (необязательно)</label>
                     </div>
                 </div>
-            </div>
-            <div class="content-form-block-title abuse-form-block-title mb-40 mt-25 col-sm-12">
-                Адрес
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="content-form-block">
@@ -144,47 +144,66 @@
                         <label class="label">Регион обращения</label>
                     </div>
                 </div>
-                <div class="col-lg-4 col-6 mb-6">
-                    <div class="floating-label">
-                        <select class="floating-select" name="type" required1 value="">
-                            <option data-recepients></option>
-                            <option>Платная</option>
-                            <option>Бесплатная ОМС</option>
-                        </select>
-                        <label class="label abuse-label">Услуга оказана</label>
-                        <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
-                        </svg>
+            </div>
+            <div class="abuse-form-body mt-0 abuse-form-grey row">
+            <div class="col-xl-4 col-lg-6 mb-6">
+                <div class="abuse-form-title">Тип услуги</div>
+                <div class="abuse-checkboxes">
+                    <div class="custom-control abuse-checkbox custom-checkbox mb-40">
+                        <input type="radio" class="custom-control-input" id="payAbuseForm" name="payform" />
+                        <label class="custom-control-label t-5 textPale" for="payAbuseForm">
+                            Платно
+                        </label>
+                    </div>
+                    <div class="custom-control abuse-checkbox custom-checkbox mb-40">
+                        <input type="radio" class="custom-control-input" id="freeAbuseForm" name="payform" />
+                        <label class="custom-control-label t-5 textPale" for="freeAbuseForm">
+                            Бесплатно (по ОМС)
+                        </label>
                     </div>
                 </div>
-                <div class="col-lg-4 col-6 mb-6">
-                    <div class="floating-label">
-                        <select class="floating-select" name="type" required1 value="">
-                            <option data-recepients></option>
-                            <option data-recepients="tfoms,insure">В поликлинике</option>
-                            <option data-recepients="foms, tfoms,insure">В стационаре</option>
-                        </select>
-                        <label class="label abuse-label">Где ?</label>
-                        <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12 mb-6">
-                    <div class="floating-label">
-                        <select class="floating-select" name="type" required1 value="">
-                            <option></option>
-                            <option value="1">Провести экспертизу качества медицинской помощи</option>
-                            <option value="2">Провести экспертизу качества медицинской помощи</option>
-                            <option value="3">Жалоба на лекарственное обеспечение</option>
-                        </select>
-                        <label class="label abuse-label">Наименование медучреждения</label>
-                        <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
-                        </svg>
+                <div class="abuse-dop">
+                    <div class="content-form-block">
+                        <div class="group">
+                            <input class="input" placeholder="Укажите.." type="text" name="citizen" required1 />
+                            <label class="label">Полис ОМС</label>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-xl-4 col-lg-6 mb-6">
+                <div class="abuse-form-title">Где ?</div>
+                <div class="abuse-checkboxes">
+                    <div class="custom-control abuse-checkbox custom-checkbox mb-40">
+                            <input type="radio" class="custom-control-input" id="stacAbuseForm" name="hospital" />
+                            <label class="custom-control-label t-5 textPale" for="stacAbuseForm">
+                                Стационар
+                            </label>
+                        </div>
+                        <div class="custom-control abuse-checkbox custom-checkbox mb-40">
+                            <input type="radio" class="custom-control-input" id="hospitalAbuseForm" name="hospital" />
+                            <label class="custom-control-label t-5 textPale" for="hospitalAbuseForm">
+                                Поликлиника
+                            </label>
+                        </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-12 mb-6 abuse-form-item">
+                <div class="floating-label abuse-label">
+                    <select class="floating-select" name="type" required1 value="">
+                        <option></option>
+                        <option value="1">ГАУЗ «Городская больница №2</option>
+                        <option value="2">ГАУЗ «Городская больница №5</option>
+                        <option value="3">ГАУЗ «Госпиталь для ветеранов войн</option>
+                        <option value="4">Поликлиника №5 ГАУЗ «Городская больница №5</option>
+                    </select>
+                    <label class="label abuse-label">Наименование медучреждения</label>
+                    <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -262,8 +281,11 @@
 
             <div class="recepients row">
                 <div class="col-12 head">
-                    <div class="content-form-block-title abuse-form-block-title mb-40 pt-6 ">
+                    <div class="content-form-block-title abuse-form-block-title pt-6 ">
                         Получители обращения
+                    </div>
+                    <div class="abuse-form-subititle mb-40">
+                        Ниже вы можете выбрать получателей вашего обращения, их может быть как один так и несколько
                     </div>
                 </div>
 
@@ -271,25 +293,25 @@
                     <div class="content-form-block">
                         <div class="group">
                             <input type="text" class="input" name="depart" value="" readonly onclick="selectDepart(this)" placeholder=" " data-id>
-                            <label class="label">Департамент здравоохранения</label>
+                            <label class="label abuse-label">Департамент здравоохранения
+                                <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
+                                </svg>
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 insure">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <div class="content-form-block">
                                 <div class="group">
                                     <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly onclick="selectInsure(this)" data-id>
-                                    <label class="label">Страховая медицинская организация</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="content-form-block">
-                                <div class="group">
-                                    <input class="input" placeholder="Укажите.." type="text" id="polis" name="polis" />
-                                    <label class="label">Номер полиса</label>
+                                    <label class="label abuse-label">Страховая медицинская организация
+                                        <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
+                                        </svg>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -299,7 +321,34 @@
                     <div class="content-form-block">
                         <div class="group">
                             <input type="text" class="input" name="tfoms" value="" readonly onclick="selectTfoms(this)" placeholder=" " data-id>
-                            <label class="label">Территориальный фонд ОМС</label>
+                            <label class="label abuse-label">Территориальный фонд ОМС
+                                <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="content-form-block">
+                        <div class="group mb-0">
+                            <div class="form-buttons form-btn-address">
+                                <div class="form-buttons">
+<!--                                     <input type="file" class="form-btn-input" id="formInputTypeFile" accept="image/jpeg, application/pdf, .doc, .docx"> -->
+                                    <label class="form-btn button" for="formInputTypeFile">
+                                        <span class="form-pluse">
+                                            <span></span>
+                                            <span></span>
+                                        </span>
+                                        Добавить адрес
+                                    </label>
+                                </div>
+                                <span class="form-descr">
+                                    <span>Если вам необходимо добавить получателя которого нет в списке,</span>
+                                    <span>вы можете это сделать нажав кнопку «Добавить адрес»</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -392,7 +441,10 @@
                         </label>
                     </div>
                 </div>
-                <div class=" mt-4 pt-1">
+                <div class="col-12 abuse-prop">
+                    Внимание! Персональные данные на сайте medpoverennyi.ru не сохраняются, не хранятся, не используются
+                </div>
+                <div class="mt-20 pt-1">
                     <button type="button" class="button button--red btn-abuse">Отправить</button>
                     <span class="button form-preview-btn">Предварительный просмотр</span>
                 </div>
@@ -660,6 +712,16 @@
             };
         })
 
+        $('.abuse-checkbox').on('click', function(){
+            if ($('#freeAbuseForm').is(':checked')){
+                $('.abuse-dop').css('display', 'block');
+            } else {
+                $('.abuse-dop').css('display', 'none');
+            }
+        })
+
+
+
         $("#formAbuse [name=type]").on('change', function() {
             $(`#formAbuse .branches [data-branch]`).addClass('d-none');
             $("#formAbuse .recepients > *").addClass('d-none');
@@ -898,7 +960,7 @@
 
     @media(max-width: 575px) {
         label:not(.custom-control-label) {
-            font-size: 13px;
+            font-size: 12px;
         }
     }
 
