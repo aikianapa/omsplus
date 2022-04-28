@@ -61,7 +61,7 @@
 
     <div class="content-form-block" data-wb-where='"{{id}}" == "block1"'>
         <div class="container">
-            <form class="row">
+            <form class="row abuse-form-top">
                 <input type="hidden" name="_subject" value="Заказ обратного звонка" />
                 <input type="hidden" name="_mailto" value="{{data.email}}" />
                 <div class="col-12 col-md-8 d-flex align-items-center">
@@ -78,13 +78,14 @@
                 <div class="col-12 col-md-4">
                     <div class="content-form-block-form">
                         <div class="group">
-                            <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" required>
+                            <input class="input" type="text" data-wb-mask="+7 (999) 999-99-99" name="phone_top">
                             <label class="label">
                                 Номер телефона
                             </label>
                         </div>
+
                         <div class="group">
-                            <input class="input" required>
+                            <input class="input" name="person_top">
                             <label class="label">
                                 Имя и фамилия
                             </label>
@@ -108,11 +109,29 @@
     </div>
 
     <meta data-wb-role="include" src="template" data-wb-name="footer.inc.php">
+
+    <div class="form-popup success-popup" id="popupSuccess">
+            <div class="form-popup__container success-popup__container container">
+                <div class="form-popup__body success-popup__body">
+                    <div class="form-popup__content success-popup__content">
+                        <div class="form-popup__close success-popup__close" id="successPopupClose">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1113)" fill="#4A4A4A"/>
+                                <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888672 0)" fill="#4A4A4A"/>
+                            </svg>
+                        </div>
+                        <div class="form-popup__text">
+                            Ваше обращение успешно отправлено!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="form-popup" id="popupPreview">
         <div class="form-popup__container container">
             <div class="form-popup__body">
                 <div class="form-popup__content">
-                    <div class="form-popup__close">
+                    <div class="form-popup__close close-popup" id="formPopupClose">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1113)" fill="#4A4A4A"/>
                             <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888672 0)" fill="#4A4A4A"/>
@@ -173,7 +192,7 @@
                         <div class="form-popup__personal">Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя, отчество, контактные номера телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в электронной форме, а также на их обработку с использованием средств автоматизации, включая осуществление сбора, накопления, систематизации, хранения, уточнения, использования, распространения (в т.ч. передачу), обезличивание, блокирование, уничтожение.</div>
                         <div class="form-popup__user">14.02.2022 Ильичев Владимир Витальевич</div>
                         <div class="form-popup__buttons">
-                            <button type="button" class="button button--red btn-abuse">Отправить</button>
+                            <button type="submit" class="button button--red btn-abuse" id="submitMainForm" form="formAbuse">Отправить</button>
                             <span class="button form-preview-btn form-preview-btn-back">Вернуться в редактирование</span>
                         </div>
                     </div>

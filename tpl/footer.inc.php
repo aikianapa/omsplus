@@ -464,3 +464,4 @@
 
 <meta data-wb-role="include" src="template" data-wb-name="scripts.inc.php">
 <!--meta data-wb-role="include" src="snippet" data-wb-name="cookies"-->
+<script src="/tpl/src/js/jquery.validate.min.js"></script>
