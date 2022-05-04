@@ -129,29 +129,23 @@
                         Суть обращения
                     </div>
                     <div class="row">
-                        <div class="col-lg-7 col-12 mb-40">
-                            <div class="abuse-checkboxes d-block">
-                                <div class="custom-control abuse-checkbox custom-checkbox mb-10">
-                                    <input type="radio" class="custom-control-input input" id="type1AbuseForm" checked value="1" name="type" />
-                                    <label class="custom-control-label t-5 textPale" for="type1AbuseForm">
-                                        Жалоба на оказание медицинской помощи
-                                    </label>
-                                </div>
-                                <div class="custom-control abuse-checkbox custom-checkbox mb-10">
-                                    <input type="radio" class="custom-control-input input" id="type2AbuseForm" value="2" name="type" />
-                                    <label class="custom-control-label t-5 textPale" for="type2AbuseForm">
-                                        Провести экспертизу качества медицинской помощи
-                                    </label>
-                                </div>
-                                <div class="custom-control abuse-checkbox custom-checkbox mb-10">
-                                    <input type="radio" class="custom-control-input input" id="type3AbuseForm" value="3" name="type" />
-                                    <label class="custom-control-label t-5 textPale" for="type3AbuseForm">
-                                        Жалоба на лекарственное обеспечение
-                                    </label>
-                                </div>
+                    <div class="col-lg-6 col-12 mb-6">
+                            <div class="floating-label">
+                                <select class="floating-select input" name="type" value="">
+                                    <option></option>
+                                    <option value="1">Провести экспертизу качества медицинской помощи</option>
+                                    <option value="2">Провести экспертизу качества медицинской помощи</option>
+                                    <option value="3">Жалоба на лекарственное обеспечение</option>
+                                </select>
+                                <label class="label abuse-label">Жалоба на оказание медицинских услуг
+                                    <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
+                                    </svg>
+                                </label>
+
                             </div>
                         </div>
-                        <div class="content-form-block col-lg-5 col-12">
+                        <div class="content-form-block col-lg-6 col-12">
                             <div class="group">
                                 <input type="text" class="input" placeholder="Укажите.." name="region_to" value="" readonly on-click="selectRegion">
                                 <label class="label">Регион обращения</label>
@@ -396,7 +390,7 @@
                             Внимание! Персональные данные на сайте medpoverennyi.ru не сохраняются, не хранятся, не используются
                         </div>
 
-                        <div class="mt-20 pt-1">
+                        <div class="mt-20 pt-5">
                             <button type="submit" class="button button--red btn-abuse">Отправить</button>
                             <a href="#" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
                         </div>
