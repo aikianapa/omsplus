@@ -28,6 +28,28 @@ function abuse_print()
     'S': returns the PDF document as a string
     'F': save as file $file_out
     */
+    $data = $_POST;
+    $file = __DIR__.'/abuse.html';
+    $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
+    $tid = 'abs_'.wbNewId();
+    $pdf = $pathtmp.$tid.$key.'.pdf';
+    $html = wbFromFile($file);
+    $html->wbSetData($_POST);
+    $message = $html->outerHtml();
+    $sent = $data['recep'];
+    if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
+        $sent=trim($_ENV["settings"]["mod_abuse"]);
+        $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
+        $sent=explode(',', $sent);
+    }
+    $subject = "Медицинский поверенный: жалоба от ". $data['person'];
+    $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
+    $attach = null;
+    //$res = wbMail($from , $sent, $subject, $message, $attach);
+print_r($_FILES);
+
+    return;
+
     $type = 'F';
     $data = &$_POST;
     $data['date'] = date('d.m.Y');
@@ -35,17 +57,8 @@ function abuse_print()
     $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
     $tid = 'abs_'.wbNewId();
     $pdf = $pathtmp.$tid.$key.'.pdf';
+    $sent = $data['recep'];
 
-    $petrovich = new Petrovich(Petrovich::GENDER_ANDROGYNOUS);
-    $gender = $petrovich->detectGender($data['middle_name']);
-    $petrovich = new Petrovich($gender);
-    $data['from_name'] = $petrovich->lastname($data['last_name'], Petrovich::CASE_GENITIVE).' '.
-            $petrovich->firstname($data['first_name'], Petrovich::CASE_GENITIVE).' '.
-            $petrovich->middlename($data['middle_name'], Petrovich::CASE_GENITIVE);
-    $html = wbFromFile($file);
-
-
-    $sent = recepients($data); // в $data меняется recepients
     if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
         $sent=trim($_ENV["settings"]["mod_abuse"]);
         $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
@@ -65,7 +78,7 @@ function abuse_print()
     //$message = "Жалоба в прикреплённом файле";
     $message = $html->outerHtml();
 
-    $res = wbMail($from , $sent, $subject, $message, $attach);
+    //$res = wbMail($from , $sent, $subject, $message, $attach);
 
     //var_dump($res);
     //die;
@@ -83,23 +96,6 @@ function abuse_print()
     //unlink($pdf);
     $result = $message;
     echo $result;
-}
-
-function recepients(&$data)
-{
-    $recepients = [];
-    $rec=explode(',', $data['recepients']);
-    $data['recepients'] = [];
-    foreach($rec as $r) {
-        $r=trim($r);
-        if (isset($data[$r]) && $data[$r]> '') {
-
-        $recepients[]  = $data[$r.'_email'];
-        $data['recepients'][] = ['name'=>$data[$r],'email'=>$data[$r.'_email']];
-
-        }
-    }
-    return $recepients;
 }
 
 function getRegion($id)

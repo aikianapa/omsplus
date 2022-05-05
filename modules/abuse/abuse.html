@@ -16,19 +16,27 @@
             </td>
             <td width="50%" style="text-align:rigth;">
 
-                <div data-wb-role="foreach" data-wb-from="recepients" data-wb-tpl="false">
-                    <p data-wb-where='"{{_idx}}">"0"'>
-                        <br><u>Копия</u>:<br> {{name}}
+                <div data-wb-role="foreach" data-wb-from="recep" data-wb-tpl="false">
+                    <p>
+                        <u data-wb-where='"{{_idx}}">"0"'>Копия:</u>
+                        <br>{{name}}
                         <br>{{strtolower({{email}})}}
                     </p>
                 </div>
 
                 <p>
-                    От {{from_name}}
-                    <br>{{zip}}, {{address}}, {{place}}, {{region}}
+                    <b>От {{person}}</b>
                     <br>
-                    <br>Полис № <span data-wb-where='"{{polis}}">""'>{{polis}}</span>
-                    <br>Страховая компания {{insure}}
+                    <span data-wb-where='zip >""'>{{zip}}, </span>
+                    <span data-wb-where='region >""'>{{region}}, </span>
+                    <span data-wb-where='region >""'>{{place}}, </span>
+                    <span data-wb-where='street >""'>{{street}}, </span>
+                    <span data-wb-where='house >""'>{{house}}, </span>
+                    <span data-wb-where='corpse >""'>{{corpse}}, </span>
+                    <span data-wb-where='flat >""'>{{flat}}, </span>
+                    <br>
+                    <span data-wb-where='payform = "free"'><br>Полис: No {{polis}}</span>
+                    <span data-wb-where='payform = "free"'><br>Страховая компания: {{insure}}</span>
                     <br>
                     <br> {{email}}
                     <br> Тел. {{phone}}
@@ -38,7 +46,7 @@
         </tr>
     </table>
 
-    <h3 style="text-align:center;">Заявление</h3>
+    <h2 style="text-align:center;">Заявление</h2>
     <p>{{text}}</p>
     <p>
         Все это происходило в {{orgtype}} {{org}}</p>
@@ -56,7 +64,10 @@
     <p>
         Ответ прошу направить на адрес электронной почты <b>{{email}}</b> в установленный законом срок.</p>
     <p>
-        &nbsp;</p>
+        <small>
+            Я даю согласие на обработку и использование следующих моих персональных данных: фамилия, имя, отчество, контактные номера телефонов, адрес электронной почты, иные сведения, содержащие персональные данные в электронной форме, а также на их обработку с использованием средств автоматизации, включая осуществление сбора, накопления, систематизации, хранения, уточнения, использования, распространения (в т.ч. передачу), обезличивание, блокирование, уничтожение.
+        </small>
+    </p>
     <p>
         {{date}} {{last_name}} {{first_name}} {{middle_name}}
     </p>

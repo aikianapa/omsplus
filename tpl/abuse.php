@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta data-wb-role="include" src="template" data-wb-name="head.inc.php">
@@ -103,57 +103,11 @@
 
 
     <div class="container blocks">
-
         <meta data-wb-role="include" src="template" data-wb-src="/module/abuse">
-
     </div>
 
     <meta data-wb-role="include" src="template" data-wb-name="footer.inc.php">
-
-    <div class="form-popup success-popup" id="popupSuccess">
-        <div class="form-popup__container success-popup__container container">
-            <div class="form-popup__body success-popup__body">
-                <div class="form-popup__content success-popup__content">
-                    <div class="form-popup__close success-popup__close" id="successPopupClose">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1113)" fill="#4A4A4A" />
-                            <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888672 0)" fill="#4A4A4A" />
-                        </svg>
-                    </div>
-                    <div class="form-popup__text">
-                        Ваше обращение успешно отправлено!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("site-ready", function() {
-            wb_plugins();
-            $(".content-list-item").find("b").parents("p").addClass("content-list-item-label");
-            $(".content-list-item").find("p:not(.content-list-item-label)").addClass(
-                "content-list-item-value");
-            $(".content-list-item").find("h1,h2,h3,h4,h5,h6").addClass("content-list-item-subtitle");
-            $(document).on('click', '.send-message', function() {
-                if ($('body').hasClass('modal-open')) {
-                    $(document).one('hidden.bs.modal', '#modal-menu', function() {
-                        $('#content-call-back').modal('show');
-                    });
-                    $('#modal-menu').modal('hide');
-                } else {
-                    if ($(this).attr('data-email') > '') {
-                        $('#content-call-back [name=_mailto]').attr('value', $(this).attr(
-                            'data-email'));
-                    } else {
-                        $('#content-call-back [name=_mailto]').attr('value',
-                            '{{_sett.email}}');
-                    }
-                    $('#content-call-back').modal('show');
-                }
-            });
-        });
-    </script>
+    <script src="/tpl/src/js/jquery.validate.min.js"></script>
 </body>
 
 </html>
