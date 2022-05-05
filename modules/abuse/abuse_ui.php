@@ -4,8 +4,7 @@
 <div id="modAbuse">
     <template id="modAbuseTpl">
         <div class="container blocks">
-            <form class="form-white--gray" id="formAbuse" enctype="multipart/form-data" method="post">
-                <input type="hidden" name="MAX_FILE_SIZE" value="6000000" />
+            <form class="form-white--gray" id="formAbuse" method="post">
                 <input type="hidden" name="_mailto" value="{{_sett.email}}" />
                 <div class="content-form-block-title abuse-form-block-title">
                     Написать обращение
@@ -660,20 +659,17 @@
                     this.fire('viewPreview', false)
                     $('#popupPreview data-fld')
                     data = modAbuse.get('letter')
-                    var formData = new FormData();
-                    formData.append('files', $('#modAbuse input[type=file]')[0].files);
-                    $.each(data,function(k,v){
-                        formData.append(k,v)
-                    })
-                    console.log(formData);
-                    $.post('/module/abuse/print/',formData,function(){
-                            //$('#popupSuccess').addClass('active');
+                    $.post('/module/abuse/print/',data,function(res){
+                        console.log(res);
+                        if (res.error == false) {
+                            $('#popupSuccess').addClass('active');
                             $('body').addClass('lock');
                             setTimeout(() => {
                                 $('#popupSuccess').removeClass('active');
                                 $('body').removeClass('lock');
                             }, 2000)
-                       // $('#formAbuse').trigger('reset');
+                       // $('#formAbuse').trigger('reset');                            
+                        }
                     })
                 },
                 addFile(ev) {

@@ -28,7 +28,7 @@ function abuse_print()
     'S': returns the PDF document as a string
     'F': save as file $file_out
     */
-    $data = $_POST;
+    $data = &$_POST;
     $file = __DIR__.'/abuse.html';
     $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
     $tid = 'abs_'.wbNewId();
@@ -45,57 +45,14 @@ function abuse_print()
     $subject = "Медицинский поверенный: жалоба от ". $data['person'];
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
     $attach = null;
-    //$res = wbMail($from , $sent, $subject, $message, $attach);
-print_r($_FILES);
-
-    return;
-
-    $type = 'F';
-    $data = &$_POST;
-    $data['date'] = date('d.m.Y');
-    $file = __DIR__.'/abuse.html';
-    $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
-    $tid = 'abs_'.wbNewId();
-    $pdf = $pathtmp.$tid.$key.'.pdf';
-    $sent = $data['recep'];
-
-    if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
-        $sent=trim($_ENV["settings"]["mod_abuse"]);
-        $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
-        $sent=explode(',', $sent);
+    $err = wbMail($from , $sent, $subject, $message, $attach);
+    header("Content-type:application/json");
+    if ($err) {
+        echo '{"error":true,"msg":"Ошибка отправки писем!"}';
+    } else {
+        echo '{"error":false,"msg":"Почта отправлена!"}';
     }
-
-    $html->wbSetData($data);
-    //$mpdf = new \Mpdf\Mpdf();
-    //$mpdf->WriteHTML($html->outerHtml());
-    //$mpdf->Output($pdf, $type);
-
-    $subject = "Медицинский поверенный: жалоба ". $data['from_name'];
-    $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
-
-    //$attach = $pdf;
-    $attach = null;
-    //$message = "Жалоба в прикреплённом файле";
-    $message = $html->outerHtml();
-
-    //$res = wbMail($from , $sent, $subject, $message, $attach);
-
-    //var_dump($res);
-    //die;
-
-
-    //header('Content-type: application/pdf');
-    //header('Content-Disposition: inline; filename="'.$tid.'.pdf"');
-
-
-    header('Content-type: text/html');
-    header('Content-Disposition: inline; filename="'.$tid.'.htm"');
-
-
-    //$result = file_get_contents($pdf);
-    //unlink($pdf);
-    $result = $message;
-    echo $result;
+    return;
 }
 
 function getRegion($id)
