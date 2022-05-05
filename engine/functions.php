@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 function wbInit()
 {
     error_reporting(error_reporting() & ~E_NOTICE);
+    error_reporting(0);
     wbErrorList();
     wbTrigger('func', __FUNCTION__, 'before');
     wbInitEnviroment();
