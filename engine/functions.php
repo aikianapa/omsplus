@@ -272,7 +272,17 @@ function wbMail(
             $attach = array($attach);
         }
 
-        if (is_array($attach)) {
+        if ($attach == $_FILES) {
+            foreach($attach as $fld => $files) {
+                if (is_array($files['tmp_name'])) {
+                    foreach($files['tmp_name'] as $key => $name) {
+                        $mail->AddAttachment($files['tmp_name'][$key], $files['name'][$key]);
+                    }
+                } else {
+                    $mail->AddAttachment($files['tmp_name'], $files['name']);
+                }
+            }
+        } else if (is_array($attach)) {
             foreach ($attach as $a) {
                 if (is_string($a) and substr($a, 0, 5) == "data:") {
                     preg_match('/^data:(.*);base64,/', substr($a, 0, 200), $matches, PREG_OFFSET_CAPTURE);

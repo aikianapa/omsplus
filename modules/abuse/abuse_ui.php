@@ -4,7 +4,7 @@
 <div id="modAbuse">
     <template id="modAbuseTpl">
         <div class="container blocks">
-            <form class="form-white--gray" id="formAbuse" >
+            <form class="form-white--gray" id="formAbuse">
                 <input type="hidden" name="_mailto" value="{{_sett.email}}" />
                 <div class="content-form-block-title abuse-form-block-title">
                     Написать обращение
@@ -284,7 +284,7 @@
                         </div>
 
                         <div class="col-12 add-address-out">
-                            
+
                         </div>
 
                         <div class="col-12 add-address-block">
@@ -384,7 +384,7 @@
 
                         <div class="mt-20 pt-5">
                             <button type="submit" class="button cursor-pointer button--red btn-abuse">Отправить</button>
-                            <a href="javascript:void(0)" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
+                            <a href="#formAbuse" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
                         </div>
                     </div>
                 </div>
@@ -522,7 +522,7 @@
                                             <span>Медицинский</span>
                                             <span>Поверенный</span>
                                         </div>
-                                        <div class="form-popup-subt">МП № <span data-name="number"></span>> </div>
+                                        <div class="form-popup-subt">МП № <span data-name="number"></span> </div>
                                     </div>
                                     <div class="form-popup__right">
                                         {{#each recep}}
@@ -617,6 +617,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-popup success-popup" id="popupError">
+                <div class="form-popup__container success-popup__container container">
+                    <div class="form-popup__body success-popup__body">
+                        <div class="form-popup__content success-popup__content">
+                            <div class="form-popup__close success-popup__close cursor-pointer" id="errorPopupClose" onclick="$('#popupError').removeClass('active')">
+                                <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1113)" fill="#4A4A4A" />
+                                    <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888672 0)" fill="#4A4A4A" />
+                                </svg>
+                            </div>
+                            <div class="form-popup__text">
+                                Ошибка отправки сообщения! Попробуйте ещё раз, чуть позже.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </modals>
     </template>
 </div>
@@ -665,7 +684,7 @@
                 //     })
                 // },
 
-              
+
 
 
 
@@ -691,7 +710,7 @@
                     }
                     listFiles.innerHTML = li;
                     formItem.appendChild(listFiles);
-                
+
                 },
                 selectRegionClick(ev) {
                     let region = $(ev.node).data('region')
@@ -750,36 +769,36 @@
                     this.fire('abuseCheckbox')
                 },
                 viewPreview(ev, view = true) {
-                let validator = $( "#formAbuse" ).validate();
-                validator.form();  
-                let errors = document.querySelectorAll('#formAbuse .input.error')
-                if (errors.length != 0) {
-                    console.log('Заполните все поля!')
-                } else {
-                     let formdata = $('#formAbuse').serializeArray();
-                    let data = {}
-                    $.each(formdata, function(i, item) {
-                        data[item.name] = item.value
-                    })
-                    let person = {
-                        first: data.first_name,
-                        middle: data.middle_name,
-                        last: data.last_name
-                    };
-                    let gender = petrovich(person, 'genitive');
-                    data.person = `${gender.last} ${gender.first} ${gender.middle}`;
-                    data.date = date('d.m.Y')
-                    data.recep = {}
-                    $('#formAbuse #Recepients [data-email]:visible').each(function(i) {
-                        data.recep[i] = {
-                            email: $(this).data('email').toLowerCase(),
-                            name: $(this).val()
-                        }
-                    })
-                    modAbuse.set('letter', data);
-                    if (view) $('#popupPreview').addClass('active')
+                    let validator = $("#formAbuse").validate();
+                    validator.form();
+                    let errors = document.querySelectorAll('#formAbuse .input.error')
+                    if (errors.length != 0) {
+                        console.log('Заполните все поля!')
+                    } else {
+                        let formdata = $('#formAbuse').serializeArray();
+                        let data = {}
+                        $.each(formdata, function(i, item) {
+                            data[item.name] = item.value
+                        })
+                        let person = {
+                            first: data.first_name,
+                            middle: data.middle_name,
+                            last: data.last_name
+                        };
+                        let gender = petrovich(person, 'genitive');
+                        data.person = `${gender.last} ${gender.first} ${gender.middle}`;
+                        data.date = date('d.m.Y')
+                        data.recep = {}
+                        $('#formAbuse #Recepients [data-email]:visible').each(function(i) {
+                            data.recep[i] = {
+                                email: $(this).data('email').toLowerCase(),
+                                name: $(this).val()
+                            }
+                        })
+                        modAbuse.set('letter', data);
+                        if (view) $('#popupPreview').addClass('active')
 
-                }
+                    }
                 },
                 abuseCheckbox() {
                     let type = $('#modAbuse [name=type]').val() * 1
@@ -825,95 +844,95 @@
 
 
         function valideFormsMain(form) {
-                    $(form).validate({
-                        rules: {
-                            first_name: {
-                                required: true,
-                                minlength: 2
-                            },
-                            last_name: {
-                                required: true,
-                                minlength: 2
-                            },
-                            middle_name: {
-                                required: true,
-                                minlength: 2
-                            },
-                            email: {
-                                required: true,
-                                email: true
-                            },
-                            type: {
-                                required: true
-                            },
-                            region_to: {
-                                required: true
-                            },
-                            payform: {
-                                required: true
-                            },
-                            hospital: {
-                                required: true
-                            },
-                            type_hospital: {
-                                required: true
-                            },
-                            text: {
-                                required: true
-                            },
-                            personal: {
-                                required: true
-                            }
-                            
-                        },
-                        messages: {
-                            first_name: {
-                                required: "Пожалуйста, введите свое имя",
-                                minlength: jQuery.validator.format("Введите {0} символа!")
-                            }
-                            ,
-                            last_name: {
-                                required: "Пожалуйста, введите свою фамилию",
-                                minlength: jQuery.validator.format("Введите {0} символа!")
-                            },
-                            middle_name: {
-                                required: "Пожалуйста, введите свое отчество",
-                                minlength: jQuery.validator.format("Введите {0} символа!")
-                            },
-                            email: {
-                                required: "Пожалуйста, введите свою почту",
-                                email: "Неправильно введен адрес почты"
-                            },
-                            type: {
-                                required: "Пожалуйста, укажите жалобу"
-                            },
-                            region_to: {
-                                required: "Пожалуйста, укажите ваш регион"
-                            },
-                            payform: {
-                                required: "Пожалуйста, выберите тип услуги"
-                            },
-                            hospital: {
-                                required: "Пожалуйста, выберите лечебное учреждение"
-                            },
-                            type_hospital: {
-                                required: "Пожалуйста, укажите наименование медучреждения"
-                            }
-                            ,
-                            text: {
-                                required: "Пожалуйста, введите текст обращения"
-                            },
-                            personal: {
-                                required: "Пожалуйста, поставьте галочку"
-                            }
-                       
-                        }
-                    });
-                };
-                valideFormsMain('#formAbuse')
+            $(form).validate({
+                rules: {
+                    first_name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    last_name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    middle_name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    type: {
+                        required: true
+                    },
+                    region_to: {
+                        required: true
+                    },
+                    payform: {
+                        required: true
+                    },
+                    poly: {
+                        required: true
+                    },
+                    type_hospital: {
+                        required: true
+                    },
+                    text: {
+                        required: true
+                    },
+                    personal: {
+                        required: true
+                    }
+
+                },
+                messages: {
+                    first_name: {
+                        required: "Пожалуйста, введите свое имя",
+                        minlength: jQuery.validator.format("Введите {0} символа!")
+                    },
+                    last_name: {
+                        required: "Пожалуйста, введите свою фамилию",
+                        minlength: jQuery.validator.format("Введите {0} символа!")
+                    },
+                    middle_name: {
+                        required: "Пожалуйста, введите свое отчество",
+                        minlength: jQuery.validator.format("Введите {0} символа!")
+                    },
+                    email: {
+                        required: "Пожалуйста, введите свою почту",
+                        email: "Неправильно введен адрес почты"
+                    },
+                    type: {
+                        required: "Пожалуйста, укажите жалобу"
+                    },
+                    region_to: {
+                        required: "Пожалуйста, укажите ваш регион"
+                    },
+                    payform: {
+                        required: "Пожалуйста, выберите тип услуги"
+                    },
+                    orgtype: {
+                        required: "Пожалуйста, выберите лечебное учреждение"
+                    },
+                    org: {
+                        required: "Пожалуйста, укажите наименование медучреждения"
+                    },
+                    text: {
+                        required: "Пожалуйста, введите текст обращения"
+                    },
+                    personal: {
+                        required: "Пожалуйста, поставьте галочку"
+                    }
+
+                }
+            });
+            $(form).find('.input.error:first').focus()
+            window.scroll(0,$(form).find('input.error,textarea.error,select.error').find(':first')[0])
+        };
+        valideFormsMain('#formAbuse')
 
         const addInput = document.querySelector(".add-input"),
-            addAddressOut= document.querySelector(".add-address-out"),
+            addAddressOut = document.querySelector(".add-address-out"),
             temp = `
             <div class="content-form-block div-node">
                 <div class="group abuse-group">
@@ -930,51 +949,70 @@
             `;
 
 
-        addInput.addEventListener("click", ()=>{
-            let adressInputs = document.querySelectorAll(".div-node");  
-            if (adressInputs.length == 0){                
-                addAddressOut.insertAdjacentHTML("beforeEnd" , temp); 
-            } else if (adressInputs[adressInputs.length-1].querySelector("input").value){                
-                addAddressOut.insertAdjacentHTML("beforeEnd" , temp);
-            } 
+        addInput.addEventListener("click", () => {
+            let adressInputs = document.querySelectorAll(".div-node");
+            if (adressInputs.length == 0) {
+                addAddressOut.insertAdjacentHTML("beforeEnd", temp);
+            } else if (adressInputs[adressInputs.length - 1].querySelector("input").value) {
+                addAddressOut.insertAdjacentHTML("beforeEnd", temp);
+            }
         })
 
-         addAddressOut.addEventListener("click", (e)=>{
-             let target = e.target;
-             if (target.classList.contains("input-delete")){
-                 target.closest(".div-node").remove();
-             }
-         })
+        addAddressOut.addEventListener("click", (e) => {
+            let target = e.target;
+            if (target.classList.contains("input-delete")) {
+                target.closest(".div-node").remove();
+            }
+        })
 
-         $('#formAbuse').submit(function (e) {
-            e.preventDefault();            
+        $('#formAbuse').submit(function(e) {
+            e.preventDefault();
+            modAbuse.fire('viewPreview', false)
             let errors = document.querySelectorAll('#formAbuse .input.error')
             if (errors.length != 0) {
                 console.log('Заполните все поля!')
             } else {
                 let form = document.querySelector("#formAbuse");
                 let formData = new FormData(form);
-                $.each($("#type-file")[0].files,function(key, input){
-                formData.append('file[]', input);
+                if ($('#popupPreview').hasClass('active')) $('#popupPreview').removeClass('active');
+                $.each($("#type-file")[0].files, function(key, input) {
+                    formData.append('file[]', input);
                 });
-
+                let data = modAbuse.get('letter')
+                $.each(data,function(k,v){
+                    if (!formData.has(k) && k !== 'recep') {
+                        formData.append(k,v)
+                    }
+                })
+                $.each(data.recep,function(k,v){
+                    formData.append('recep[]',v.email)
+                })
                 $.ajax({
                     url: '/module/abuse/print/',
                     type: 'POST',
-                    	cache: false,
-                contentType: false,
-                processData: false,
-                data: formData,
-                dataType : 'json',
-                }).done(function () {
-                    $(this).find('input').val('');
-                    $('#popupSuccess').addClass('active');
-                    $('body').addClass('lock');
-                    setTimeout(() => {
-                        $('#popupSuccess').removeClass('active');
-                        $('body').removeClass('lock');
-                    }, 2000)
-                    $('form').trigger('reset');
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    dataType: 'json',
+                }).done(function(res) {
+                    if (res.error == true) {
+                        $('#popupError').addClass('active');
+                        setTimeout(() => {
+                            $('#popupError').removeClass('active');
+                            $('body').removeClass('lock');
+                        }, 2000)
+                    } else {
+                        $(this).find('input').val('');
+                        $(form).find('.list-files').html('')
+                        //$('form').trigger('reset');
+                        $('#popupSuccess').addClass('active');
+                        $('body').addClass('lock');
+                        setTimeout(() => {
+                            $('#popupSuccess').removeClass('active');
+                            $('body').removeClass('lock');
+                        }, 2000)
+                    }
                 });
             }
             return false;

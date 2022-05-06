@@ -22,19 +22,13 @@ function abuse_init()
 
 function abuse_print()
 {
-    /* types:
-    'D': download the PDF file
-    'I': serves in-line to the browser
-    'S': returns the PDF document as a string
-    'F': save as file $file_out
-    */
     $data = &$_POST;
     $file = __DIR__.'/abuse.html';
-    $pathtmp = $_ENV['path_app'].'/uploads/tmp/';
-    $tid = 'abs_'.wbNewId();
-    $pdf = $pathtmp.$tid.$key.'.pdf';
+    $data['num'] = file_get_contents(__DIR__.'/abuse.num');
+    $data['num'] = intval($data['num']) + 1;
+    file_put_contents(__DIR__.'/abuse.num',$data['num']);
     $html = wbFromFile($file);
-    $html->wbSetData($_POST);
+    $html->wbSetData($data);
     $message = $html->outerHtml();
     $sent = $data['recep'];
     if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
@@ -44,7 +38,12 @@ function abuse_print()
     }
     $subject = "Медицинский поверенный: жалоба от ". $data['person'];
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
-    $attach = null;
+    $attach = $_FILES;
+    if (isset($data['addemail'])) {
+        foreach($data['addemail'] as $add) {
+            if (!in_array($add,$sent)) $sent[] = $add;
+        }
+    }
     $err = wbMail($from , $sent, $subject, $message, $attach);
     header("Content-type:application/json");
     if ($err) {
