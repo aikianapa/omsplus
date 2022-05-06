@@ -4,7 +4,7 @@
 <div id="modAbuse">
     <template id="modAbuseTpl">
         <div class="container blocks">
-            <form class="form-white--gray" id="formAbuse" method="post">
+            <form class="form-white--gray" id="formAbuse" >
                 <input type="hidden" name="_mailto" value="{{_sett.email}}" />
                 <div class="content-form-block-title abuse-form-block-title">
                     Написать обращение
@@ -283,19 +283,8 @@
                             </div>
                         </div>
 
-                        <div class="col-12 add-address">
-                            <div class="content-form-block">
-                                <div class="group abuse-group">
-                                    <input class="input" placeholder="Укажите.." type="email" name="addemail[]" />
-                                    <label class="label">
-                                        Укажите эл.почту
-                                    </label>
-                                    <svg style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
-                                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
-                                    </svg>
-                                </div>
-                            </div>
+                        <div class="col-12 add-address-out">
+                            
                         </div>
 
                         <div class="col-12 add-address-block">
@@ -303,7 +292,7 @@
                                 <div class="group mb-0">
                                     <div class="form-buttons form-btn-address">
                                         <div class="form-buttons">
-                                            <span class="form-btn button abuse-button-address abuse-button-hover">
+                                            <span class="form-btn button abuse-button-address abuse-button-hover add-input">
                                                 <span class="form-pluse">
                                                     <span></span>
                                                     <span></span>
@@ -394,7 +383,7 @@
                         </div>
 
                         <div class="mt-20 pt-5">
-                            <button type="button" on-click="printAbuse" class="button cursor-pointer button--red btn-abuse">Отправить</button>
+                            <button type="submit" class="button cursor-pointer button--red btn-abuse">Отправить</button>
                             <a href="javascript:void(0)" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
                         </div>
                     </div>
@@ -655,23 +644,32 @@
                     $('#selectRegion1').modal('show');
                     $('#selectRegion1')[0].input = $(ev.node)
                 },
-                printAbuse() {
-                    this.fire('viewPreview', false)
-                    $('#popupPreview data-fld')
-                    data = modAbuse.get('letter')
-                    $.post('/module/abuse/print/',data,function(res){
-                        console.log(res);
-                        if (res.error == false) {
-                            $('#popupSuccess').addClass('active');
-                            $('body').addClass('lock');
-                            setTimeout(() => {
-                                $('#popupSuccess').removeClass('active');
-                                $('body').removeClass('lock');
-                            }, 2000)
-                       // $('#formAbuse').trigger('reset');                            
-                        }
-                    })
-                },
+
+
+
+                // printAbuse() {
+                //     this.fire('viewPreview', false)
+                //     $('#popupPreview data-fld')
+                //     data = modAbuse.get('letter')
+                //     $.post('/module/abuse/print/',data,function(res){
+                //         console.log(res);
+                //         if (res.error == false) {
+                //             $('#popupSuccess').addClass('active');
+                //             $('body').addClass('lock');
+                //             setTimeout(() => {
+                //                 $('#popupSuccess').removeClass('active');
+                //                 $('body').removeClass('lock');
+                //             }, 2000)
+                //        // $('#formAbuse').trigger('reset');                            
+                //         }
+                //     })
+                // },
+
+              
+
+
+
+
                 addFile(ev) {
                     let that = ev.node
                     var arrayFiles = that.files, // массив с выбранными фалами
@@ -752,7 +750,13 @@
                     this.fire('abuseCheckbox')
                 },
                 viewPreview(ev, view = true) {
-                    let formdata = $('#formAbuse').serializeArray();
+                let validator = $( "#formAbuse" ).validate();
+                validator.form();  
+                let errors = document.querySelectorAll('#formAbuse .input.error')
+                if (errors.length != 0) {
+                    console.log('Заполните все поля!')
+                } else {
+                     let formdata = $('#formAbuse').serializeArray();
                     let data = {}
                     $.each(formdata, function(i, item) {
                         data[item.name] = item.value
@@ -774,6 +778,8 @@
                     })
                     modAbuse.set('letter', data);
                     if (view) $('#popupPreview').addClass('active')
+
+                }
                 },
                 abuseCheckbox() {
                     let type = $('#modAbuse [name=type]').val() * 1
@@ -816,5 +822,163 @@
                 }
             }
         })
+
+
+        function valideFormsMain(form) {
+                    $(form).validate({
+                        rules: {
+                            first_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            last_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            middle_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            },
+                            type: {
+                                required: true
+                            },
+                            region_to: {
+                                required: true
+                            },
+                            payform: {
+                                required: true
+                            },
+                            hospital: {
+                                required: true
+                            },
+                            type_hospital: {
+                                required: true
+                            },
+                            text: {
+                                required: true
+                            },
+                            personal: {
+                                required: true
+                            }
+                            
+                        },
+                        messages: {
+                            first_name: {
+                                required: "Пожалуйста, введите свое имя",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            }
+                            ,
+                            last_name: {
+                                required: "Пожалуйста, введите свою фамилию",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            },
+                            middle_name: {
+                                required: "Пожалуйста, введите свое отчество",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            },
+                            email: {
+                                required: "Пожалуйста, введите свою почту",
+                                email: "Неправильно введен адрес почты"
+                            },
+                            type: {
+                                required: "Пожалуйста, укажите жалобу"
+                            },
+                            region_to: {
+                                required: "Пожалуйста, укажите ваш регион"
+                            },
+                            payform: {
+                                required: "Пожалуйста, выберите тип услуги"
+                            },
+                            hospital: {
+                                required: "Пожалуйста, выберите лечебное учреждение"
+                            },
+                            type_hospital: {
+                                required: "Пожалуйста, укажите наименование медучреждения"
+                            }
+                            ,
+                            text: {
+                                required: "Пожалуйста, введите текст обращения"
+                            },
+                            personal: {
+                                required: "Пожалуйста, поставьте галочку"
+                            }
+                       
+                        }
+                    });
+                };
+                valideFormsMain('#formAbuse')
+
+        const addInput = document.querySelector(".add-input"),
+            addAddressOut= document.querySelector(".add-address-out"),
+            temp = `
+            <div class="content-form-block div-node">
+                <div class="group abuse-group">
+                    <input class="input" placeholder="Укажите.." type="email" name="addemail[]" />
+                    <label class="label">
+                        Укажите эл.почту
+                    </label>
+                    <svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
+                    </svg>
+                </div>
+            </div>
+            `;
+
+
+        addInput.addEventListener("click", ()=>{
+            let adressInputs = document.querySelectorAll(".div-node");  
+            if (adressInputs.length == 0){                
+                addAddressOut.insertAdjacentHTML("beforeEnd" , temp); 
+            } else if (adressInputs[adressInputs.length-1].querySelector("input").value){                
+                addAddressOut.insertAdjacentHTML("beforeEnd" , temp);
+            } 
+        })
+
+         addAddressOut.addEventListener("click", (e)=>{
+             let target = e.target;
+             if (target.classList.contains("input-delete")){
+                 target.closest(".div-node").remove();
+             }
+         })
+
+         $('#formAbuse').submit(function (e) {
+            e.preventDefault();            
+            let errors = document.querySelectorAll('#formAbuse .input.error')
+            if (errors.length != 0) {
+                console.log('Заполните все поля!')
+            } else {
+                let form = document.querySelector("#formAbuse");
+                let formData = new FormData(form);
+                $.each($("#type-file")[0].files,function(key, input){
+                formData.append('file[]', input);
+                });
+
+                $.ajax({
+                    url: '/module/abuse/print/',
+                    type: 'POST',
+                    	cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                dataType : 'json',
+                }).done(function () {
+                    $(this).find('input').val('');
+                    $('#popupSuccess').addClass('active');
+                    $('body').addClass('lock');
+                    setTimeout(() => {
+                        $('#popupSuccess').removeClass('active');
+                        $('body').removeClass('lock');
+                    }, 2000)
+                    $('form').trigger('reset');
+                });
+            }
+            return false;
+        });
+
     }, false);
 </script>
