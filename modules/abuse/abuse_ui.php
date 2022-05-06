@@ -985,7 +985,7 @@
                     }
                 })
                 $.each(data.recep,function(k,v){
-                    formData.append('recep[]',v.email)
+                    formData.append('recep[]',v.email+';'+v.name)
                 })
                 $.ajax({
                     url: '/module/abuse/print/',

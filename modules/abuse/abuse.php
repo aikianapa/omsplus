@@ -27,10 +27,17 @@ function abuse_print()
     $data['num'] = file_get_contents(__DIR__.'/abuse.num');
     $data['num'] = intval($data['num']) + 1;
     file_put_contents(__DIR__.'/abuse.num',$data['num']);
+    $tmp = $data['recep'];
+    $data['recep'] = [];
+    $sent=[];
+    foreach($tmp as $recep) {
+        $recep = explode(';',$recep);
+        $data['recep'][] = ['email'=>$recep[0],'name'=>$recep[1]];
+        $sent[] = $recep[0];
+    }
     $html = wbFromFile($file);
     $html->wbSetData($data);
     $message = $html->outerHtml();
-    $sent = $data['recep'];
     if (isset($_ENV["settings"]["mod_abuse"]) && $_ENV["settings"]["mod_abuse"] > '') {
         $sent=trim($_ENV["settings"]["mod_abuse"]);
         $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
