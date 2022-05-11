@@ -29,6 +29,7 @@ function abuse_print()
     file_put_contents(__DIR__.'/abuse.num',$data['num']);
     $tmp = $data['recep'];
     $data['recep'] = [];
+    $data['orgtype'] = ($data['orgtype'] == 'stat') ? 'стационаре' : 'поликлинике';
     $sent=[];
     foreach($tmp as $recep) {
         $recep = explode(';',$recep);
