@@ -1,10 +1,14 @@
 <link rel="stylesheet" href="/modules/abuse/abuse.css">
 <script src="/tpl/build/libs/petrovich.min.js"></script>
+<script>
+
+    
+</script>
 
 <div id="modAbuse">
     <template id="modAbuseTpl">
         <div class="container blocks">
-            <form class="form-white--gray" id="formAbuse">
+            <form class="form-white--gray" id="formAbuse" >
                 <input type="hidden" name="_mailto" value="{{_sett.email}}" />
                 <div class="content-form-block-title abuse-form-block-title">
                     Написать обращение
@@ -131,12 +135,11 @@
                         <div class="col-lg-6 col-12 mb-6">
                             <div class="floating-label">
                                 <select class="floating-select input" name="type" value="" on-change="setType">
-                                    <option></option>
                                     <option value="1">Жалоба на оказание медицинской помощи</option>
                                     <option value="2">Провести экспертизу качества медицинской помощи</option>
                                     <option value="3">Жалоба на лекарственное обеспечение</option>
                                 </select>
-                                <label class="label abuse-label">Повод обращения
+                                <label style="top: 0px;" class="label abuse-label">Повод обращения
                                     <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
                                     </svg>
@@ -204,7 +207,7 @@
                         </div>
                         <div class="col-xl-4 col-12 mb-6 abuse-form-item content-form-block type-1 type-2">
                             <div class="floating-label abuse-label">
-                                <input type="text" class="input" name="org" value="" placeholder=" " readonly required1 on-click="['selectModal','#selectMed']" />
+                                <input type="text" class="input" name="org" value="" placeholder=" " readonly  on-click="['selectModal','#selectMed']"  on-change="abuseCheckbox" /><span></span>
                                 <label class="label abuse-label">Наименование медучреждения
                                     <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
@@ -227,7 +230,7 @@
                         <div class="col-12 roszn type-3">
                             <div class="content-form-block">
                                 <div class="group">
-                                    <input type="text" readonly class="input" name="roszn" value="Росздравнадзор" placeholder=" " data-id data-email="{{_sett.email_roszdrav}}">
+                                    <input type="text" id="zdravinp" readonly class="input" name="roszn" value="Росздравнадзор" placeholder=" " data-id data-email="{{_sett.email_roszdrav}}">
                                     <label class="label">Росздравнадзор</label>
                                 </div>
                             </div>
@@ -236,7 +239,10 @@
                         <div class="col-12 depart type-1 type-3">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                    <input type="text" class="input" name="depart" value="" readonly on-click="['selectModal','#selectDepart']" placeholder=" " data-id>
+                                    <input type="text" class="input" id="depinp" name="depart" value="" readonly on-click="['selectModal','#selectDepart']" placeholder=" " data-id> <span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('depinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
+                    </svg></span>
                                     <label class="label abuse-label">Департамент здравоохранения
                                         <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
@@ -248,7 +254,11 @@
                         <div class="col-12 insure type-1 type-2">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                    <input type="text" placeholder="Укажите.." class="input" name="insure" value="" readonly on-click="['selectModal','#selectInsure']" data-id>
+                                     <input type="text" id="strahinp" placeholder="Укажите.." class="input" name="insure" value="" readonly on-click="['selectModal','#selectInsure']" data-id><span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('strahinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
+                    </svg></span>
+                                                                       
                                     <label class="label abuse-label">Страховая медицинская организация
                                         <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
@@ -262,7 +272,7 @@
                         <div class="col-12 foms type-1 type-2">
                             <div class="content-form-block">
                                 <div class="group">
-                                    <input type="text" class="input" name="foms" readonly value="Фонд обязательного медицинского страхования" placeholder=" " data-id data-email="{{_sett.email_foms}}">
+                                    <input type="text" id="fomsinp" class="input" name="foms" readonly value="Фонд обязательного медицинского страхования" placeholder=" " data-id data-email="{{_sett.email_foms}}">
                                     <label class="label">Фонд ОМС</label>
                                 </div>
                             </div>
@@ -272,7 +282,10 @@
                         <div class="col-12 tfoms type-1 type-2">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                    <input type="text" class="input" name="tfoms" value="" readonly on-click="['selectModal','#selectTfoms']" placeholder=" " data-id>
+                                    <input type="text" class="input" id="tfomse" name="tfoms" value="" readonly on-click="['selectModal','#selectTfoms']" placeholder=" " data-id><span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('tfomse').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
+                    </svg></span>
                                     <label class="label abuse-label">Территориальный фонд ОМС
                                         <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
@@ -284,7 +297,7 @@
                         </div>
 
                         <div class="col-12 add-address-out">
-
+                            
                         </div>
 
                         <div class="col-12 add-address-block">
@@ -352,14 +365,21 @@
                                 <div class="group mb-0">
                                     <div class="form-buttons abuse-form-buttons">
                                         <div class="form-buttons-left">
-                                            <input type="file" multiple class="form-btn-input" id="type-file" accept="image/jpeg, application/pdf, .doc, .docx" on-change="addFile">
-                                            <label class="form-btn button abuse-button-hover" for="type-file">
+                                            <input type="file" class="form-btn-input"  id="type-file0" accept="image/jpeg, application/pdf, .doc, .docx" onchange="addFiles();">
+                                            <div class="lb">
+                                                 <label class="form-btn button abuse-button-hover" for="type-file0">
                                                 <span class="form-pluse">
                                                     <span></span>
                                                     <span></span>
                                                 </span>
                                                 Добавить документ
                                             </label>
+                                            </div>                                          
+                                           
+                                           <ul class="list-files">
+                                               <p class="file__text" style="display: none;">Приложение:</p>
+
+                                           </ul>
                                         </div>
                                         <span class="form-descr">
                                             <span>Не более 10 файлов, максимальный размер каждого — 5 МБ.</span>
@@ -384,7 +404,7 @@
 
                         <div class="mt-20 pt-5">
                             <button type="submit" class="button cursor-pointer button--red btn-abuse">Отправить</button>
-                            <a href="#formAbuse" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
+                            <a href="javascript:void(0)" on-click="viewPreview" class="button cursor-pointer form-preview-btn popup-link">Предварительный просмотр</span>
                         </div>
                     </div>
                 </div>
@@ -522,7 +542,7 @@
                                             <span>Медицинский</span>
                                             <span>Поверенный</span>
                                         </div>
-                                        <div class="form-popup-subt">МП № <span data-name="number"></span> </div>
+                                        <div class="form-popup-subt">МП № <span data-name="number"></span>> </div>
                                     </div>
                                     <div class="form-popup__right">
                                         {{#each recep}}
@@ -617,31 +637,18 @@
                     </div>
                 </div>
             </div>
-
-            <div class="form-popup success-popup" id="popupError">
-                <div class="form-popup__container success-popup__container container">
-                    <div class="form-popup__body success-popup__body">
-                        <div class="form-popup__content success-popup__content">
-                            <div class="form-popup__close success-popup__close cursor-pointer" id="errorPopupClose" onclick="$('#popupError').removeClass('active')">
-                                <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1113)" fill="#4A4A4A" />
-                                    <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888672 0)" fill="#4A4A4A" />
-                                </svg>
-                            </div>
-                            <div class="form-popup__text">
-                                Ошибка отправки сообщения! Попробуйте ещё раз, чуть позже.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </modals>
     </template>
 </div>
 
 <script>
+   
     document.addEventListener("site-jq-ready", () => {
+    
+     
+
+
+
         wb_plugins()
         $('#formAbuse').validate()
         var modAbuseTpl = $('#modAbuseTpl').html()
@@ -684,34 +691,62 @@
                 //     })
                 // },
 
+              
 
 
 
+                
+                // addFile(ev) {
+                //     let outLb = document.querySelector(".lb");
+                //     let outinput = document.querySelector(".form-buttons-left");
+                //     countLb++
+                //     console.log(5465465)
+                //     console.log(countLb)
+                //     console.log(outLb)
 
+                //     let tmpinput = `
+                //         <input type="file" class="form-btn-input" name="files[]" id="type-file${countLb}" accept="image/jpeg, application/pdf, .doc, .docx" on-change="addFile">
+                //     `
+                //     outinput.insertAdjacentHTML("beforeEnd" , tmpinput);
 
-                addFile(ev) {
-                    let that = ev.node
-                    var arrayFiles = that.files, // массив с выбранными фалами
-                        formItem = that
-                        .parentNode, // родительский элемент, для того чтобы вставить список с файлами
-                        listFiles = document.createElement('ul'), // список с файлами
-                        li = ''; // файлы
-                    // Если список с файлами уже вставлен в ДОМ, то удаляем его
-                    if (formItem.querySelector('.list-files')) {
-                        formItem.querySelector('.list-files').remove();
-                    }
-                    listFiles.className = 'list-files'; // добавим класс, чтобы было удобнее стилять
-                    if (arrayFiles.length <= 10) {
-                        for (var i = 0; i < arrayFiles.length; i++) {
-                            li += '<li>' + arrayFiles[i].name + '</li>'; // --><li>Имя файла</li>
-                        }
-                    } else {
-                        li += '<li style="color: #F24C45;">' + 'Не более 10 файлов!' + '</li>';
-                    }
-                    listFiles.innerHTML = li;
-                    formItem.appendChild(listFiles);
+                //     let tmpLabel = `
+                //     <label class="form-btn button abuse-button-hover" for="type-file${countLb}">
+                //                                 <span class="form-pluse">
+                //                                     <span></span>
+                //                                     <span></span>
+                //                                 </span>
+                //                                 Добавить документ
+                //                             </label>
+                //     `
+                //     outLb.innerHTML = tmpLabel;
 
-                },
+                     
+                    
+                    
+                    
+
+                //     let that = ev.node
+                //     var arrayFiles = that.files, // массив с выбранными фалами
+                //         formItem = that
+                //         .parentNode, // родительский элемент, для того чтобы вставить список с файлами
+                //         listFiles = document.createElement('ul'), // список с файлами
+                //         li = ''; // файлы
+                //     // Если список с файлами уже вставлен в ДОМ, то удаляем его
+                //     if (formItem.querySelector('.list-files')) {
+                //         formItem.querySelector('.list-files').remove();
+                //     }
+                //     listFiles.className = 'list-files'; // добавим класс, чтобы было удобнее стилять
+                //     if (arrayFiles.length <= 10) {
+                //         for (var i = 0; i < arrayFiles.length; i++) {
+                //             li += '<li>' + arrayFiles[i].name + '</li>'; // --><li>Имя файла</li>
+                //         }
+                //     } else {
+                //         li += '<li style="color: #F24C45;">' + 'Не более 10 файлов!' + '</li>';
+                //     }
+                //     listFiles.innerHTML = li;
+                //     formItem.appendChild(listFiles);
+                
+                // },
                 selectRegionClick(ev) {
                     let region = $(ev.node).data('region')
                     let input = $('#selectRegion1')[0].input
@@ -736,15 +771,27 @@
                     $(modal)[0].input = that
                     $(modal).modal('show');
                     $(modal).find('input').val('').focus().trigger('keyup');
+
                 },
                 selectModalClick(ev) {
                     let that = ev.node
                     let modal = $(that).parents('.modal')
                     let input = $(modal)[0].input
+
                     let data = $(that).data()
                     $(input).val($(that).children('span').text()).data(data)
                     if (data.email !== undefined) $(input).attr('data-email', data.email)
                     $(modal).modal('hide')
+                    
+          
+                    if (input.value != ""){
+                        input.nextElementSibling.style.display = "block"
+                    } else{
+                        input.nextElementSibling.style.display = "none"
+                    }
+
+
+
                 },
                 modalSearch(ev) {
                     let that = ev.node
@@ -767,41 +814,49 @@
                     $('#modAbuse').find('[class*="type-"]').hide()
                     $('#modAbuse').find(`[class*="type-${type}"]`).show()
                     this.fire('abuseCheckbox')
+                    ev.node.nextElementSibling.style = "-19px"
                 },
                 viewPreview(ev, view = true) {
-                    let validator = $("#formAbuse").validate();
-                    validator.form();
-                    let errors = document.querySelectorAll('#formAbuse .input.error')
-                    if (errors.length != 0) {
-                        console.log('Заполните все поля!')
-                    } else {
-                        let formdata = $('#formAbuse').serializeArray();
-                        let data = {}
-                        $.each(formdata, function(i, item) {
+                let validator = $( "#formAbuse" ).validate();
+                validator.form();  
+                let errors = document.querySelectorAll('#formAbuse .input.error')
+                if (errors.length != 0) {
+                    console.log('Заполните все поля!')
+                } else {
+                    
+                    let formdata = $('#formAbuse').serializeArray();
+                    let data = {}
+                    $.each(formdata, function(i, item) {
                             data[item.name] = item.value
                         })
-                        let person = {
-                            first: data.first_name,
-                            middle: data.middle_name,
-                            last: data.last_name
-                        };
-                        let gender = petrovich(person, 'genitive');
-                        data.person = `${gender.last} ${gender.first} ${gender.middle}`;
-                        data.date = date('d.m.Y')
-                        data.recep = {}
-                        $('#formAbuse #Recepients [data-email]:visible').each(function(i) {
-                            data.recep[i] = {
-                                email: $(this).data('email').toLowerCase(),
-                                name: $(this).val()
-                            }
-                        })
-                        modAbuse.set('letter', data);
-                        if (view) $('#popupPreview').addClass('active')
+                    let person = {
+                        first: data.first_name,
+                        middle: data.middle_name,
+                        last: data.last_name
+                    };
+                    let gender = petrovich(person, 'genitive');
+                    data.person = `${gender.last} ${gender.first} ${gender.middle}`;
+                    data.date = date('d.m.Y')
+                    data.recep = {}
+                    $('#formAbuse #Recepients [data-email]:visible').each(function(i) {
+                        data.recep[i] = {
+                            email: $(this).data('email').toLowerCase(),
+                            name: $(this).val()
+                        }
+                    })
+                    modAbuse.set('letter', data);
+                    if (view) $('#popupPreview').addClass('active')
 
-                    }
+                }
                 },
                 abuseCheckbox() {
                     let type = $('#modAbuse [name=type]').val() * 1
+                    let org =  $('#modAbuse [name=org]').val()
+                    let federal = false
+                    let regex = "(ФГУ|ФГАУ|НМИЦ)"
+                    regex = new RegExp(regex, "gi");
+                    org.match(regex) ? federal = true : federal = false;
+                    if (federal == true) console.log("Federal");
                     let free = null;
                     let poly = null;
                     if ($('#freeAbuseForm').is(':checked')) {
@@ -822,16 +877,20 @@
                     $('#modAbuse').find('.roszn,.depart,.insure,.foms,.tfoms').hide()
                     switch (type) {
                         case 1:
-                            if (poly == true && free == true) $('#modAbuse').find('.depart,.insure').show()
-                            if (poly == true && free == false) $('#modAbuse').find('.roszn').show()
-                            if (poly == false && free == true) $('#modAbuse').find('.depart,.insure,.tfoms').show()
-                            if (poly == false && free == false) $('#modAbuse').find('.foms').show()
+                            if (poly == true && free == true) $('#modAbuse').find('.depart,.insure,.tfoms').show()
+                            if (poly == true && free == false) $('#modAbuse').find('.depart,.roszn').show()
+                            if (poly == false && free == true && federal == false) $('#modAbuse').find('.depart,.insure,.tfoms').show()
+                            if (poly == false && free == true && federal == true) $('#modAbuse').find('.roszn').show()
+                            if (poly == false && free == false && federal == false) $('#modAbuse').find('.depart,.roszn').show()
+                            if (poly == false && free == false && federal == true) $('#modAbuse').find('.roszn').show()
                             break
                         case 2:
                             if (poly == true && free == true) $('#modAbuse').find('.insure,.tfoms').show()
-                            if (poly == true && free == false) $('#modAbuse').find('.roszn').show()
-                            if (poly == false && free == true) $('#modAbuse').find('.insure,.foms,.tfoms').show()
-                            if (poly == false && free == false) $('#modAbuse').find('.roszn').show()
+                            if (poly == true && free == false) $('#modAbuse').find('.roszn,.depart').show()
+                            if (poly == false && free == true && federal == false) $('#modAbuse').find('.insure,.tfoms').show()
+                            if (poly == false && free == true && federal == true) $('#modAbuse').find('.foms').show()
+                            if (poly == false && free == false && federal == false) $('#modAbuse').find('.roszn,.depart').show()
+                            if (poly == false && free == false && federal == true) $('#modAbuse').find('.roszn').show()
                             break
                         case 3:
                             $('#modAbuse').find('.depart,.roszn').show()
@@ -844,95 +903,95 @@
 
 
         function valideFormsMain(form) {
-            $(form).validate({
-                rules: {
-                    first_name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    last_name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    middle_name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    type: {
-                        required: true
-                    },
-                    region_to: {
-                        required: true
-                    },
-                    payform: {
-                        required: true
-                    },
-                    poly: {
-                        required: true
-                    },
-                    type_hospital: {
-                        required: true
-                    },
-                    text: {
-                        required: true
-                    },
-                    personal: {
-                        required: true
-                    }
-
-                },
-                messages: {
-                    first_name: {
-                        required: "Пожалуйста, введите свое имя",
-                        minlength: jQuery.validator.format("Введите {0} символа!")
-                    },
-                    last_name: {
-                        required: "Пожалуйста, введите свою фамилию",
-                        minlength: jQuery.validator.format("Введите {0} символа!")
-                    },
-                    middle_name: {
-                        required: "Пожалуйста, введите свое отчество",
-                        minlength: jQuery.validator.format("Введите {0} символа!")
-                    },
-                    email: {
-                        required: "Пожалуйста, введите свою почту",
-                        email: "Неправильно введен адрес почты"
-                    },
-                    type: {
-                        required: "Пожалуйста, укажите жалобу"
-                    },
-                    region_to: {
-                        required: "Пожалуйста, укажите ваш регион"
-                    },
-                    payform: {
-                        required: "Пожалуйста, выберите тип услуги"
-                    },
-                    orgtype: {
-                        required: "Пожалуйста, выберите лечебное учреждение"
-                    },
-                    org: {
-                        required: "Пожалуйста, укажите наименование медучреждения"
-                    },
-                    text: {
-                        required: "Пожалуйста, введите текст обращения"
-                    },
-                    personal: {
-                        required: "Пожалуйста, поставьте галочку"
-                    }
-
-                }
-            });
-            $(form).find('.input.error:first').focus()
-            window.scroll(0,$(form).find('input.error,textarea.error,select.error').find(':first')[0])
-        };
-        valideFormsMain('#formAbuse')
+                    $(form).validate({
+                        rules: {
+                            first_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            last_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            middle_name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            },
+                            type: {
+                                required: true
+                            },
+                            region_to: {
+                                required: true
+                            },
+                            payform: {
+                                required: true
+                            },
+                            hospital: {
+                                required: true
+                            },
+                            type_hospital: {
+                                required: true
+                            },
+                            text: {
+                                required: true
+                            },
+                            personal: {
+                                required: true
+                            }
+                            
+                        },
+                        messages: {
+                            first_name: {
+                                required: "Пожалуйста, введите свое имя",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            }
+                            ,
+                            last_name: {
+                                required: "Пожалуйста, введите свою фамилию",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            },
+                            middle_name: {
+                                required: "Пожалуйста, введите свое отчество",
+                                minlength: jQuery.validator.format("Введите {0} символа!")
+                            },
+                            email: {
+                                required: "Пожалуйста, введите свою почту",
+                                email: "Неправильно введен адрес почты"
+                            },
+                            type: {
+                                required: "Пожалуйста, укажите жалобу"
+                            },
+                            region_to: {
+                                required: "Пожалуйста, укажите ваш регион"
+                            },
+                            payform: {
+                                required: "Пожалуйста, выберите тип услуги"
+                            },
+                            hospital: {
+                                required: "Пожалуйста, выберите лечебное учреждение"
+                            },
+                            type_hospital: {
+                                required: "Пожалуйста, укажите наименование медучреждения"
+                            }
+                            ,
+                            text: {
+                                required: "Пожалуйста, введите текст обращения"
+                            },
+                            personal: {
+                                required: "Пожалуйста, поставьте галочку"
+                            }
+                       
+                        }
+                    });
+                };
+                valideFormsMain('#formAbuse')
 
         const addInput = document.querySelector(".add-input"),
-            addAddressOut = document.querySelector(".add-address-out"),
+            addAddressOut= document.querySelector(".add-address-out"),
             temp = `
             <div class="content-form-block div-node">
                 <div class="group abuse-group">
@@ -949,74 +1008,143 @@
             `;
 
 
-        addInput.addEventListener("click", () => {
-            let adressInputs = document.querySelectorAll(".div-node");
-            if (adressInputs.length == 0) {
-                addAddressOut.insertAdjacentHTML("beforeEnd", temp);
-            } else if (adressInputs[adressInputs.length - 1].querySelector("input").value) {
-                addAddressOut.insertAdjacentHTML("beforeEnd", temp);
-            }
+        addInput.addEventListener("click", ()=>{
+            let adressInputs = document.querySelectorAll(".div-node");  
+            if (adressInputs.length == 0){                
+                addAddressOut.insertAdjacentHTML("beforeEnd" , temp); 
+            } else if (adressInputs[adressInputs.length-1].querySelector("input").value){                
+                addAddressOut.insertAdjacentHTML("beforeEnd" , temp);
+            } 
         })
 
-        addAddressOut.addEventListener("click", (e) => {
-            let target = e.target;
-            if (target.classList.contains("input-delete")) {
-                target.closest(".div-node").remove();
-            }
-        })
+         addAddressOut.addEventListener("click", (e)=>{
+             let target = e.target;
+             if (target.classList.contains("input-delete")){
+                 target.closest(".div-node").remove();
+             }
+         })
 
-        $('#formAbuse').submit(function(e) {
-            e.preventDefault();
-            modAbuse.fire('viewPreview', false)
+      
+
+         $('#formAbuse').submit(function (e) {
+            e.preventDefault();            
             let errors = document.querySelectorAll('#formAbuse .input.error')
             if (errors.length != 0) {
                 console.log('Заполните все поля!')
             } else {
                 let form = document.querySelector("#formAbuse");
+                let thatfiles = document.querySelectorAll("[type='file']");
+                
                 let formData = new FormData(form);
-                if ($('#popupPreview').hasClass('active')) $('#popupPreview').removeClass('active');
-                $.each($("#type-file")[0].files, function(key, input) {
-                    formData.append('file[]', input);
-                });
-                let data = modAbuse.get('letter')
-                $.each(data,function(k,v){
-                    if (!formData.has(k) && k !== 'recep') {
-                        formData.append(k,v)
+                for (var i = 0; i < thatfiles.length-1; i++) {
+                      
+                        formData.append('files[]', thatfiles[i].files[0]);
+
                     }
-                })
-                $.each(data.recep,function(k,v){
-                    formData.append('recep[]',v.email+';'+v.name)
-                })
+
+                    let persons = {
+                            first: document.querySelector("[name='first_name']").value,
+                            middle: document.querySelector("[name='middle_name']").value,
+                            last: document.querySelector("[name='last_name']").value
+                        };
+                        let genders = petrovich(persons, 'genitive');
+                        let persone = `${genders.last} ${genders.first} ${genders.middle}`;
+                        formData.append('person', persone);
+
+
                 $.ajax({
                     url: '/module/abuse/print/',
                     type: 'POST',
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: formData,
-                    dataType: 'json',
-                }).done(function(res) {
-                    if (res.error == true) {
-                        $('#popupError').addClass('active');
-                        setTimeout(() => {
-                            $('#popupError').removeClass('active');
-                            $('body').removeClass('lock');
-                        }, 2000)
-                    } else {
-                        $(this).find('input').val('');
-                        $(form).find('.list-files').html('')
-                        //$('form').trigger('reset');
-                        $('#popupSuccess').addClass('active');
-                        $('body').addClass('lock');
-                        setTimeout(() => {
-                            $('#popupSuccess').removeClass('active');
-                            $('body').removeClass('lock');
-                        }, 2000)
-                    }
+                    	cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                dataType : 'json',
+                }).done(function () {
+                    $(this).find('input').val('');
+                    $('#popupSuccess').addClass('active');
+                    $('body').addClass('lock');
+                    setTimeout(() => {
+                        $('#popupSuccess').removeClass('active');
+                        $('body').removeClass('lock');
+                    }, 2000)
+                    $('form').trigger('reset');
                 });
             }
             return false;
         });
 
+
+  
+
+
+
     }, false);
+
+
+                let flags = true;
+                let countLb = 0;
+                function addFiles(){
+                    document.querySelector(".file__text").style.display = 'block';
+                    if (flags == true){
+                    
+                        let outLb = document.querySelector(".lb");
+                    let outinput = document.querySelector(".form-buttons-left");
+                    countLb++
+
+                    let tmpinput = `
+                        <input type="file" class="form-btn-input" id="type-file${countLb}" accept="image/jpeg, application/pdf, .doc, .docx" onchange="addFiles()">
+                    `
+                    outinput.insertAdjacentHTML("beforeEnd" , tmpinput);
+
+                    let tmpLabel = `
+                    <label class="form-btn button abuse-button-hover" for="type-file${countLb}">
+                                                <span class="form-pluse">
+                                                    <span></span>
+                                                    <span></span>
+                                                </span>
+                                                Добавить документ
+                                            </label>
+                    `
+                    outLb.innerHTML = tmpLabel;                   
+                    
+                    let that = document.querySelectorAll("[type='file']");
+                     
+                    let ttt = document.querySelector(`#type-file${countLb-1}`)
+                      document.querySelector('.list-files').innerHTML += `<li class="li${countLb}"> ${ttt.files[0]?.name} <span style="cursor: pointer; margin-left: 20px"  onmouseover="this.style.color='red';" onmouseout="this.style.color='#4a4a4a';" onclick="deleteFile(${countLb})">X</span></li>`
+           
+                    if (that.length <= 10) {
+
+                }else {
+                    flags = false
+                    
+                    document.querySelector('.list-files').innerHTML += '<li class="limit-error" style="color: #F24C45;">' + 'Не более 10 файлов!' + '</li>'
+                       
+                    }
+        
+                    }
+                }
+
+         function deleteFile(ind){
+             
+            let that = document.querySelectorAll("[type='file']");
+            console.log(that.length)
+             if (that.length > 10){
+                flags=true
+                document.querySelector('.limit-error').remove()
+             }
+
+            document.querySelector(`.li${ind}`).remove()
+            document.querySelector(`#type-file${ind-1}`).remove()
+
+            if (that.length <= 2){
+                console.log(that.length)
+                document.querySelector(".file__text").style.display = 'none';
+                        }
+
+       
+         }
+
+   
+    
 </script>
