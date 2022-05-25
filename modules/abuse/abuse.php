@@ -26,10 +26,16 @@ function abuse_print()
     $file = __DIR__.'/abuse.html';
     $data['num'] = file_get_contents(__DIR__.'/abuse.num');
     $data['num'] = intval($data['num']) + 1;
+    $data['num'] .= "/".date("dmY");
+    $data['date'] = date("d.m.Y");
     file_put_contents(__DIR__.'/abuse.num',$data['num']);
     $tmp = $data['recep'];
     $data['recep'] = [];
     $data['orgtype'] = ($data['orgtype'] == 'stat') ? 'стационаре' : 'поликлинике';
+    $petrovich = new Petrovich(Petrovich::GENDER_ANDROGYNOUS);
+    $name = $data['last_name'].' ' . $data['first_name'] . ' ' . $data['middle_name'];
+    $data['gender'] = $petrovich->detectGender($name);
+
     $sent=[];
     foreach($tmp as $recep) {
         $recep = explode(';',$recep);
@@ -44,7 +50,19 @@ function abuse_print()
         $sent=str_replace([' , ',' ,',', ',';'], ',', $sent);
         $sent=explode(',', $sent);
     }
-    $subject = "Медицинский поверенный: жалоба от ". $data['person'];
+    $tmp = explode(" ",$data['person']);
+    $short = $tmp[0].' ';
+    isset($tmp[1]) ? $short .= mb_substr($tmp[1],0,1).'.' : null;
+    isset($tmp[2]) ? $short .= mb_substr($tmp[2],0,1).'.' : null;
+
+    $types = [
+        1 => "Жалоба на оказание медицинской помощи",
+        2 => "Жалоба на качество медицинской помощи",
+        3 => "Жалоба на лекарственное обеспечение"
+    ];
+    $type = $types[$data['type']];
+
+    $subject = "Обращение {$short} ($type) {$data['num']} от {$data['date']}";
     $from = $data['email'].";{$data['last_name']} {$data['first_name']} {$data['middle_name']}";
     $attach = $_FILES;
     if (isset($data['addemail'])) {
@@ -52,12 +70,13 @@ function abuse_print()
             if (!in_array($add,$sent)) $sent[] = $add;
         }
     }
+
     $err = wbMail($from , $sent, $subject, $message, $attach);
     header("Content-type:application/json");
-    if ($err) {
-        echo '{"error":true,"msg":"Ошибка отправки писем!"}';
+    if (!$err) {
+        echo '{"error":true,"msg":"ОШИБКА ОТПРАВКИ СООБЩЕНИЯ. ПОПРОБУЙТЕ ПОЗЖЕ"}';
     } else {
-        echo '{"error":false,"msg":"Почта отправлена!"}';
+        echo '{"error":false,"msg":"ВАШЕ СООБЩЕНИЕ УСПЕШНО ОТПРАВЛЕНО. НА ПОЧТУ, УКАЗАННУЮ КАК КОНТАКТНАЯ, ПРИДЕТ ПИСЬМО С НОМЕРОМ ОТПРАВЛЕНИЯ"}';
     }
     return;
 }

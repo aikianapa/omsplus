@@ -12,7 +12,7 @@
             <td width="50%" style="vertical-align:top;">
                 <br>
                 <h3>МЕДИЦИНСКИЙ<br>ПОВЕРЕННЫЙ</h3>
-                <p>МП/{{num}}</p>
+                <p>МП {{num}}</p>
             </td>
             <td width="50%" style="text-align:rigth;">
 
@@ -47,12 +47,15 @@
     </table>
 
     <h2 style="text-align:center;">Заявление</h2>
-    <p>{{text}}</p>
+    <p>Суть обращения: {{text}}</p>
     <p data-wb-where='"{{type}}"!="3"'>
         Все это происходило в {{orgtype}} {{org}}</p>
     <p data-wb-where='"{{danger}}"="on"'>Ситуация несет угрозу жизни</p>
     <p data-wb-where='"{{prev}}">""'>
-        {{prev}}
+        Ранее по данному вопросу 
+        <span  data-wb-where='"{{gender}}"=="1"'>обращался</span>
+        <span  data-wb-where='"{{gender}}"=="2"'>обращалась</span>
+        : {{prev}}
     </p>
     <p data-wb-where='"{{type}}"="1"'>
         Прошу разобраться в данной ситуации и привлечь виновных к ответственности</p>
