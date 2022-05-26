@@ -239,7 +239,7 @@
                         <div class="col-12 depart type-1 type-3">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                    <input type="text" class="input" id="depinp" name="depart" value="" readonly on-click="['selectModal','#selectDepart']" placeholder=" " data-id> <span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('depinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <input type="text" class="input" id="depinp" name="depart" value="" readonly on-click="['selectModal','#selectDepart']" placeholder=" " data-id> <span class="strsp close-span" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('depinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
                     </svg></span>
@@ -254,7 +254,7 @@
                         <div class="col-12 insure type-1 type-2">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                     <input type="text" id="strahinp" placeholder="Укажите.." class="input" name="insure" value="" readonly on-click="['selectModal','#selectInsure']" data-id><span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('strahinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <input type="text" id="strahinp" placeholder="Укажите.." class="input" name="insure" value="" readonly on-click="['selectModal','#selectInsure']" data-id><span class="strsp close-span" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('strahinp').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
                     </svg></span>
@@ -282,7 +282,7 @@
                         <div class="col-12 tfoms type-1 type-2">
                             <div class="content-form-block">
                                 <div class="group floating-label">
-                                    <input type="text" class="input" id="tfomse" name="tfoms" value="" readonly on-click="['selectModal','#selectTfoms']" placeholder=" " data-id><span class="strsp" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('tfomse').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <input type="text" class="input" id="tfomse" name="tfoms" value="" readonly on-click="['selectModal','#selectTfoms']" placeholder=" " data-id><span class="strsp close-span" style="display: none; position: absolute; top: 0;right: 0;" onclick=" document.getElementById('tfomse').value = ''; this.style.display = 'none';"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
                         <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
                     </svg></span>
@@ -376,16 +376,16 @@
                                             </label>
                                             </div>                                          
                                            
-                                           <ul class="list-files">
-                                               <p class="file__text" style="display: none;">Приложение:</p>
-
-                                           </ul>
+                                           
                                         </div>
                                         <span class="form-descr">
                                             <span>Не более 10 файлов, максимальный размер каждого — 5 МБ.</span>
                                             <span>Допустимые форматы: PDF, JPEG, DOC и другие</span>
                                         </span>
                                     </div>
+                                    <ul class="list-files">
+                                        <p class="file__text" style="display: none;">Приложение:</p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -1111,7 +1111,12 @@
                     let that = document.querySelectorAll("[type='file']");
                      
                     let ttt = document.querySelector(`#type-file${countLb-1}`)
-                      document.querySelector('.list-files').innerHTML += `<li class="li${countLb}"> ${ttt.files[0]?.name} <span style="cursor: pointer; margin-left: 20px"  onmouseover="this.style.color='red';" onmouseout="this.style.color='#4a4a4a';" onclick="deleteFile(${countLb})">X</span></li>`
+                      document.querySelector('.list-files').innerHTML += `<li class="li${countLb}"> ${ttt.files[0]?.name} 
+                      <span class="close-span" style="margin-left: 20px" onclick="deleteFile(${countLb})"><svg class="input-delete" style="position: relative; right: 15px; z-index: 2;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707108 -0.707105 0.707109 0.707105 0 15.1108)" fill="#4A4A4A" />
+                        <rect width="21.3703" height="1.25708" transform="matrix(0.707109 0.707105 -0.707108 0.707105 0.888916 0)" fill="#4A4A4A" />
+                    </svg>                       
+                      </span></li>`
            
                     if (that.length <= 10) {
 
