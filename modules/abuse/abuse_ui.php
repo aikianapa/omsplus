@@ -853,7 +853,7 @@
                     let type = $('#modAbuse [name=type]').val() * 1
                     let org =  $('#modAbuse [name=org]').val()
                     let federal = false
-                    let regex = "(ФГУ|ФГАУ|НМИЦ)"
+                    let regex = "(ФГБУЗ|ФГУ|ФГАУ|НМИЦ)"
                     regex = new RegExp(regex, "gi");
                     org.match(regex) ? federal = true : federal = false;
                     if (federal == true) console.log("Federal");
