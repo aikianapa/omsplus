@@ -207,7 +207,7 @@
                         </div>
                         <div class="col-xl-4 col-12 mb-6 abuse-form-item content-form-block type-1 type-2">
                             <div class="floating-label abuse-label">
-                                <input type="text" class="input" name="org" value="" placeholder=" " readonly  on-click="['selectModal','#selectMed']"  on-change="abuseCheckbox" /><span></span>
+                                <input type="text" class="input" name="org" value="" placeholder=" " readonly  on-click="['selectModal','#selectMed']" /><span></span>
                                 <label class="label abuse-label">Наименование медучреждения
                                     <svg style="position: relative; right: 15px;" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 0L7 5L12 0L14 1L7 8L0 1L2 0Z" fill="#4A4A4A" />
@@ -670,83 +670,6 @@
                     $('#selectRegion1').modal('show');
                     $('#selectRegion1')[0].input = $(ev.node)
                 },
-
-
-
-                // printAbuse() {
-                //     this.fire('viewPreview', false)
-                //     $('#popupPreview data-fld')
-                //     data = modAbuse.get('letter')
-                //     $.post('/module/abuse/print/',data,function(res){
-                //         console.log(res);
-                //         if (res.error == false) {
-                //             $('#popupSuccess').addClass('active');
-                //             $('body').addClass('lock');
-                //             setTimeout(() => {
-                //                 $('#popupSuccess').removeClass('active');
-                //                 $('body').removeClass('lock');
-                //             }, 2000)
-                //        // $('#formAbuse').trigger('reset');                            
-                //         }
-                //     })
-                // },
-
-              
-
-
-
-                
-                // addFile(ev) {
-                //     let outLb = document.querySelector(".lb");
-                //     let outinput = document.querySelector(".form-buttons-left");
-                //     countLb++
-                //     console.log(5465465)
-                //     console.log(countLb)
-                //     console.log(outLb)
-
-                //     let tmpinput = `
-                //         <input type="file" class="form-btn-input" name="files[]" id="type-file${countLb}" accept="image/jpeg, application/pdf, .doc, .docx" on-change="addFile">
-                //     `
-                //     outinput.insertAdjacentHTML("beforeEnd" , tmpinput);
-
-                //     let tmpLabel = `
-                //     <label class="form-btn button abuse-button-hover" for="type-file${countLb}">
-                //                                 <span class="form-pluse">
-                //                                     <span></span>
-                //                                     <span></span>
-                //                                 </span>
-                //                                 Добавить документ
-                //                             </label>
-                //     `
-                //     outLb.innerHTML = tmpLabel;
-
-                     
-                    
-                    
-                    
-
-                //     let that = ev.node
-                //     var arrayFiles = that.files, // массив с выбранными фалами
-                //         formItem = that
-                //         .parentNode, // родительский элемент, для того чтобы вставить список с файлами
-                //         listFiles = document.createElement('ul'), // список с файлами
-                //         li = ''; // файлы
-                //     // Если список с файлами уже вставлен в ДОМ, то удаляем его
-                //     if (formItem.querySelector('.list-files')) {
-                //         formItem.querySelector('.list-files').remove();
-                //     }
-                //     listFiles.className = 'list-files'; // добавим класс, чтобы было удобнее стилять
-                //     if (arrayFiles.length <= 10) {
-                //         for (var i = 0; i < arrayFiles.length; i++) {
-                //             li += '<li>' + arrayFiles[i].name + '</li>'; // --><li>Имя файла</li>
-                //         }
-                //     } else {
-                //         li += '<li style="color: #F24C45;">' + 'Не более 10 файлов!' + '</li>';
-                //     }
-                //     listFiles.innerHTML = li;
-                //     formItem.appendChild(listFiles);
-                
-                // },
                 selectRegionClick(ev) {
                     let region = $(ev.node).data('region')
                     let input = $('#selectRegion1')[0].input
@@ -790,7 +713,7 @@
                         input.nextElementSibling.style.display = "none"
                     }
 
-
+                    this.fire('abuseCheckbox')
 
                 },
                 modalSearch(ev) {
@@ -852,8 +775,9 @@
                 abuseCheckbox() {
                     let type = $('#modAbuse [name=type]').val() * 1
                     let org =  $('#modAbuse [name=org]').val()
+                    console.log(org);
                     let federal = false
-                    let regex = "(ФГБУЗ|ФГУ|ФГАУ|НМИЦ)"
+                    let regex = "(ФГКУ|ФГБОУ|ФКУЗ|ФГКУ|ФГБУ|ФГБУЗ|ФГУ|ФГАУ|НМИЦ)"
                     regex = new RegExp(regex, "gi");
                     org.match(regex) ? federal = true : federal = false;
                     if (federal == true) console.log("Federal");
